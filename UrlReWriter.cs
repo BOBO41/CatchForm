@@ -38,13 +38,16 @@ namespace API.Web {
             HttpContext context = application.Context;
             string path = context.Request.Path;
             string domain = ConfigurationManager.AppSettings["udomain"];
-            Regex regex = new Regex(domain, RegexOptions.IgnoreCase | RegexOptions.Compiled);
-            Match match = regex.Match(path);
-            if (match.Success) {
-                string para = match.Groups[1].Value;
-                string rewritePath = "Info.aspx?para=" + HttpContext.Current.Server.UrlEncode(para);
-                context.RewritePath(rewritePath);
-            }
+            //Regex regex = new Regex(domain, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            //Match match = regex.Match(path);
+            //if (match.Success) {
+            //    string para = match.Groups[1].Value;
+            //    string rewritePath = "Info.aspx?para=" + HttpContext.Current.Server.UrlEncode(para);
+            //    context.RewritePath(rewritePath);
+            //}
+            string para = path.Replace(domain, "");
+            path = domain + "Info.aspx?para=" + HttpContext.Current.Server.UrlEncode(para);
+            context.RewritePath(path);
         }
                 
 
