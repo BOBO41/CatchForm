@@ -1,0 +1,3028 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA9BC60C-6C0E-43B0-AB9E-A0FEA13CC156}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ECommerce.Web</RootNamespace>
+    <AssemblyName>ECommerce</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ASPNETAJAXWeb.ValidateCode, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\ECommerce.Lib\DLL\ASPNETAJAXWeb.ValidateCode.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DotNet.Framework.Common">
+      <HintPath>..\ECommerce.Lib\DLL\DotNet.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ECommerce.Admin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\ECommerce.Admin.dll</HintPath>
+    </Reference>
+    <Reference Include="ECommerce.DBUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\ECommerce.DBUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net20\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJSON">
+      <HintPath>..\..\..\..\YuChangFruit\Code\YuchangApp\bin\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP">
+      <HintPath>..\ECommerce.Lib\DLL\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
+    <Reference Include="ServerInfo">
+      <HintPath>..\ECommerce.Lib\DLL\ServerInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="SgmlReaderDll">
+      <HintPath>..\packages\SgmlReader.1.8.11\lib\2.0\SgmlReaderDll.dll</HintPath>
+    </Reference>
+    <Reference Include="SWFFileUpload, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\SWFFileUpload.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\scaffolding.css" />
+    <Content Include="icons\back.gif" />
+    <Content Include="icons\blank.gif" />
+    <Content Include="icons\folder.gif" />
+    <Content Include="icons\image2.gif" />
+    <Content Include="icons\text.gif" />
+    <Content Include="icons\unknown.gif" />
+    <Content Include="images\bg.png" />
+    <Content Include="includes\CalendarPopup.js" />
+    <Content Include="includes\css\base.css.css" />
+    <Content Include="includes\css\bj\adminLevelMenu.css" />
+    <Content Include="includes\css\bj\adviserLevelMenu.css" />
+    <Content Include="includes\css\bj\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\bj\form.css" />
+    <Content Include="includes\css\bj\homeOnlyMenu.css" />
+    <Content Include="includes\css\bj\iehacks-6.css" />
+    <Content Include="includes\css\bj\iehacks-7.css" />
+    <Content Include="includes\css\bj\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\bj\login.css" />
+    <Content Include="includes\css\bj\master.css" />
+    <Content Include="includes\css\bj\override.css" />
+    <Content Include="includes\css\bj\performBenchmark.css" />
+    <Content Include="includes\css\bj\suspendResume.css" />
+    <Content Include="includes\css\bj\translations.css" />
+    <Content Include="includes\css\bj\viewActivityReport.css" />
+    <Content Include="includes\css\ble\adminLevelMenu.css" />
+    <Content Include="includes\css\ble\adviserLevelMenu.css" />
+    <Content Include="includes\css\ble\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\ble\form.css" />
+    <Content Include="includes\css\ble\homeOnlyMenu.css" />
+    <Content Include="includes\css\ble\iehacks-6.css" />
+    <Content Include="includes\css\ble\iehacks-7.css" />
+    <Content Include="includes\css\ble\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\ble\login.css" />
+    <Content Include="includes\css\ble\master.css" />
+    <Content Include="includes\css\ble\override.css" />
+    <Content Include="includes\css\ble\performBenchmark.css" />
+    <Content Include="includes\css\ble\suspendResume.css" />
+    <Content Include="includes\css\ble\translations.css" />
+    <Content Include="includes\css\ble\viewActivityReport.css" />
+    <Content Include="includes\css\bly\adminLevelMenu.css" />
+    <Content Include="includes\css\bly\adviserLevelMenu.css" />
+    <Content Include="includes\css\bly\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\bly\form.css" />
+    <Content Include="includes\css\bly\homeOnlyMenu.css" />
+    <Content Include="includes\css\bly\iehacks-6.css" />
+    <Content Include="includes\css\bly\iehacks-7.css" />
+    <Content Include="includes\css\bly\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\bly\login.css" />
+    <Content Include="includes\css\bly\master.css" />
+    <Content Include="includes\css\bly\override.css" />
+    <Content Include="includes\css\bly\performBenchmark.css" />
+    <Content Include="includes\css\bly\suspendResume.css" />
+    <Content Include="includes\css\bly\translations.css" />
+    <Content Include="includes\css\bly\viewActivityReport.css" />
+    <Content Include="includes\css\bootstrap.min.css" />
+    <Content Include="includes\css\busimprove\adminLevelMenu.css" />
+    <Content Include="includes\css\busimprove\adviserLevelMenu.css" />
+    <Content Include="includes\css\busimprove\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\busimprove\extra.css" />
+    <Content Include="includes\css\busimprove\form.css" />
+    <Content Include="includes\css\busimprove\homeOnlyMenu.css" />
+    <Content Include="includes\css\busimprove\iehacks-6.css" />
+    <Content Include="includes\css\busimprove\iehacks-7.css" />
+    <Content Include="includes\css\busimprove\layout.css" />
+    <Content Include="includes\css\busimprove\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\busimprove\login.css" />
+    <Content Include="includes\css\busimprove\master.css" />
+    <Content Include="includes\css\busimprove\newLayout.css" />
+    <Content Include="includes\css\busimprove\performBenchmark.css" />
+    <Content Include="includes\css\busimprove\style.css" />
+    <Content Include="includes\css\busimprove\suspendResume.css" />
+    <Content Include="includes\css\busimprove\translations.css" />
+    <Content Include="includes\css\busimprove\viewActivityReport.css" />
+    <Content Include="includes\css\cpc\adminLevelMenu.css" />
+    <Content Include="includes\css\cpc\adviserLevelMenu.css" />
+    <Content Include="includes\css\cpc\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\cpc\form.css" />
+    <Content Include="includes\css\cpc\homeOnlyMenu.css" />
+    <Content Include="includes\css\cpc\iehacks-6.css" />
+    <Content Include="includes\css\cpc\iehacks-7.css" />
+    <Content Include="includes\css\cpc\layout.css" />
+    <Content Include="includes\css\cpc\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\cpc\login.css" />
+    <Content Include="includes\css\cpc\master.css" />
+    <Content Include="includes\css\cpc\newLayout.css" />
+    <Content Include="includes\css\cpc\override.css" />
+    <Content Include="includes\css\cpc\performBenchmark.css" />
+    <Content Include="includes\css\cpc\style.css" />
+    <Content Include="includes\css\cpc\suspendResume.css" />
+    <Content Include="includes\css\cpc\translations.css" />
+    <Content Include="includes\css\cpc\viewActivityReport.css" />
+    <Content Include="includes\css\dcv\adminLevelMenu.css" />
+    <Content Include="includes\css\dcv\adviserLevelMenu.css" />
+    <Content Include="includes\css\dcv\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\dcv\form.css" />
+    <Content Include="includes\css\dcv\homeOnlyMenu.css" />
+    <Content Include="includes\css\dcv\iehacks-6.css" />
+    <Content Include="includes\css\dcv\iehacks-7.css" />
+    <Content Include="includes\css\dcv\layout.css" />
+    <Content Include="includes\css\dcv\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\dcv\login.css" />
+    <Content Include="includes\css\dcv\master.css" />
+    <Content Include="includes\css\dcv\newLayout.css" />
+    <Content Include="includes\css\dcv\override.css" />
+    <Content Include="includes\css\dcv\performBenchmark.css" />
+    <Content Include="includes\css\dcv\style.css" />
+    <Content Include="includes\css\dcv\suspendResume.css" />
+    <Content Include="includes\css\dcv\translations.css" />
+    <Content Include="includes\css\dcv\viewActivityReport.css" />
+    <Content Include="includes\css\ec\adminLevelMenu.css" />
+    <Content Include="includes\css\ec\adviserLevelMenu.css" />
+    <Content Include="includes\css\ec\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\ec\form.css" />
+    <Content Include="includes\css\ec\homeOnlyMenu.css" />
+    <Content Include="includes\css\ec\iehacks-6.css" />
+    <Content Include="includes\css\ec\iehacks-7.css" />
+    <Content Include="includes\css\ec\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\ec\login.css" />
+    <Content Include="includes\css\ec\master.css" />
+    <Content Include="includes\css\ec\override.css" />
+    <Content Include="includes\css\ec\performBenchmark.css" />
+    <Content Include="includes\css\ec\suspendResume.css" />
+    <Content Include="includes\css\ec\translations.css" />
+    <Content Include="includes\css\ec\viewActivityReport.css" />
+    <Content Include="includes\css\ei\adminLevelMenu.css" />
+    <Content Include="includes\css\ei\adviserLevelMenu.css" />
+    <Content Include="includes\css\ei\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\ei\form.css" />
+    <Content Include="includes\css\ei\homeOnlyMenu.css" />
+    <Content Include="includes\css\ei\iehacks-6.css" />
+    <Content Include="includes\css\ei\iehacks-7.css" />
+    <Content Include="includes\css\ei\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\ei\login.css" />
+    <Content Include="includes\css\ei\master.css" />
+    <Content Include="includes\css\ei\override.css" />
+    <Content Include="includes\css\ei\performBenchmark.css" />
+    <Content Include="includes\css\ei\suspendResume.css" />
+    <Content Include="includes\css\ei\translations.css" />
+    <Content Include="includes\css\ei\viewActivityReport.css" />
+    <Content Include="includes\css\ekonom\adminLevelMenu.css" />
+    <Content Include="includes\css\ekonom\adviserLevelMenu.css" />
+    <Content Include="includes\css\ekonom\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\ekonom\form.css" />
+    <Content Include="includes\css\ekonom\homeOnlyMenu.css" />
+    <Content Include="includes\css\ekonom\iehacks-6.css" />
+    <Content Include="includes\css\ekonom\iehacks-7.css" />
+    <Content Include="includes\css\ekonom\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\ekonom\login.css" />
+    <Content Include="includes\css\ekonom\master.css" />
+    <Content Include="includes\css\ekonom\override.css" />
+    <Content Include="includes\css\ekonom\performBenchmark.css" />
+    <Content Include="includes\css\ekonom\suspendResume.css" />
+    <Content Include="includes\css\ekonom\translations.css" />
+    <Content Include="includes\css\ekonom\viewActivityReport.css" />
+    <Content Include="includes\css\gbn\adminLevelMenu.css" />
+    <Content Include="includes\css\gbn\adviserLevelMenu.css" />
+    <Content Include="includes\css\gbn\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\gbn\form.css" />
+    <Content Include="includes\css\gbn\homeOnlyMenu.css" />
+    <Content Include="includes\css\gbn\iehacks-6.css" />
+    <Content Include="includes\css\gbn\iehacks-7.css" />
+    <Content Include="includes\css\gbn\layout.css" />
+    <Content Include="includes\css\gbn\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\gbn\login.css" />
+    <Content Include="includes\css\gbn\master.css" />
+    <Content Include="includes\css\gbn\newLayout.css" />
+    <Content Include="includes\css\gbn\override.css" />
+    <Content Include="includes\css\gbn\performBenchmark.css" />
+    <Content Include="includes\css\gbn\style.css" />
+    <Content Include="includes\css\gbn\suspendResume.css" />
+    <Content Include="includes\css\gbn\translations.css" />
+    <Content Include="includes\css\gbn\viewActivityReport.css" />
+    <Content Include="includes\css\iapmei\adminLevelMenu.css" />
+    <Content Include="includes\css\iapmei\adviserLevelMenu.css" />
+    <Content Include="includes\css\iapmei\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\iapmei\form.css" />
+    <Content Include="includes\css\iapmei\homeOnlyMenu.css" />
+    <Content Include="includes\css\iapmei\iehacks-6.css" />
+    <Content Include="includes\css\iapmei\iehacks-7.css" />
+    <Content Include="includes\css\iapmei\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\iapmei\login.css" />
+    <Content Include="includes\css\iapmei\master.css" />
+    <Content Include="includes\css\iapmei\override.css" />
+    <Content Include="includes\css\iapmei\performBenchmark.css" />
+    <Content Include="includes\css\iapmei\suspendResume.css" />
+    <Content Include="includes\css\iapmei\translations.css" />
+    <Content Include="includes\css\iapmei\viewActivityReport.css" />
+    <Content Include="includes\css\ini\adminLevelMenu.css" />
+    <Content Include="includes\css\ini\adviserLevelMenu.css" />
+    <Content Include="includes\css\ini\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\ini\form.css" />
+    <Content Include="includes\css\ini\homeOnlyMenu.css" />
+    <Content Include="includes\css\ini\iehacks-6.css" />
+    <Content Include="includes\css\ini\iehacks-7.css" />
+    <Content Include="includes\css\ini\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\ini\login.css" />
+    <Content Include="includes\css\ini\master.css" />
+    <Content Include="includes\css\ini\override.css" />
+    <Content Include="includes\css\ini\performBenchmark.css" />
+    <Content Include="includes\css\ini\suspendResume.css" />
+    <Content Include="includes\css\ini\translations.css" />
+    <Content Include="includes\css\ini\viewActivityReport.css" />
+    <Content Include="includes\css\ipk\adminLevelMenu.css" />
+    <Content Include="includes\css\ipk\adviserLevelMenu.css" />
+    <Content Include="includes\css\ipk\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\ipk\form.css" />
+    <Content Include="includes\css\ipk\homeOnlyMenu.css" />
+    <Content Include="includes\css\ipk\iehacks-6.css" />
+    <Content Include="includes\css\ipk\iehacks-7.css" />
+    <Content Include="includes\css\ipk\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\ipk\login.css" />
+    <Content Include="includes\css\ipk\master.css" />
+    <Content Include="includes\css\ipk\override.css" />
+    <Content Include="includes\css\ipk\performBenchmark.css" />
+    <Content Include="includes\css\ipk\suspendResume.css" />
+    <Content Include="includes\css\ipk\translations.css" />
+    <Content Include="includes\css\ipk\viewActivityReport.css" />
+    <Content Include="includes\css\layout.css" />
+    <Content Include="includes\css\lda\adminLevelMenu.css" />
+    <Content Include="includes\css\lda\adviserLevelMenu.css" />
+    <Content Include="includes\css\lda\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\lda\form.css" />
+    <Content Include="includes\css\lda\homeOnlyMenu.css" />
+    <Content Include="includes\css\lda\iehacks-6.css" />
+    <Content Include="includes\css\lda\iehacks-7.css" />
+    <Content Include="includes\css\lda\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\lda\login.css" />
+    <Content Include="includes\css\lda\master.css" />
+    <Content Include="includes\css\lda\override.css" />
+    <Content Include="includes\css\lda\performBenchmark.css" />
+    <Content Include="includes\css\lda\suspendResume.css" />
+    <Content Include="includes\css\lda\translations.css" />
+    <Content Include="includes\css\lda\viewActivityReport.css" />
+    <Content Include="includes\css\lespnet\adminLevelMenu.css" />
+    <Content Include="includes\css\lespnet\adviserLevelMenu.css" />
+    <Content Include="includes\css\lespnet\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\lespnet\form.css" />
+    <Content Include="includes\css\lespnet\homeOnlyMenu.css" />
+    <Content Include="includes\css\lespnet\iehacks-6.css" />
+    <Content Include="includes\css\lespnet\iehacks-7.css" />
+    <Content Include="includes\css\lespnet\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\lespnet\login.css" />
+    <Content Include="includes\css\lespnet\master.css" />
+    <Content Include="includes\css\lespnet\override.css" />
+    <Content Include="includes\css\lespnet\performBenchmark.css" />
+    <Content Include="includes\css\lespnet\suspendResume.css" />
+    <Content Include="includes\css\lespnet\translations.css" />
+    <Content Include="includes\css\lespnet\viewActivityReport.css" />
+    <Content Include="includes\css\local.css" />
+    <Content Include="includes\css\mas\adminLevelMenu.css" />
+    <Content Include="includes\css\mas\adviserLevelMenu.css" />
+    <Content Include="includes\css\mas\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\mas\form.css" />
+    <Content Include="includes\css\mas\homeOnlyMenu.css" />
+    <Content Include="includes\css\mas\iehacks-6.css" />
+    <Content Include="includes\css\mas\iehacks-7.css" />
+    <Content Include="includes\css\mas\layout.css" />
+    <Content Include="includes\css\mas\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\mas\login.css" />
+    <Content Include="includes\css\mas\master.css" />
+    <Content Include="includes\css\mas\newLayout.css" />
+    <Content Include="includes\css\mas\override.css" />
+    <Content Include="includes\css\mas\performBenchmark.css" />
+    <Content Include="includes\css\mas\style.css" />
+    <Content Include="includes\css\mas\suspendResume.css" />
+    <Content Include="includes\css\mas\translations.css" />
+    <Content Include="includes\css\mas\viewActivityReport.css" />
+    <Content Include="includes\css\modal.css" />
+    <Content Include="includes\css\modules\override.css" />
+    <Content Include="includes\css\modules\sustainability.css" />
+    <Content Include="includes\css\newLayout.css" />
+    <Content Include="includes\css\npc\adminLevelMenu.css" />
+    <Content Include="includes\css\npc\adviserLevelMenu.css" />
+    <Content Include="includes\css\npc\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\npc\form.css" />
+    <Content Include="includes\css\npc\homeOnlyMenu.css" />
+    <Content Include="includes\css\npc\iehacks-6.css" />
+    <Content Include="includes\css\npc\iehacks-7.css" />
+    <Content Include="includes\css\npc\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\npc\login.css" />
+    <Content Include="includes\css\npc\master.css" />
+    <Content Include="includes\css\npc\override.css" />
+    <Content Include="includes\css\npc\performBenchmark.css" />
+    <Content Include="includes\css\npc\suspendResume.css" />
+    <Content Include="includes\css\npc\translations.css" />
+    <Content Include="includes\css\npc\viewActivityReport.css" />
+    <Content Include="includes\css\nurcha\adminLevelMenu.css" />
+    <Content Include="includes\css\nurcha\adviserLevelMenu.css" />
+    <Content Include="includes\css\nurcha\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\nurcha\form.css" />
+    <Content Include="includes\css\nurcha\homeOnlyMenu.css" />
+    <Content Include="includes\css\nurcha\iehacks-6.css" />
+    <Content Include="includes\css\nurcha\iehacks-7.css" />
+    <Content Include="includes\css\nurcha\layout.css" />
+    <Content Include="includes\css\nurcha\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\nurcha\login.css" />
+    <Content Include="includes\css\nurcha\master.css" />
+    <Content Include="includes\css\nurcha\newLayout.css" />
+    <Content Include="includes\css\nurcha\override.css" />
+    <Content Include="includes\css\nurcha\performBenchmark.css" />
+    <Content Include="includes\css\nurcha\style.css" />
+    <Content Include="includes\css\nurcha\suspendResume.css" />
+    <Content Include="includes\css\nurcha\translations.css" />
+    <Content Include="includes\css\nurcha\viewActivityReport.css" />
+    <Content Include="includes\css\portugal\adminLevelMenu.css" />
+    <Content Include="includes\css\portugal\adviserLevelMenu.css" />
+    <Content Include="includes\css\portugal\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\portugal\form.css" />
+    <Content Include="includes\css\portugal\homeOnlyMenu.css" />
+    <Content Include="includes\css\portugal\iehacks-6.css" />
+    <Content Include="includes\css\portugal\iehacks-7.css" />
+    <Content Include="includes\css\portugal\layout.css" />
+    <Content Include="includes\css\portugal\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\portugal\login.css" />
+    <Content Include="includes\css\portugal\master.css" />
+    <Content Include="includes\css\portugal\newLayout.css" />
+    <Content Include="includes\css\portugal\override.css" />
+    <Content Include="includes\css\portugal\performBenchmark.css" />
+    <Content Include="includes\css\portugal\style.css" />
+    <Content Include="includes\css\portugal\suspendResume.css" />
+    <Content Include="includes\css\portugal\translations.css" />
+    <Content Include="includes\css\portugal\viewActivityReport.css" />
+    <Content Include="includes\css\rea\adminLevelMenu.css" />
+    <Content Include="includes\css\rea\adviserLevelMenu.css" />
+    <Content Include="includes\css\rea\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\rea\form.css" />
+    <Content Include="includes\css\rea\homeOnlyMenu.css" />
+    <Content Include="includes\css\rea\iehacks-6.css" />
+    <Content Include="includes\css\rea\iehacks-7.css" />
+    <Content Include="includes\css\rea\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\rea\login.css" />
+    <Content Include="includes\css\rea\master.css" />
+    <Content Include="includes\css\rea\override.css" />
+    <Content Include="includes\css\rea\performBenchmark.css" />
+    <Content Include="includes\css\rea\suspendResume.css" />
+    <Content Include="includes\css\rea\translations.css" />
+    <Content Include="includes\css\rea\viewActivityReport.css" />
+    <Content Include="includes\css\reset.css" />
+    <Content Include="includes\css\testing123\adminLevelMenu.css" />
+    <Content Include="includes\css\testing123\adviserLevelMenu.css" />
+    <Content Include="includes\css\testing123\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\testing123\form.css" />
+    <Content Include="includes\css\testing123\homeOnlyMenu.css" />
+    <Content Include="includes\css\testing123\iehacks-6.css" />
+    <Content Include="includes\css\testing123\iehacks-7.css" />
+    <Content Include="includes\css\testing123\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\testing123\login.css" />
+    <Content Include="includes\css\testing123\master.css" />
+    <Content Include="includes\css\testing123\override.css" />
+    <Content Include="includes\css\testing123\performBenchmark.css" />
+    <Content Include="includes\css\testing123\suspendResume.css" />
+    <Content Include="includes\css\testing123\translations.css" />
+    <Content Include="includes\css\testing123\viewActivityReport.css" />
+    <Content Include="includes\css\unido\adminLevelMenu.css" />
+    <Content Include="includes\css\unido\adviserLevelMenu.css" />
+    <Content Include="includes\css\unido\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\unido\form.css" />
+    <Content Include="includes\css\unido\homeOnlyMenu.css" />
+    <Content Include="includes\css\unido\iehacks-6.css" />
+    <Content Include="includes\css\unido\iehacks-7.css" />
+    <Content Include="includes\css\unido\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\unido\login.css" />
+    <Content Include="includes\css\unido\master.css" />
+    <Content Include="includes\css\unido\override.css" />
+    <Content Include="includes\css\unido\performBenchmark.css" />
+    <Content Include="includes\css\unido\probe.css" />
+    <Content Include="includes\css\unido\suspendResume.css" />
+    <Content Include="includes\css\unido\translations.css" />
+    <Content Include="includes\css\unido\viewActivityReport.css" />
+    <Content Include="includes\css\wm2admin\adminLevelMenu.css" />
+    <Content Include="includes\css\wm2admin\adviserLevelMenu.css" />
+    <Content Include="includes\css\wm2admin\adviserManagersLevelMenu.css" />
+    <Content Include="includes\css\wm2admin\form.css" />
+    <Content Include="includes\css\wm2admin\homeOnlyMenu.css" />
+    <Content Include="includes\css\wm2admin\iehacks-6.css" />
+    <Content Include="includes\css\wm2admin\iehacks-7.css" />
+    <Content Include="includes\css\wm2admin\layout.css" />
+    <Content Include="includes\css\wm2admin\licenceManagerLevelMenu.css" />
+    <Content Include="includes\css\wm2admin\login.css" />
+    <Content Include="includes\css\wm2admin\master.css" />
+    <Content Include="includes\css\wm2admin\newLayout.css" />
+    <Content Include="includes\css\wm2admin\override.css" />
+    <Content Include="includes\css\wm2admin\performBenchmark.css" />
+    <Content Include="includes\css\wm2admin\style.css" />
+    <Content Include="includes\css\wm2admin\suspendResume.css" />
+    <Content Include="includes\css\wm2admin\translations.css" />
+    <Content Include="includes\css\wm2admin\viewActivityReport.css" />
+    <Content Include="includes\graph.css" />
+    <Content Include="includes\images\ajax-loader.gif" />
+    <Content Include="includes\images\ajax.gif" />
+    <Content Include="includes\images\bj\announcement.gif" />
+    <Content Include="includes\images\bj\banner.gif" />
+    <Content Include="includes\images\bj\banner.png" />
+    <Content Include="includes\images\bj\breadcrumb.gif" />
+    <Content Include="includes\images\bj\b_add.gif" />
+    <Content Include="includes\images\bj\b_cancel.gif" />
+    <Content Include="includes\images\bj\b_createClientLogin.gif" />
+    <Content Include="includes\images\bj\b_criteria.gif" />
+    <Content Include="includes\images\bj\b_download.gif" />
+    <Content Include="includes\images\bj\b_home.gif" />
+    <Content Include="includes\images\bj\b_info.gif" />
+    <Content Include="includes\images\bj\b_inputData.gif" />
+    <Content Include="includes\images\bj\b_keycode.gif" />
+    <Content Include="includes\images\bj\b_login.gif" />
+    <Content Include="includes\images\bj\b_next.gif" />
+    <Content Include="includes\images\bj\b_next_disabled.gif" />
+    <Content Include="includes\images\bj\b_previous.gif" />
+    <Content Include="includes\images\bj\b_previous_disabled.gif" />
+    <Content Include="includes\images\bj\b_remove.gif" />
+    <Content Include="includes\images\bj\b_save.gif" />
+    <Content Include="includes\images\bj\b_summary.gif" />
+    <Content Include="includes\images\bj\b_whiteEnd.gif" />
+    <Content Include="includes\images\bj\headerTop.png" />
+    <Content Include="includes\images\bj\indicator.gif" />
+    <Content Include="includes\images\bj\layout\back.png" />
+    <Content Include="includes\images\bj\layout\backgroundleaf.png" />
+    <Content Include="includes\images\bj\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\bj\layout\pdf.png" />
+    <Content Include="includes\images\bj\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\bj\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\bj\layout\sampleSize.png" />
+    <Content Include="includes\images\bj\layout\submit.png" />
+    <Content Include="includes\images\bj\loading.gif" />
+    <Content Include="includes\images\bj\mainBack.gif" />
+    <Content Include="includes\images\bj\reportBar.gif" />
+    <Content Include="includes\images\bj\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\bj\reportTopMarkers.gif" />
+    <Content Include="includes\images\bj\winning_measures.gif" />
+    <Content Include="includes\images\ble\announcement.gif" />
+    <Content Include="includes\images\ble\banner.gif" />
+    <Content Include="includes\images\ble\breadcrumb.gif" />
+    <Content Include="includes\images\ble\business_link_footer.gif" />
+    <Content Include="includes\images\ble\business_link_footer.png" />
+    <Content Include="includes\images\ble\b_add.gif" />
+    <Content Include="includes\images\ble\b_cancel.gif" />
+    <Content Include="includes\images\ble\b_createClientLogin.gif" />
+    <Content Include="includes\images\ble\b_criteria.gif" />
+    <Content Include="includes\images\ble\b_download.gif" />
+    <Content Include="includes\images\ble\b_home.gif" />
+    <Content Include="includes\images\ble\b_info.gif" />
+    <Content Include="includes\images\ble\b_inputData.gif" />
+    <Content Include="includes\images\ble\b_keycode.gif" />
+    <Content Include="includes\images\ble\b_login.gif" />
+    <Content Include="includes\images\ble\b_next.gif" />
+    <Content Include="includes\images\ble\b_next_disabled.gif" />
+    <Content Include="includes\images\ble\b_previous.gif" />
+    <Content Include="includes\images\ble\b_previous_disabled.gif" />
+    <Content Include="includes\images\ble\b_remove.gif" />
+    <Content Include="includes\images\ble\b_save.gif" />
+    <Content Include="includes\images\ble\b_summary.gif" />
+    <Content Include="includes\images\ble\b_whiteEnd.gif" />
+    <Content Include="includes\images\ble\indicator.gif" />
+    <Content Include="includes\images\ble\loading.gif" />
+    <Content Include="includes\images\ble\mainBack.gif" />
+    <Content Include="includes\images\ble\reportBar.gif" />
+    <Content Include="includes\images\ble\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\ble\reportTopMarkers.gif" />
+    <Content Include="includes\images\ble\winning_measures.gif" />
+    <Content Include="includes\images\ble\wm-banner995wx60h-v2.png" />
+    <Content Include="includes\images\ble\wm-banner995wx60h.png" />
+    <Content Include="includes\images\bly\announcement.gif" />
+    <Content Include="includes\images\bly\banner.gif" />
+    <Content Include="includes\images\bly\breadcrumb.gif" />
+    <Content Include="includes\images\bly\business_link_footer.gif" />
+    <Content Include="includes\images\bly\business_link_footer.png" />
+    <Content Include="includes\images\bly\b_add.gif" />
+    <Content Include="includes\images\bly\b_cancel.gif" />
+    <Content Include="includes\images\bly\b_createClientLogin.gif" />
+    <Content Include="includes\images\bly\b_criteria.gif" />
+    <Content Include="includes\images\bly\b_download.gif" />
+    <Content Include="includes\images\bly\b_home.gif" />
+    <Content Include="includes\images\bly\b_info.gif" />
+    <Content Include="includes\images\bly\b_inputData.gif" />
+    <Content Include="includes\images\bly\b_keycode.gif" />
+    <Content Include="includes\images\bly\b_login.gif" />
+    <Content Include="includes\images\bly\b_next.gif" />
+    <Content Include="includes\images\bly\b_next_disabled.gif" />
+    <Content Include="includes\images\bly\b_previous.gif" />
+    <Content Include="includes\images\bly\b_previous_disabled.gif" />
+    <Content Include="includes\images\bly\b_remove.gif" />
+    <Content Include="includes\images\bly\b_save.gif" />
+    <Content Include="includes\images\bly\b_summary.gif" />
+    <Content Include="includes\images\bly\b_whiteEnd.gif" />
+    <Content Include="includes\images\bly\indicator.gif" />
+    <Content Include="includes\images\bly\loading.gif" />
+    <Content Include="includes\images\bly\mainBack.gif" />
+    <Content Include="includes\images\bly\reportBar.gif" />
+    <Content Include="includes\images\bly\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\bly\reportTopMarkers.gif" />
+    <Content Include="includes\images\bly\winning_measures.gif" />
+    <Content Include="includes\images\bly\wm-banner995wx60h-v2.png" />
+    <Content Include="includes\images\bly\wm-banner995wx60h.png" />
+    <Content Include="includes\images\busimprove\adviserImage.png" />
+    <Content Include="includes\images\busimprove\announcement.gif" />
+    <Content Include="includes\images\busimprove\banner.gif" />
+    <Content Include="includes\images\busimprove\breadcrumb.gif" />
+    <Content Include="includes\images\busimprove\b_add.gif" />
+    <Content Include="includes\images\busimprove\b_cancel.gif" />
+    <Content Include="includes\images\busimprove\b_createClientLogin.gif" />
+    <Content Include="includes\images\busimprove\b_criteria.gif" />
+    <Content Include="includes\images\busimprove\b_download.gif" />
+    <Content Include="includes\images\busimprove\b_home.gif" />
+    <Content Include="includes\images\busimprove\b_info.gif" />
+    <Content Include="includes\images\busimprove\b_inputData.gif" />
+    <Content Include="includes\images\busimprove\b_keycode.gif" />
+    <Content Include="includes\images\busimprove\b_login.gif" />
+    <Content Include="includes\images\busimprove\b_next.gif" />
+    <Content Include="includes\images\busimprove\b_next_disabled.gif" />
+    <Content Include="includes\images\busimprove\b_previous.gif" />
+    <Content Include="includes\images\busimprove\b_previous_disabled.gif" />
+    <Content Include="includes\images\busimprove\b_remove.gif" />
+    <Content Include="includes\images\busimprove\b_save.gif" />
+    <Content Include="includes\images\busimprove\b_summary.gif" />
+    <Content Include="includes\images\busimprove\b_whiteEnd.gif" />
+    <Content Include="includes\images\busimprove\footerLogo.png" />
+    <Content Include="includes\images\busimprove\headerTop.png" />
+    <Content Include="includes\images\busimprove\indicator.gif" />
+    <Content Include="includes\images\busimprove\info.png" />
+    <Content Include="includes\images\busimprove\layout\back.png" />
+    <Content Include="includes\images\busimprove\layout\backgroundleaf.png" />
+    <Content Include="includes\images\busimprove\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\busimprove\layout\pdf.png" />
+    <Content Include="includes\images\busimprove\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\busimprove\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\busimprove\layout\sampleSize.png" />
+    <Content Include="includes\images\busimprove\layout\submit.png" />
+    <Content Include="includes\images\busimprove\loading.gif" />
+    <Content Include="includes\images\busimprove\mainBack.gif" />
+    <Content Include="includes\images\busimprove\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\bodyBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\contactBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\containerBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\contentBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\detailsBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\footerBase.png" />
+    <Content Include="includes\images\busimprove\newLayout\footerBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\greenMan.png" />
+    <Content Include="includes\images\busimprove\newLayout\headerTop.png" />
+    <Content Include="includes\images\busimprove\newLayout\home.png" />
+    <Content Include="includes\images\busimprove\newLayout\homeBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\markModena.png" />
+    <Content Include="includes\images\busimprove\newLayout\menuArrow.png" />
+    <Content Include="includes\images\busimprove\newLayout\menuBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\scoreBar.png" />
+    <Content Include="includes\images\busimprove\newLayout\scoreBK.png" />
+    <Content Include="includes\images\busimprove\newLayout\submit.png" />
+    <Content Include="includes\images\busimprove\newLayout\submitButton.png" />
+    <Content Include="includes\images\busimprove\reportBar.gif" />
+    <Content Include="includes\images\busimprove\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\busimprove\reportTopMarkers.gif" />
+    <Content Include="includes\images\busimprove\triangle.png" />
+    <Content Include="includes\images\busimprove\winning_measures.gif" />
+    <Content Include="includes\images\cpc\adviserImage.png" />
+    <Content Include="includes\images\cpc\announcement.gif" />
+    <Content Include="includes\images\cpc\banner.gif" />
+    <Content Include="includes\images\cpc\breadcrumb.gif" />
+    <Content Include="includes\images\cpc\b_add.gif" />
+    <Content Include="includes\images\cpc\b_cancel.gif" />
+    <Content Include="includes\images\cpc\b_createClientLogin.gif" />
+    <Content Include="includes\images\cpc\b_criteria.gif" />
+    <Content Include="includes\images\cpc\b_download.gif" />
+    <Content Include="includes\images\cpc\b_home.gif" />
+    <Content Include="includes\images\cpc\b_info.gif" />
+    <Content Include="includes\images\cpc\b_inputData.gif" />
+    <Content Include="includes\images\cpc\b_keycode.gif" />
+    <Content Include="includes\images\cpc\b_login.gif" />
+    <Content Include="includes\images\cpc\b_next.gif" />
+    <Content Include="includes\images\cpc\b_next_disabled.gif" />
+    <Content Include="includes\images\cpc\b_previous.gif" />
+    <Content Include="includes\images\cpc\b_previous_disabled.gif" />
+    <Content Include="includes\images\cpc\b_remove.gif" />
+    <Content Include="includes\images\cpc\b_save.gif" />
+    <Content Include="includes\images\cpc\b_summary.gif" />
+    <Content Include="includes\images\cpc\b_whiteEnd.gif" />
+    <Content Include="includes\images\cpc\footerLogo.png" />
+    <Content Include="includes\images\cpc\headerTop.png" />
+    <Content Include="includes\images\cpc\indicator.gif" />
+    <Content Include="includes\images\cpc\layout\back.png" />
+    <Content Include="includes\images\cpc\layout\backgroundleaf.png" />
+    <Content Include="includes\images\cpc\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\cpc\layout\pdf.png" />
+    <Content Include="includes\images\cpc\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\cpc\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\cpc\layout\sampleSize.png" />
+    <Content Include="includes\images\cpc\layout\submit.png" />
+    <Content Include="includes\images\cpc\loading copy.gif" />
+    <Content Include="includes\images\cpc\loading.gif" />
+    <Content Include="includes\images\cpc\mainBack.gif" />
+    <Content Include="includes\images\cpc\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\cpc\newLayout\bodyBK.png" />
+    <Content Include="includes\images\cpc\newLayout\contactBK.png" />
+    <Content Include="includes\images\cpc\newLayout\containerBK.png" />
+    <Content Include="includes\images\cpc\newLayout\contentBK.png" />
+    <Content Include="includes\images\cpc\newLayout\detailsBK.png" />
+    <Content Include="includes\images\cpc\newLayout\footerBase.png" />
+    <Content Include="includes\images\cpc\newLayout\footerBK.png" />
+    <Content Include="includes\images\cpc\newLayout\greenMan.png" />
+    <Content Include="includes\images\cpc\newLayout\headerTop.png" />
+    <Content Include="includes\images\cpc\newLayout\home.png" />
+    <Content Include="includes\images\cpc\newLayout\homeBK.png" />
+    <Content Include="includes\images\cpc\newLayout\markModena.png" />
+    <Content Include="includes\images\cpc\newLayout\menuArrow.png" />
+    <Content Include="includes\images\cpc\newLayout\menuBK.png" />
+    <Content Include="includes\images\cpc\newLayout\scoreBar.png" />
+    <Content Include="includes\images\cpc\newLayout\scoreBK.png" />
+    <Content Include="includes\images\cpc\newLayout\submit.png" />
+    <Content Include="includes\images\cpc\newLayout\submitButton.png" />
+    <Content Include="includes\images\cpc\reportBar.gif" />
+    <Content Include="includes\images\cpc\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\cpc\reportTopMarkers.gif" />
+    <Content Include="includes\images\cpc\triangle CLARENT.png" />
+    <Content Include="includes\images\cpc\triangle.png" />
+    <Content Include="includes\images\cpc\winning_measures.gif" />
+    <Content Include="includes\images\dcv\adviserImage.png" />
+    <Content Include="includes\images\dcv\announcement.gif" />
+    <Content Include="includes\images\dcv\banner.gif" />
+    <Content Include="includes\images\dcv\breadcrumb.gif" />
+    <Content Include="includes\images\dcv\b_add.gif" />
+    <Content Include="includes\images\dcv\b_cancel.gif" />
+    <Content Include="includes\images\dcv\b_createClientLogin.gif" />
+    <Content Include="includes\images\dcv\b_criteria.gif" />
+    <Content Include="includes\images\dcv\b_download.gif" />
+    <Content Include="includes\images\dcv\b_home.gif" />
+    <Content Include="includes\images\dcv\b_info.gif" />
+    <Content Include="includes\images\dcv\b_inputData.gif" />
+    <Content Include="includes\images\dcv\b_keycode.gif" />
+    <Content Include="includes\images\dcv\b_login.gif" />
+    <Content Include="includes\images\dcv\b_next.gif" />
+    <Content Include="includes\images\dcv\b_next_disabled.gif" />
+    <Content Include="includes\images\dcv\b_previous.gif" />
+    <Content Include="includes\images\dcv\b_previous_disabled.gif" />
+    <Content Include="includes\images\dcv\b_remove.gif" />
+    <Content Include="includes\images\dcv\b_save.gif" />
+    <Content Include="includes\images\dcv\b_summary.gif" />
+    <Content Include="includes\images\dcv\b_whiteEnd.gif" />
+    <Content Include="includes\images\dcv\footerLogo.png" />
+    <Content Include="includes\images\dcv\headerTop.png" />
+    <Content Include="includes\images\dcv\indicator.gif" />
+    <Content Include="includes\images\dcv\layout\back.png" />
+    <Content Include="includes\images\dcv\layout\backgroundleaf.png" />
+    <Content Include="includes\images\dcv\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\dcv\layout\pdf.png" />
+    <Content Include="includes\images\dcv\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\dcv\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\dcv\layout\sampleSize.png" />
+    <Content Include="includes\images\dcv\layout\submit.png" />
+    <Content Include="includes\images\dcv\loading.gif" />
+    <Content Include="includes\images\dcv\mainBack.gif" />
+    <Content Include="includes\images\dcv\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\dcv\newLayout\bodyBK.png" />
+    <Content Include="includes\images\dcv\newLayout\contactBK.png" />
+    <Content Include="includes\images\dcv\newLayout\containerBK.png" />
+    <Content Include="includes\images\dcv\newLayout\contentBK.png" />
+    <Content Include="includes\images\dcv\newLayout\detailsBK.png" />
+    <Content Include="includes\images\dcv\newLayout\footerBase.png" />
+    <Content Include="includes\images\dcv\newLayout\footerBK.png" />
+    <Content Include="includes\images\dcv\newLayout\greenMan.png" />
+    <Content Include="includes\images\dcv\newLayout\headerTop.png" />
+    <Content Include="includes\images\dcv\newLayout\home.png" />
+    <Content Include="includes\images\dcv\newLayout\homeBK.png" />
+    <Content Include="includes\images\dcv\newLayout\markModena.png" />
+    <Content Include="includes\images\dcv\newLayout\menuArrow.png" />
+    <Content Include="includes\images\dcv\newLayout\menuBK.png" />
+    <Content Include="includes\images\dcv\newLayout\scoreBar.png" />
+    <Content Include="includes\images\dcv\newLayout\scoreBK.png" />
+    <Content Include="includes\images\dcv\newLayout\submit.png" />
+    <Content Include="includes\images\dcv\newLayout\submitButton.png" />
+    <Content Include="includes\images\dcv\reportBar.gif" />
+    <Content Include="includes\images\dcv\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\dcv\reportTopMarkers.gif" />
+    <Content Include="includes\images\dcv\triangle.png" />
+    <Content Include="includes\images\dcv\winning_measures.gif" />
+    <Content Include="includes\images\defaultAdviserImage.png" />
+    <Content Include="includes\images\ec\adviserImage.png" />
+    <Content Include="includes\images\ec\announcement.gif" />
+    <Content Include="includes\images\ec\au-white995wx60h-new.jpg" />
+    <Content Include="includes\images\ec\au-white995wx60h-new.png" />
+    <Content Include="includes\images\ec\banner.gif" />
+    <Content Include="includes\images\ec\breadcrumb.gif" />
+    <Content Include="includes\images\ec\b_add.gif" />
+    <Content Include="includes\images\ec\b_cancel.gif" />
+    <Content Include="includes\images\ec\b_criteria.gif" />
+    <Content Include="includes\images\ec\b_download.gif" />
+    <Content Include="includes\images\ec\b_home.gif" />
+    <Content Include="includes\images\ec\b_info.gif" />
+    <Content Include="includes\images\ec\b_inputData.gif" />
+    <Content Include="includes\images\ec\b_keycode.gif" />
+    <Content Include="includes\images\ec\b_login.gif" />
+    <Content Include="includes\images\ec\b_next.gif" />
+    <Content Include="includes\images\ec\b_next_disabled.gif" />
+    <Content Include="includes\images\ec\b_previous.gif" />
+    <Content Include="includes\images\ec\b_previous_disabled.gif" />
+    <Content Include="includes\images\ec\b_remove.gif" />
+    <Content Include="includes\images\ec\b_save.gif" />
+    <Content Include="includes\images\ec\b_summary.gif" />
+    <Content Include="includes\images\ec\b_whiteEnd.gif" />
+    <Content Include="includes\images\ec\headerTop.png" />
+    <Content Include="includes\images\ec\indicator.gif" />
+    <Content Include="includes\images\ec\layout\back.png" />
+    <Content Include="includes\images\ec\layout\backgroundleaf.png" />
+    <Content Include="includes\images\ec\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\ec\layout\pdf.png" />
+    <Content Include="includes\images\ec\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\ec\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\ec\layout\sampleSize.png" />
+    <Content Include="includes\images\ec\layout\submit.png" />
+    <Content Include="includes\images\ec\loading.gif" />
+    <Content Include="includes\images\ec\mainBack.gif" />
+    <Content Include="includes\images\ec\reportBar.gif" />
+    <Content Include="includes\images\ec\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\ec\reportTopMarkers.gif" />
+    <Content Include="includes\images\ec\winning_measures.gif" />
+    <Content Include="includes\images\ei\announcement.gif" />
+    <Content Include="includes\images\ei\banner.gif" />
+    <Content Include="includes\images\ei\breadcrumb.gif" />
+    <Content Include="includes\images\ei\b_add.gif" />
+    <Content Include="includes\images\ei\b_cancel.gif" />
+    <Content Include="includes\images\ei\b_criteria.gif" />
+    <Content Include="includes\images\ei\b_download.gif" />
+    <Content Include="includes\images\ei\b_home.gif" />
+    <Content Include="includes\images\ei\b_info.gif" />
+    <Content Include="includes\images\ei\b_inputData.gif" />
+    <Content Include="includes\images\ei\b_keycode.gif" />
+    <Content Include="includes\images\ei\b_login.gif" />
+    <Content Include="includes\images\ei\b_next.gif" />
+    <Content Include="includes\images\ei\b_next_disabled.gif" />
+    <Content Include="includes\images\ei\b_previous.gif" />
+    <Content Include="includes\images\ei\b_previous_disabled.gif" />
+    <Content Include="includes\images\ei\b_remove.gif" />
+    <Content Include="includes\images\ei\b_save.gif" />
+    <Content Include="includes\images\ei\b_summary.gif" />
+    <Content Include="includes\images\ei\b_whiteEnd.gif" />
+    <Content Include="includes\images\ei\headerTop.png" />
+    <Content Include="includes\images\ei\indicator.gif" />
+    <Content Include="includes\images\ei\layout\back.png" />
+    <Content Include="includes\images\ei\layout\backgroundleaf.png" />
+    <Content Include="includes\images\ei\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\ei\layout\pdf.png" />
+    <Content Include="includes\images\ei\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\ei\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\ei\layout\sampleSize.png" />
+    <Content Include="includes\images\ei\layout\submit.png" />
+    <Content Include="includes\images\ei\loading.gif" />
+    <Content Include="includes\images\ei\mainBack.gif" />
+    <Content Include="includes\images\ei\reportBar.gif" />
+    <Content Include="includes\images\ei\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\ei\reportTopMarkers.gif" />
+    <Content Include="includes\images\ei\winning_measures.gif" />
+    <Content Include="includes\images\ekonom\announcement.gif" />
+    <Content Include="includes\images\ekonom\banner.gif" />
+    <Content Include="includes\images\ekonom\banner_old.gif" />
+    <Content Include="includes\images\ekonom\breadcrumb.gif" />
+    <Content Include="includes\images\ekonom\b_add.gif" />
+    <Content Include="includes\images\ekonom\b_cancel.gif" />
+    <Content Include="includes\images\ekonom\b_criteria.gif" />
+    <Content Include="includes\images\ekonom\b_download.gif" />
+    <Content Include="includes\images\ekonom\b_home.gif" />
+    <Content Include="includes\images\ekonom\b_info.gif" />
+    <Content Include="includes\images\ekonom\b_inputData.gif" />
+    <Content Include="includes\images\ekonom\b_keycode.gif" />
+    <Content Include="includes\images\ekonom\b_login.gif" />
+    <Content Include="includes\images\ekonom\b_next.gif" />
+    <Content Include="includes\images\ekonom\b_next_disabled.gif" />
+    <Content Include="includes\images\ekonom\b_previous.gif" />
+    <Content Include="includes\images\ekonom\b_previous_disabled.gif" />
+    <Content Include="includes\images\ekonom\b_remove.gif" />
+    <Content Include="includes\images\ekonom\b_save.gif" />
+    <Content Include="includes\images\ekonom\b_summary.gif" />
+    <Content Include="includes\images\ekonom\b_whiteEnd.gif" />
+    <Content Include="includes\images\ekonom\indicator.gif" />
+    <Content Include="includes\images\ekonom\loading.gif" />
+    <Content Include="includes\images\ekonom\mainBack.gif" />
+    <Content Include="includes\images\ekonom\reportBar.gif" />
+    <Content Include="includes\images\ekonom\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\ekonom\reportTopMarkers.gif" />
+    <Content Include="includes\images\ekonom\winning_measures.gif" />
+    <Content Include="includes\images\gbn\adviserImage.png" />
+    <Content Include="includes\images\gbn\announcement.gif" />
+    <Content Include="includes\images\gbn\banner.gif" />
+    <Content Include="includes\images\gbn\breadcrumb.gif" />
+    <Content Include="includes\images\gbn\b_add.gif" />
+    <Content Include="includes\images\gbn\b_cancel.gif" />
+    <Content Include="includes\images\gbn\b_createClientLogin.gif" />
+    <Content Include="includes\images\gbn\b_criteria.gif" />
+    <Content Include="includes\images\gbn\b_download.gif" />
+    <Content Include="includes\images\gbn\b_home.gif" />
+    <Content Include="includes\images\gbn\b_info.gif" />
+    <Content Include="includes\images\gbn\b_inputData.gif" />
+    <Content Include="includes\images\gbn\b_keycode.gif" />
+    <Content Include="includes\images\gbn\b_login.gif" />
+    <Content Include="includes\images\gbn\b_next.gif" />
+    <Content Include="includes\images\gbn\b_next_disabled.gif" />
+    <Content Include="includes\images\gbn\b_previous.gif" />
+    <Content Include="includes\images\gbn\b_previous_disabled.gif" />
+    <Content Include="includes\images\gbn\b_remove.gif" />
+    <Content Include="includes\images\gbn\b_save.gif" />
+    <Content Include="includes\images\gbn\b_summary.gif" />
+    <Content Include="includes\images\gbn\b_whiteEnd.gif" />
+    <Content Include="includes\images\gbn\footer.png" />
+    <Content Include="includes\images\gbn\footerLogo.png" />
+    <Content Include="includes\images\gbn\gbn-base.png" />
+    <Content Include="includes\images\gbn\header-large.png" />
+    <Content Include="includes\images\gbn\header-medium.png" />
+    <Content Include="includes\images\gbn\header-small.png" />
+    <Content Include="includes\images\gbn\headerTop-new.png" />
+    <Content Include="includes\images\gbn\headerTop.png" />
+    <Content Include="includes\images\gbn\indicator.gif" />
+    <Content Include="includes\images\gbn\info.png" />
+    <Content Include="includes\images\gbn\layout\back.png" />
+    <Content Include="includes\images\gbn\layout\backgroundleaf-old.png" />
+    <Content Include="includes\images\gbn\layout\backgroundleaf-orig.png" />
+    <Content Include="includes\images\gbn\layout\backgroundleaf.png" />
+    <Content Include="includes\images\gbn\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\gbn\layout\pdf.png" />
+    <Content Include="includes\images\gbn\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\gbn\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\gbn\layout\sampleSize.png" />
+    <Content Include="includes\images\gbn\layout\submit.png" />
+    <Content Include="includes\images\gbn\loading.gif" />
+    <Content Include="includes\images\gbn\logo-large.png" />
+    <Content Include="includes\images\gbn\logo-small.png" />
+    <Content Include="includes\images\gbn\mainBack.gif" />
+    <Content Include="includes\images\gbn\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\gbn\newLayout\bodyBK.png" />
+    <Content Include="includes\images\gbn\newLayout\contactBK.png" />
+    <Content Include="includes\images\gbn\newLayout\containerBK.png" />
+    <Content Include="includes\images\gbn\newLayout\contentBK.png" />
+    <Content Include="includes\images\gbn\newLayout\detailsBK.png" />
+    <Content Include="includes\images\gbn\newLayout\footerBase.png" />
+    <Content Include="includes\images\gbn\newLayout\footerBK.png" />
+    <Content Include="includes\images\gbn\newLayout\greenMan.png" />
+    <Content Include="includes\images\gbn\newLayout\headerTop.png" />
+    <Content Include="includes\images\gbn\newLayout\home.png" />
+    <Content Include="includes\images\gbn\newLayout\homeBK.png" />
+    <Content Include="includes\images\gbn\newLayout\markModena.png" />
+    <Content Include="includes\images\gbn\newLayout\menuArrow.png" />
+    <Content Include="includes\images\gbn\newLayout\menuBK.png" />
+    <Content Include="includes\images\gbn\newLayout\scoreBar.png" />
+    <Content Include="includes\images\gbn\newLayout\scoreBK.png" />
+    <Content Include="includes\images\gbn\newLayout\submit.png" />
+    <Content Include="includes\images\gbn\newLayout\submitButton.png" />
+    <Content Include="includes\images\gbn\reportBar.gif" />
+    <Content Include="includes\images\gbn\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\gbn\reportTopMarkers.gif" />
+    <Content Include="includes\images\gbn\triangle.png" />
+    <Content Include="includes\images\gbn\winning_measures.gif" />
+    <Content Include="includes\images\iapmei\announcement.gif" />
+    <Content Include="includes\images\iapmei\banner.gif" />
+    <Content Include="includes\images\iapmei\breadcrumb.gif" />
+    <Content Include="includes\images\iapmei\b_add.gif" />
+    <Content Include="includes\images\iapmei\b_cancel.gif" />
+    <Content Include="includes\images\iapmei\b_criteria.gif" />
+    <Content Include="includes\images\iapmei\b_download.gif" />
+    <Content Include="includes\images\iapmei\b_home.gif" />
+    <Content Include="includes\images\iapmei\b_info.gif" />
+    <Content Include="includes\images\iapmei\b_inputData.gif" />
+    <Content Include="includes\images\iapmei\b_keycode.gif" />
+    <Content Include="includes\images\iapmei\b_login.gif" />
+    <Content Include="includes\images\iapmei\b_next.gif" />
+    <Content Include="includes\images\iapmei\b_next_disabled.gif" />
+    <Content Include="includes\images\iapmei\b_previous.gif" />
+    <Content Include="includes\images\iapmei\b_previous_disabled.gif" />
+    <Content Include="includes\images\iapmei\b_remove.gif" />
+    <Content Include="includes\images\iapmei\b_save.gif" />
+    <Content Include="includes\images\iapmei\b_summary.gif" />
+    <Content Include="includes\images\iapmei\b_whiteEnd.gif" />
+    <Content Include="includes\images\iapmei\headerTop.png" />
+    <Content Include="includes\images\iapmei\indicator.gif" />
+    <Content Include="includes\images\iapmei\layout\back.png" />
+    <Content Include="includes\images\iapmei\layout\backgroundleaf.png" />
+    <Content Include="includes\images\iapmei\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\iapmei\layout\pdf.png" />
+    <Content Include="includes\images\iapmei\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\iapmei\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\iapmei\layout\sampleSize.png" />
+    <Content Include="includes\images\iapmei\layout\submit.png" />
+    <Content Include="includes\images\iapmei\loading.gif" />
+    <Content Include="includes\images\iapmei\mainBack.gif" />
+    <Content Include="includes\images\iapmei\reportBar.gif" />
+    <Content Include="includes\images\iapmei\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\iapmei\reportTopMarkers.gif" />
+    <Content Include="includes\images\iapmei\winning_measures.gif" />
+    <Content Include="includes\images\ini\adviserImage.png" />
+    <Content Include="includes\images\ini\announcement.gif" />
+    <Content Include="includes\images\ini\banner.jpg" />
+    <Content Include="includes\images\ini\breadcrumb.gif" />
+    <Content Include="includes\images\ini\b_add.gif" />
+    <Content Include="includes\images\ini\b_cancel.gif" />
+    <Content Include="includes\images\ini\b_createClientLogin.gif" />
+    <Content Include="includes\images\ini\b_criteria.gif" />
+    <Content Include="includes\images\ini\b_download.gif" />
+    <Content Include="includes\images\ini\b_home.gif" />
+    <Content Include="includes\images\ini\b_info.gif" />
+    <Content Include="includes\images\ini\b_inputData.gif" />
+    <Content Include="includes\images\ini\b_keycode.gif" />
+    <Content Include="includes\images\ini\b_login.gif" />
+    <Content Include="includes\images\ini\b_next.gif" />
+    <Content Include="includes\images\ini\b_next_disabled.gif" />
+    <Content Include="includes\images\ini\b_previous.gif" />
+    <Content Include="includes\images\ini\b_previous_disabled.gif" />
+    <Content Include="includes\images\ini\b_remove.gif" />
+    <Content Include="includes\images\ini\b_save.gif" />
+    <Content Include="includes\images\ini\b_summary.gif" />
+    <Content Include="includes\images\ini\b_whiteEnd.gif" />
+    <Content Include="includes\images\ini\headerTop.png" />
+    <Content Include="includes\images\ini\indicator.gif" />
+    <Content Include="includes\images\ini\layout\back.png" />
+    <Content Include="includes\images\ini\layout\backgroundleaf.png" />
+    <Content Include="includes\images\ini\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\ini\layout\pdf.png" />
+    <Content Include="includes\images\ini\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\ini\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\ini\layout\sampleSize.png" />
+    <Content Include="includes\images\ini\layout\submit.png" />
+    <Content Include="includes\images\ini\loading.gif" />
+    <Content Include="includes\images\ini\mainBack.gif" />
+    <Content Include="includes\images\ini\reportBar.gif" />
+    <Content Include="includes\images\ini\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\ini\reportTopMarkers.gif" />
+    <Content Include="includes\images\ini\winning_measures.gif" />
+    <Content Include="includes\images\ipk\adviserImage.png" />
+    <Content Include="includes\images\ipk\announcement.gif" />
+    <Content Include="includes\images\ipk\banner.gif" />
+    <Content Include="includes\images\ipk\breadcrumb.gif" />
+    <Content Include="includes\images\ipk\b_add.gif" />
+    <Content Include="includes\images\ipk\b_cancel.gif" />
+    <Content Include="includes\images\ipk\b_criteria.gif" />
+    <Content Include="includes\images\ipk\b_download.gif" />
+    <Content Include="includes\images\ipk\b_home.gif" />
+    <Content Include="includes\images\ipk\b_info.gif" />
+    <Content Include="includes\images\ipk\b_inputData.gif" />
+    <Content Include="includes\images\ipk\b_keycode.gif" />
+    <Content Include="includes\images\ipk\b_login.gif" />
+    <Content Include="includes\images\ipk\b_next.gif" />
+    <Content Include="includes\images\ipk\b_next_disabled.gif" />
+    <Content Include="includes\images\ipk\b_previous.gif" />
+    <Content Include="includes\images\ipk\b_previous_disabled.gif" />
+    <Content Include="includes\images\ipk\b_remove.gif" />
+    <Content Include="includes\images\ipk\b_save.gif" />
+    <Content Include="includes\images\ipk\b_summary.gif" />
+    <Content Include="includes\images\ipk\b_whiteEnd.gif" />
+    <Content Include="includes\images\ipk\headerTop.png" />
+    <Content Include="includes\images\ipk\indicator.gif" />
+    <Content Include="includes\images\ipk\layout\back.png" />
+    <Content Include="includes\images\ipk\layout\backgroundleaf.png" />
+    <Content Include="includes\images\ipk\layout\pdf.png" />
+    <Content Include="includes\images\ipk\layout\sampleSize.png" />
+    <Content Include="includes\images\ipk\layout\submit.png" />
+    <Content Include="includes\images\ipk\loading.gif" />
+    <Content Include="includes\images\ipk\mainBack.gif" />
+    <Content Include="includes\images\ipk\noData.gif" />
+    <Content Include="includes\images\ipk\reportBar.gif" />
+    <Content Include="includes\images\ipk\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\ipk\reportTopMarkers.gif" />
+    <Content Include="includes\images\ipk\winning_measures.gif" />
+    <Content Include="includes\images\js\adviserImage.png" />
+    <Content Include="includes\images\js\announcement.gif" />
+    <Content Include="includes\images\js\banner.gif" />
+    <Content Include="includes\images\js\breadcrumb.gif" />
+    <Content Include="includes\images\js\b_add.gif" />
+    <Content Include="includes\images\js\b_cancel.gif" />
+    <Content Include="includes\images\js\b_createClientLogin.gif" />
+    <Content Include="includes\images\js\b_criteria.gif" />
+    <Content Include="includes\images\js\b_download.gif" />
+    <Content Include="includes\images\js\b_home.gif" />
+    <Content Include="includes\images\js\b_info.gif" />
+    <Content Include="includes\images\js\b_inputData.gif" />
+    <Content Include="includes\images\js\b_keycode.gif" />
+    <Content Include="includes\images\js\b_login.gif" />
+    <Content Include="includes\images\js\b_next.gif" />
+    <Content Include="includes\images\js\b_next_disabled.gif" />
+    <Content Include="includes\images\js\b_previous.gif" />
+    <Content Include="includes\images\js\b_previous_disabled.gif" />
+    <Content Include="includes\images\js\b_remove.gif" />
+    <Content Include="includes\images\js\b_save.gif" />
+    <Content Include="includes\images\js\b_summary.gif" />
+    <Content Include="includes\images\js\b_whiteEnd.gif" />
+    <Content Include="includes\images\js\footerLogo.png" />
+    <Content Include="includes\images\js\headerTop.png" />
+    <Content Include="includes\images\js\indicator.gif" />
+    <Content Include="includes\images\js\layout\back.png" />
+    <Content Include="includes\images\js\layout\backgroundleaf.png" />
+    <Content Include="includes\images\js\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\js\layout\pdf.png" />
+    <Content Include="includes\images\js\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\js\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\js\layout\sampleSize.png" />
+    <Content Include="includes\images\js\layout\submit.png" />
+    <Content Include="includes\images\js\loading.gif" />
+    <Content Include="includes\images\js\mainBack.gif" />
+    <Content Include="includes\images\js\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\js\newLayout\bodyBK.png" />
+    <Content Include="includes\images\js\newLayout\contactBK.png" />
+    <Content Include="includes\images\js\newLayout\containerBK.png" />
+    <Content Include="includes\images\js\newLayout\contentBK.png" />
+    <Content Include="includes\images\js\newLayout\detailsBK.png" />
+    <Content Include="includes\images\js\newLayout\footerBase.png" />
+    <Content Include="includes\images\js\newLayout\footerBK.png" />
+    <Content Include="includes\images\js\newLayout\greenMan.png" />
+    <Content Include="includes\images\js\newLayout\headerTop.png" />
+    <Content Include="includes\images\js\newLayout\home.png" />
+    <Content Include="includes\images\js\newLayout\homeBK.png" />
+    <Content Include="includes\images\js\newLayout\markModena.png" />
+    <Content Include="includes\images\js\newLayout\menuArrow.png" />
+    <Content Include="includes\images\js\newLayout\menuBK.png" />
+    <Content Include="includes\images\js\newLayout\scoreBar.png" />
+    <Content Include="includes\images\js\newLayout\scoreBK.png" />
+    <Content Include="includes\images\js\newLayout\submit.png" />
+    <Content Include="includes\images\js\newLayout\submitButton.png" />
+    <Content Include="includes\images\js\reportBar.gif" />
+    <Content Include="includes\images\js\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\js\reportTopMarkers.gif" />
+    <Content Include="includes\images\js\triangle.png" />
+    <Content Include="includes\images\js\winning_measures.gif" />
+    <Content Include="includes\images\lda\announcement.gif" />
+    <Content Include="includes\images\lda\banner.jpg" />
+    <Content Include="includes\images\lda\breadcrumb.gif" />
+    <Content Include="includes\images\lda\b_add.gif" />
+    <Content Include="includes\images\lda\b_cancel.gif" />
+    <Content Include="includes\images\lda\b_createClientLogin.gif" />
+    <Content Include="includes\images\lda\b_criteria.gif" />
+    <Content Include="includes\images\lda\b_download.gif" />
+    <Content Include="includes\images\lda\b_home.gif" />
+    <Content Include="includes\images\lda\b_info.gif" />
+    <Content Include="includes\images\lda\b_inputData.gif" />
+    <Content Include="includes\images\lda\b_keycode.gif" />
+    <Content Include="includes\images\lda\b_login.gif" />
+    <Content Include="includes\images\lda\b_next.gif" />
+    <Content Include="includes\images\lda\b_next_disabled.gif" />
+    <Content Include="includes\images\lda\b_previous.gif" />
+    <Content Include="includes\images\lda\b_previous_disabled.gif" />
+    <Content Include="includes\images\lda\b_remove.gif" />
+    <Content Include="includes\images\lda\b_save.gif" />
+    <Content Include="includes\images\lda\b_summary.gif" />
+    <Content Include="includes\images\lda\b_whiteEnd.gif" />
+    <Content Include="includes\images\lda\headerTop.png" />
+    <Content Include="includes\images\lda\indicator.gif" />
+    <Content Include="includes\images\lda\layout\back.png" />
+    <Content Include="includes\images\lda\layout\backgroundleaf.png" />
+    <Content Include="includes\images\lda\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\lda\layout\pdf.png" />
+    <Content Include="includes\images\lda\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\lda\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\lda\layout\sampleSize.png" />
+    <Content Include="includes\images\lda\layout\submit.png" />
+    <Content Include="includes\images\lda\loading.gif" />
+    <Content Include="includes\images\lda\mainBack.gif" />
+    <Content Include="includes\images\lda\reportBar.gif" />
+    <Content Include="includes\images\lda\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\lda\reportTopMarkers.gif" />
+    <Content Include="includes\images\lda\winning_measures.gif" />
+    <Content Include="includes\images\lespnet\announcement.gif" />
+    <Content Include="includes\images\lespnet\breadcrumb.gif" />
+    <Content Include="includes\images\lespnet\b_add.gif" />
+    <Content Include="includes\images\lespnet\b_cancel.gif" />
+    <Content Include="includes\images\lespnet\b_createClientLogin.gif" />
+    <Content Include="includes\images\lespnet\b_criteria.gif" />
+    <Content Include="includes\images\lespnet\b_download.gif" />
+    <Content Include="includes\images\lespnet\b_home.gif" />
+    <Content Include="includes\images\lespnet\b_info.gif" />
+    <Content Include="includes\images\lespnet\b_inputData.gif" />
+    <Content Include="includes\images\lespnet\b_keycode.gif" />
+    <Content Include="includes\images\lespnet\b_login.gif" />
+    <Content Include="includes\images\lespnet\b_next.gif" />
+    <Content Include="includes\images\lespnet\b_next_disabled.gif" />
+    <Content Include="includes\images\lespnet\b_previous.gif" />
+    <Content Include="includes\images\lespnet\b_previous_disabled.gif" />
+    <Content Include="includes\images\lespnet\b_remove.gif" />
+    <Content Include="includes\images\lespnet\b_save.gif" />
+    <Content Include="includes\images\lespnet\b_summary.gif" />
+    <Content Include="includes\images\lespnet\b_whiteEnd.gif" />
+    <Content Include="includes\images\lespnet\headerTop.png" />
+    <Content Include="includes\images\lespnet\indicator.gif" />
+    <Content Include="includes\images\lespnet\layout\back.png" />
+    <Content Include="includes\images\lespnet\layout\backgroundleaf.png" />
+    <Content Include="includes\images\lespnet\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\lespnet\layout\pdf.png" />
+    <Content Include="includes\images\lespnet\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\lespnet\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\lespnet\layout\sampleSize.png" />
+    <Content Include="includes\images\lespnet\layout\submit.png" />
+    <Content Include="includes\images\lespnet\LESPnet-995wx60h_2.png" />
+    <Content Include="includes\images\lespnet\loading.gif" />
+    <Content Include="includes\images\lespnet\mainBack.gif" />
+    <Content Include="includes\images\lespnet\reportBar.gif" />
+    <Content Include="includes\images\lespnet\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\lespnet\reportTopMarkers.gif" />
+    <Content Include="includes\images\lespnet\winning_measures.gif" />
+    <Content Include="includes\images\mas\adviserImage.png" />
+    <Content Include="includes\images\mas\announcement.gif" />
+    <Content Include="includes\images\mas\banner.gif" />
+    <Content Include="includes\images\mas\breadcrumb.gif" />
+    <Content Include="includes\images\mas\b_add.gif" />
+    <Content Include="includes\images\mas\b_cancel.gif" />
+    <Content Include="includes\images\mas\b_createClientLogin.gif" />
+    <Content Include="includes\images\mas\b_criteria.gif" />
+    <Content Include="includes\images\mas\b_download.gif" />
+    <Content Include="includes\images\mas\b_home.gif" />
+    <Content Include="includes\images\mas\b_info.gif" />
+    <Content Include="includes\images\mas\b_inputData.gif" />
+    <Content Include="includes\images\mas\b_keycode.gif" />
+    <Content Include="includes\images\mas\b_login.gif" />
+    <Content Include="includes\images\mas\b_next.gif" />
+    <Content Include="includes\images\mas\b_next_disabled.gif" />
+    <Content Include="includes\images\mas\b_previous.gif" />
+    <Content Include="includes\images\mas\b_previous_disabled.gif" />
+    <Content Include="includes\images\mas\b_remove.gif" />
+    <Content Include="includes\images\mas\b_save.gif" />
+    <Content Include="includes\images\mas\b_summary.gif" />
+    <Content Include="includes\images\mas\b_whiteEnd.gif" />
+    <Content Include="includes\images\mas\footerLogo.png" />
+    <Content Include="includes\images\mas\headerTop.png" />
+    <Content Include="includes\images\mas\indicator.gif" />
+    <Content Include="includes\images\mas\layout\back.png" />
+    <Content Include="includes\images\mas\layout\backgroundleaf.png" />
+    <Content Include="includes\images\mas\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\mas\layout\pdf.png" />
+    <Content Include="includes\images\mas\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\mas\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\mas\layout\sampleSize.png" />
+    <Content Include="includes\images\mas\layout\submit.png" />
+    <Content Include="includes\images\mas\loading.gif" />
+    <Content Include="includes\images\mas\mainBack.gif" />
+    <Content Include="includes\images\mas\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\mas\newLayout\bodyBK.png" />
+    <Content Include="includes\images\mas\newLayout\contactBK.png" />
+    <Content Include="includes\images\mas\newLayout\containerBK.png" />
+    <Content Include="includes\images\mas\newLayout\contentBK.png" />
+    <Content Include="includes\images\mas\newLayout\detailsBK.png" />
+    <Content Include="includes\images\mas\newLayout\footerBase.png" />
+    <Content Include="includes\images\mas\newLayout\footerBK.png" />
+    <Content Include="includes\images\mas\newLayout\greenMan.png" />
+    <Content Include="includes\images\mas\newLayout\headerTop.png" />
+    <Content Include="includes\images\mas\newLayout\home.png" />
+    <Content Include="includes\images\mas\newLayout\homeBK.png" />
+    <Content Include="includes\images\mas\newLayout\markModena.png" />
+    <Content Include="includes\images\mas\newLayout\menuArrow.png" />
+    <Content Include="includes\images\mas\newLayout\menuBK.png" />
+    <Content Include="includes\images\mas\newLayout\scoreBar.png" />
+    <Content Include="includes\images\mas\newLayout\scoreBK.png" />
+    <Content Include="includes\images\mas\newLayout\submit.png" />
+    <Content Include="includes\images\mas\newLayout\submitButton.png" />
+    <Content Include="includes\images\mas\reportBar.gif" />
+    <Content Include="includes\images\mas\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\mas\reportTopMarkers.gif" />
+    <Content Include="includes\images\mas\triangle.png" />
+    <Content Include="includes\images\mas\winning_measures.gif" />
+    <Content Include="includes\images\measurelines.png" />
+    <Content Include="includes\images\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\newLayout\bodyBK.png" />
+    <Content Include="includes\images\newLayout\contactBK.png" />
+    <Content Include="includes\images\newLayout\containerBK.png" />
+    <Content Include="includes\images\newLayout\contentBK.png" />
+    <Content Include="includes\images\newLayout\detailsBK.png" />
+    <Content Include="includes\images\newLayout\footerBase.png" />
+    <Content Include="includes\images\newLayout\footerBK.png" />
+    <Content Include="includes\images\newLayout\footer_benchmark_logo.jpg" />
+    <Content Include="includes\images\newLayout\greenMan.png" />
+    <Content Include="includes\images\newLayout\headerTop.png" />
+    <Content Include="includes\images\newLayout\home.png" />
+    <Content Include="includes\images\newLayout\homeBK.png" />
+    <Content Include="includes\images\newLayout\loading.gif" />
+    <Content Include="includes\images\newLayout\markModena.png" />
+    <Content Include="includes\images\newLayout\menuArrow.png" />
+    <Content Include="includes\images\newLayout\menuBK.png" />
+    <Content Include="includes\images\newLayout\paddlock.png" />
+    <Content Include="includes\images\newLayout\scoreBar.png" />
+    <Content Include="includes\images\newLayout\scoreBK.png" />
+    <Content Include="includes\images\newLayout\submit.png" />
+    <Content Include="includes\images\newLayout\submitButton.png" />
+    <Content Include="includes\images\newLayout\white_footer_benchmark_logo.png" />
+    <Content Include="includes\images\npc\announcement.gif" />
+    <Content Include="includes\images\npc\banner.png" />
+    <Content Include="includes\images\npc\breadcrumb.gif" />
+    <Content Include="includes\images\npc\b_add.gif" />
+    <Content Include="includes\images\npc\b_cancel.gif" />
+    <Content Include="includes\images\npc\b_criteria.gif" />
+    <Content Include="includes\images\npc\b_download.gif" />
+    <Content Include="includes\images\npc\b_home.gif" />
+    <Content Include="includes\images\npc\b_info.gif" />
+    <Content Include="includes\images\npc\b_inputData.gif" />
+    <Content Include="includes\images\npc\b_keycode.gif" />
+    <Content Include="includes\images\npc\b_login.gif" />
+    <Content Include="includes\images\npc\b_next.gif" />
+    <Content Include="includes\images\npc\b_next_disabled.gif" />
+    <Content Include="includes\images\npc\b_previous.gif" />
+    <Content Include="includes\images\npc\b_previous_disabled.gif" />
+    <Content Include="includes\images\npc\b_remove.gif" />
+    <Content Include="includes\images\npc\b_save.gif" />
+    <Content Include="includes\images\npc\b_summary.gif" />
+    <Content Include="includes\images\npc\b_whiteEnd.gif" />
+    <Content Include="includes\images\npc\indicator.gif" />
+    <Content Include="includes\images\npc\loading.gif" />
+    <Content Include="includes\images\npc\mainBack.gif" />
+    <Content Include="includes\images\npc\malay-blue995wx60h-newlogo.png" />
+    <Content Include="includes\images\npc\reportBar.gif" />
+    <Content Include="includes\images\npc\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\npc\reportTopMarkers.gif" />
+    <Content Include="includes\images\npc\winning_measures.gif" />
+    <Content Include="includes\images\nurcha\adviserImage.png" />
+    <Content Include="includes\images\nurcha\announcement.gif" />
+    <Content Include="includes\images\nurcha\banner.gif" />
+    <Content Include="includes\images\nurcha\breadcrumb.gif" />
+    <Content Include="includes\images\nurcha\b_add.gif" />
+    <Content Include="includes\images\nurcha\b_cancel.gif" />
+    <Content Include="includes\images\nurcha\b_createClientLogin.gif" />
+    <Content Include="includes\images\nurcha\b_criteria.gif" />
+    <Content Include="includes\images\nurcha\b_download.gif" />
+    <Content Include="includes\images\nurcha\b_home.gif" />
+    <Content Include="includes\images\nurcha\b_info.gif" />
+    <Content Include="includes\images\nurcha\b_inputData.gif" />
+    <Content Include="includes\images\nurcha\b_keycode.gif" />
+    <Content Include="includes\images\nurcha\b_login.gif" />
+    <Content Include="includes\images\nurcha\b_next.gif" />
+    <Content Include="includes\images\nurcha\b_next_disabled.gif" />
+    <Content Include="includes\images\nurcha\b_previous.gif" />
+    <Content Include="includes\images\nurcha\b_previous_disabled.gif" />
+    <Content Include="includes\images\nurcha\b_remove.gif" />
+    <Content Include="includes\images\nurcha\b_save.gif" />
+    <Content Include="includes\images\nurcha\b_summary.gif" />
+    <Content Include="includes\images\nurcha\b_whiteEnd.gif" />
+    <Content Include="includes\images\nurcha\footer.png" />
+    <Content Include="includes\images\nurcha\footerLogo.png" />
+    <Content Include="includes\images\nurcha\header-large.png" />
+    <Content Include="includes\images\nurcha\header-medium.png" />
+    <Content Include="includes\images\nurcha\header-small.png" />
+    <Content Include="includes\images\nurcha\headerTop.png" />
+    <Content Include="includes\images\nurcha\indicator.gif" />
+    <Content Include="includes\images\nurcha\layout\back.png" />
+    <Content Include="includes\images\nurcha\layout\backgroundleaf.png" />
+    <Content Include="includes\images\nurcha\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\nurcha\layout\pdf.png" />
+    <Content Include="includes\images\nurcha\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\nurcha\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\nurcha\layout\sampleSize.png" />
+    <Content Include="includes\images\nurcha\layout\submit.png" />
+    <Content Include="includes\images\nurcha\loading.gif" />
+    <Content Include="includes\images\nurcha\logo-large.png" />
+    <Content Include="includes\images\nurcha\logo-small.png" />
+    <Content Include="includes\images\nurcha\mainBack.gif" />
+    <Content Include="includes\images\nurcha\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\bodyBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\contactBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\containerBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\contentBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\detailsBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\footerBase.png" />
+    <Content Include="includes\images\nurcha\newLayout\footerBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\greenMan.png" />
+    <Content Include="includes\images\nurcha\newLayout\headerTop.png" />
+    <Content Include="includes\images\nurcha\newLayout\home.png" />
+    <Content Include="includes\images\nurcha\newLayout\homeBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\markModena.png" />
+    <Content Include="includes\images\nurcha\newLayout\menuArrow.png" />
+    <Content Include="includes\images\nurcha\newLayout\menuBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\scoreBar.png" />
+    <Content Include="includes\images\nurcha\newLayout\scoreBK.png" />
+    <Content Include="includes\images\nurcha\newLayout\submit.png" />
+    <Content Include="includes\images\nurcha\newLayout\submitButton.png" />
+    <Content Include="includes\images\nurcha\reportBar.gif" />
+    <Content Include="includes\images\nurcha\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\nurcha\reportTopMarkers.gif" />
+    <Content Include="includes\images\nurcha\triangle.png" />
+    <Content Include="includes\images\nurcha\winning_measures.gif" />
+    <Content Include="includes\images\portugal\adviserImage.png" />
+    <Content Include="includes\images\portugal\announcement.gif" />
+    <Content Include="includes\images\portugal\banner.gif" />
+    <Content Include="includes\images\portugal\breadcrumb.gif" />
+    <Content Include="includes\images\portugal\b_add.gif" />
+    <Content Include="includes\images\portugal\b_cancel.gif" />
+    <Content Include="includes\images\portugal\b_createClientLogin.gif" />
+    <Content Include="includes\images\portugal\b_criteria.gif" />
+    <Content Include="includes\images\portugal\b_download.gif" />
+    <Content Include="includes\images\portugal\b_home.gif" />
+    <Content Include="includes\images\portugal\b_info.gif" />
+    <Content Include="includes\images\portugal\b_inputData.gif" />
+    <Content Include="includes\images\portugal\b_keycode.gif" />
+    <Content Include="includes\images\portugal\b_login.gif" />
+    <Content Include="includes\images\portugal\b_next.gif" />
+    <Content Include="includes\images\portugal\b_next_disabled.gif" />
+    <Content Include="includes\images\portugal\b_previous.gif" />
+    <Content Include="includes\images\portugal\b_previous_disabled.gif" />
+    <Content Include="includes\images\portugal\b_remove.gif" />
+    <Content Include="includes\images\portugal\b_save.gif" />
+    <Content Include="includes\images\portugal\b_summary.gif" />
+    <Content Include="includes\images\portugal\b_whiteEnd.gif" />
+    <Content Include="includes\images\portugal\footerLogo.png" />
+    <Content Include="includes\images\portugal\headerTop.png" />
+    <Content Include="includes\images\portugal\indicator.gif" />
+    <Content Include="includes\images\portugal\layout\back.png" />
+    <Content Include="includes\images\portugal\layout\backgroundleaf.png" />
+    <Content Include="includes\images\portugal\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\portugal\layout\pdf.png" />
+    <Content Include="includes\images\portugal\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\portugal\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\portugal\layout\sampleSize.png" />
+    <Content Include="includes\images\portugal\layout\submit.png" />
+    <Content Include="includes\images\portugal\loading.gif" />
+    <Content Include="includes\images\portugal\mainBack.gif" />
+    <Content Include="includes\images\portugal\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\portugal\newLayout\bodyBK.png" />
+    <Content Include="includes\images\portugal\newLayout\contactBK.png" />
+    <Content Include="includes\images\portugal\newLayout\containerBK.png" />
+    <Content Include="includes\images\portugal\newLayout\contentBK.png" />
+    <Content Include="includes\images\portugal\newLayout\detailsBK.png" />
+    <Content Include="includes\images\portugal\newLayout\footerBase.png" />
+    <Content Include="includes\images\portugal\newLayout\footerBK.png" />
+    <Content Include="includes\images\portugal\newLayout\greenMan.png" />
+    <Content Include="includes\images\portugal\newLayout\headerTop.png" />
+    <Content Include="includes\images\portugal\newLayout\home.png" />
+    <Content Include="includes\images\portugal\newLayout\homeBK.png" />
+    <Content Include="includes\images\portugal\newLayout\markModena.png" />
+    <Content Include="includes\images\portugal\newLayout\menuArrow.png" />
+    <Content Include="includes\images\portugal\newLayout\menuBK.png" />
+    <Content Include="includes\images\portugal\newLayout\scoreBar.png" />
+    <Content Include="includes\images\portugal\newLayout\scoreBK.png" />
+    <Content Include="includes\images\portugal\newLayout\submit.png" />
+    <Content Include="includes\images\portugal\newLayout\submitButton.png" />
+    <Content Include="includes\images\portugal\reportBar.gif" />
+    <Content Include="includes\images\portugal\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\portugal\reportTopMarkers.gif" />
+    <Content Include="includes\images\portugal\triangle.png" />
+    <Content Include="includes\images\portugal\winning_measures.gif" />
+    <Content Include="includes\images\progress.png" />
+    <Content Include="includes\images\rea\adviserImage.png" />
+    <Content Include="includes\images\rea\announcement.gif" />
+    <Content Include="includes\images\rea\banner.gif" />
+    <Content Include="includes\images\rea\breadcrumb.gif" />
+    <Content Include="includes\images\rea\b_add.gif" />
+    <Content Include="includes\images\rea\b_cancel.gif" />
+    <Content Include="includes\images\rea\b_createClientLogin.gif" />
+    <Content Include="includes\images\rea\b_criteria.gif" />
+    <Content Include="includes\images\rea\b_download.gif" />
+    <Content Include="includes\images\rea\b_home.gif" />
+    <Content Include="includes\images\rea\b_info.gif" />
+    <Content Include="includes\images\rea\b_inputData.gif" />
+    <Content Include="includes\images\rea\b_keycode.gif" />
+    <Content Include="includes\images\rea\b_login.gif" />
+    <Content Include="includes\images\rea\b_next.gif" />
+    <Content Include="includes\images\rea\b_next_disabled.gif" />
+    <Content Include="includes\images\rea\b_previous.gif" />
+    <Content Include="includes\images\rea\b_previous_disabled.gif" />
+    <Content Include="includes\images\rea\b_remove.gif" />
+    <Content Include="includes\images\rea\b_save.gif" />
+    <Content Include="includes\images\rea\b_summary.gif" />
+    <Content Include="includes\images\rea\b_whiteEnd.gif" />
+    <Content Include="includes\images\rea\footerLogo.png" />
+    <Content Include="includes\images\rea\headerTop.png" />
+    <Content Include="includes\images\rea\headerTopRea.png" />
+    <Content Include="includes\images\rea\indicator.gif" />
+    <Content Include="includes\images\rea\layout\back.png" />
+    <Content Include="includes\images\rea\layout\backgroundleaf.png" />
+    <Content Include="includes\images\rea\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\rea\layout\pdf.png" />
+    <Content Include="includes\images\rea\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\rea\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\rea\layout\sampleSize.png" />
+    <Content Include="includes\images\rea\layout\submit.png" />
+    <Content Include="includes\images\rea\loading.gif" />
+    <Content Include="includes\images\rea\mainBack.gif" />
+    <Content Include="includes\images\rea\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\rea\newLayout\bodyBK.png" />
+    <Content Include="includes\images\rea\newLayout\contactBK.png" />
+    <Content Include="includes\images\rea\newLayout\containerBK.png" />
+    <Content Include="includes\images\rea\newLayout\contentBK.png" />
+    <Content Include="includes\images\rea\newLayout\detailsBK.png" />
+    <Content Include="includes\images\rea\newLayout\footerBase.png" />
+    <Content Include="includes\images\rea\newLayout\footerBK.png" />
+    <Content Include="includes\images\rea\newLayout\greenMan.png" />
+    <Content Include="includes\images\rea\newLayout\headerTop.png" />
+    <Content Include="includes\images\rea\newLayout\home.png" />
+    <Content Include="includes\images\rea\newLayout\homeBK.png" />
+    <Content Include="includes\images\rea\newLayout\markModena.png" />
+    <Content Include="includes\images\rea\newLayout\menuArrow.png" />
+    <Content Include="includes\images\rea\newLayout\menuBK.png" />
+    <Content Include="includes\images\rea\newLayout\scoreBar.png" />
+    <Content Include="includes\images\rea\newLayout\scoreBK.png" />
+    <Content Include="includes\images\rea\newLayout\submit.png" />
+    <Content Include="includes\images\rea\newLayout\submitButton.png" />
+    <Content Include="includes\images\rea\reportBar.gif" />
+    <Content Include="includes\images\rea\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\rea\reportTopMarkers.gif" />
+    <Content Include="includes\images\rea\triangle.png" />
+    <Content Include="includes\images\rea\winning_measures.gif" />
+    <Content Include="includes\images\small-ajax.gif" />
+    <Content Include="includes\images\small-ajax2.gif" />
+    <Content Include="includes\images\testing123\announcement.gif" />
+    <Content Include="includes\images\testing123\banner.gif" />
+    <Content Include="includes\images\testing123\breadcrumb.gif" />
+    <Content Include="includes\images\testing123\b_add.gif" />
+    <Content Include="includes\images\testing123\b_cancel.gif" />
+    <Content Include="includes\images\testing123\b_createClientLogin.gif" />
+    <Content Include="includes\images\testing123\b_criteria.gif" />
+    <Content Include="includes\images\testing123\b_download.gif" />
+    <Content Include="includes\images\testing123\b_home.gif" />
+    <Content Include="includes\images\testing123\b_info.gif" />
+    <Content Include="includes\images\testing123\b_inputData.gif" />
+    <Content Include="includes\images\testing123\b_keycode.gif" />
+    <Content Include="includes\images\testing123\b_login.gif" />
+    <Content Include="includes\images\testing123\b_next.gif" />
+    <Content Include="includes\images\testing123\b_next_disabled.gif" />
+    <Content Include="includes\images\testing123\b_previous.gif" />
+    <Content Include="includes\images\testing123\b_previous_disabled.gif" />
+    <Content Include="includes\images\testing123\b_remove.gif" />
+    <Content Include="includes\images\testing123\b_save.gif" />
+    <Content Include="includes\images\testing123\b_summary.gif" />
+    <Content Include="includes\images\testing123\b_whiteEnd.gif" />
+    <Content Include="includes\images\testing123\indicator.gif" />
+    <Content Include="includes\images\testing123\loading.gif" />
+    <Content Include="includes\images\testing123\mainBack.gif" />
+    <Content Include="includes\images\testing123\reportBar.gif" />
+    <Content Include="includes\images\testing123\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\testing123\reportTopMarkers.gif" />
+    <Content Include="includes\images\testing123\winning_measures.gif" />
+    <Content Include="includes\images\topmeasures.png" />
+    <Content Include="includes\images\unido\3\aspirations-and-capabilities.png" />
+    <Content Include="includes\images\unido\3\key.png" />
+    <Content Include="includes\images\unido\3\scatter-02052012.png" />
+    <Content Include="includes\images\unido\announcement.gif" />
+    <Content Include="includes\images\unido\aspirations and capabilities.jpg" />
+    <Content Include="includes\images\unido\aspirations-and-capabilities.png" />
+    <Content Include="includes\images\unido\banner.png" />
+    <Content Include="includes\images\unido\breadcrumb.gif" />
+    <Content Include="includes\images\unido\b_add.gif" />
+    <Content Include="includes\images\unido\b_cancel.gif" />
+    <Content Include="includes\images\unido\b_createClientLogin.gif" />
+    <Content Include="includes\images\unido\b_criteria.gif" />
+    <Content Include="includes\images\unido\b_download.gif" />
+    <Content Include="includes\images\unido\b_home.gif" />
+    <Content Include="includes\images\unido\b_info.gif" />
+    <Content Include="includes\images\unido\b_inputData.gif" />
+    <Content Include="includes\images\unido\b_keycode.gif" />
+    <Content Include="includes\images\unido\b_login.gif" />
+    <Content Include="includes\images\unido\b_next.gif" />
+    <Content Include="includes\images\unido\b_next_disabled.gif" />
+    <Content Include="includes\images\unido\b_previous.gif" />
+    <Content Include="includes\images\unido\b_previous_disabled.gif" />
+    <Content Include="includes\images\unido\b_remove.gif" />
+    <Content Include="includes\images\unido\b_save.gif" />
+    <Content Include="includes\images\unido\b_summary.gif" />
+    <Content Include="includes\images\unido\b_whiteEnd.gif" />
+    <Content Include="includes\images\unido\headerTop.png" />
+    <Content Include="includes\images\unido\indicator.gif" />
+    <Content Include="includes\images\unido\key.png" />
+    <Content Include="includes\images\unido\layout\back.png" />
+    <Content Include="includes\images\unido\layout\backgroundleaf.png" />
+    <Content Include="includes\images\unido\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\unido\layout\pdf.png" />
+    <Content Include="includes\images\unido\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\unido\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\unido\layout\sampleSize.png" />
+    <Content Include="includes\images\unido\layout\submit.png" />
+    <Content Include="includes\images\unido\loading.gif" />
+    <Content Include="includes\images\unido\mainBack.gif" />
+    <Content Include="includes\images\unido\overall performance.jpg" />
+    <Content Include="includes\images\unido\overall-performance-french.jpg" />
+    <Content Include="includes\images\unido\overall-performance-french.png" />
+    <Content Include="includes\images\unido\overall-performance.png" />
+    <Content Include="includes\images\unido\quartile_circle.png" />
+    <Content Include="includes\images\unido\radar.png" />
+    <Content Include="includes\images\unido\reportBar.gif" />
+    <Content Include="includes\images\unido\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\unido\reportTopMarkers.gif" />
+    <Content Include="includes\images\unido\scatter-02052010.png" />
+    <Content Include="includes\images\unido\scatter-02052012 14-15-23.png" />
+    <Content Include="includes\images\unido\scatter-02052012.png" />
+    <Content Include="includes\images\unido\scatter-30042012.png" />
+    <Content Include="includes\images\unido\scatter.png" />
+    <Content Include="includes\images\unido\scatterdiagram.png" />
+    <Content Include="includes\images\unido\winning_measures.gif" />
+    <Content Include="includes\images\unido\world class grid french.jpg" />
+    <Content Include="includes\images\unido\world class grid.jpg" />
+    <Content Include="includes\images\unido\world-class-grid-french.jpg" />
+    <Content Include="includes\images\unido\world-class-grid.png" />
+    <Content Include="includes\images\wm2admin\adviserImage.png" />
+    <Content Include="includes\images\wm2admin\announcement.gif" />
+    <Content Include="includes\images\wm2admin\banner.gif" />
+    <Content Include="includes\images\wm2admin\breadcrumb.gif" />
+    <Content Include="includes\images\wm2admin\b_add.gif" />
+    <Content Include="includes\images\wm2admin\b_cancel.gif" />
+    <Content Include="includes\images\wm2admin\b_createClientLogin.gif" />
+    <Content Include="includes\images\wm2admin\b_criteria.gif" />
+    <Content Include="includes\images\wm2admin\b_download.gif" />
+    <Content Include="includes\images\wm2admin\b_home.gif" />
+    <Content Include="includes\images\wm2admin\b_info.gif" />
+    <Content Include="includes\images\wm2admin\b_inputData.gif" />
+    <Content Include="includes\images\wm2admin\b_keycode.gif" />
+    <Content Include="includes\images\wm2admin\b_login.gif" />
+    <Content Include="includes\images\wm2admin\b_next.gif" />
+    <Content Include="includes\images\wm2admin\b_next_disabled.gif" />
+    <Content Include="includes\images\wm2admin\b_previous.gif" />
+    <Content Include="includes\images\wm2admin\b_previous_disabled.gif" />
+    <Content Include="includes\images\wm2admin\b_remove.gif" />
+    <Content Include="includes\images\wm2admin\b_save.gif" />
+    <Content Include="includes\images\wm2admin\b_summary.gif" />
+    <Content Include="includes\images\wm2admin\b_whiteEnd.gif" />
+    <Content Include="includes\images\wm2admin\footerLogo.png" />
+    <Content Include="includes\images\wm2admin\headerTop.png" />
+    <Content Include="includes\images\wm2admin\indicator.gif" />
+    <Content Include="includes\images\wm2admin\layout\back.png" />
+    <Content Include="includes\images\wm2admin\layout\backgroundleaf.png" />
+    <Content Include="includes\images\wm2admin\layout\b_whiteEnd.gif" />
+    <Content Include="includes\images\wm2admin\layout\pdf.png" />
+    <Content Include="includes\images\wm2admin\layout\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\wm2admin\layout\reportTopMarkers.gif" />
+    <Content Include="includes\images\wm2admin\layout\sampleSize.png" />
+    <Content Include="includes\images\wm2admin\layout\submit.png" />
+    <Content Include="includes\images\wm2admin\loading.gif" />
+    <Content Include="includes\images\wm2admin\mainBack.gif" />
+    <Content Include="includes\images\wm2admin\newLayout\benchmarkSummaryBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\bodyBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\contactBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\containerBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\contentBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\detailsBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\footerBase.png" />
+    <Content Include="includes\images\wm2admin\newLayout\footerBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\greenMan.png" />
+    <Content Include="includes\images\wm2admin\newLayout\headerTop.png" />
+    <Content Include="includes\images\wm2admin\newLayout\home.png" />
+    <Content Include="includes\images\wm2admin\newLayout\homeBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\markModena.png" />
+    <Content Include="includes\images\wm2admin\newLayout\menuArrow.png" />
+    <Content Include="includes\images\wm2admin\newLayout\menuBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\scoreBar.png" />
+    <Content Include="includes\images\wm2admin\newLayout\scoreBK.png" />
+    <Content Include="includes\images\wm2admin\newLayout\submit.png" />
+    <Content Include="includes\images\wm2admin\newLayout\submitButton.png" />
+    <Content Include="includes\images\wm2admin\reportBar.gif" />
+    <Content Include="includes\images\wm2admin\reportMiddleMarkers.gif" />
+    <Content Include="includes\images\wm2admin\reportTopMarkers.gif" />
+    <Content Include="includes\images\wm2admin\triangle.png" />
+    <Content Include="includes\images\wm2admin\winning_measures.gif" />
+    <Content Include="includes\jquery\css\south-street\images\calendar.gif" />
+    <Content Include="includes\jquery\css\south-street\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-icons_808080_256x240.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-icons_847e71_256x240.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-icons_8dc262_256x240.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="includes\jquery\css\south-street\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="includes\jquery\css\south-street\jquery-ui-1.8.17.custom.css" />
+    <Content Include="includes\jquery\jquery-1.7.1.min.js" />
+    <Content Include="includes\jquery\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="includes\jquery\jquery.contextmenu.js" />
+    <Content Include="includes\js\bootstrap-modal.js" />
+    <Content Include="includes\js\jquery-1.9.1.js" />
+    <Content Include="includes\js\local.js" />
+    <Content Include="includes\js\master.js" />
+    <Content Include="includes\js\master3084.js" />
+    <Content Include="includes\js\nace.js" />
+    <Content Include="includes\scripting.js" />
+    <Content Include="includes\scripting3084.js" />
+    <Content Include="includes\sitestyle.css" />
+    <Content Include="includes\sitestylenew.css" />
+    <Content Include="Info.aspx" />
+    <Content Include="js\bootstrap\css\bootstrap.min.css" />
+    <Content Include="js\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="js\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="js\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="js\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="js\bootstrap\js\bootstrap.min.js" />
+    <Content Include="js\html5shiv.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\page.js" />
+    <Content Include="js\respond.min.js" />
+    <Content Include="Manage\CM\AddArticle.aspx" />
+    <Content Include="Manage\Systems\AddArticleType.aspx" />
+    <Content Include="Manage\Systems\AddCmOrgArea.aspx" />
+    <Content Include="Manage\Systems\AddColumn.aspx" />
+    <Content Include="Manage\Systems\AJAX\DataProcess.aspx" />
+    <Content Include="Manage\Systems\AJAX\GetCityList.aspx" />
+    <Content Include="App_Browsers\config.browser" />
+    <Content Include="css\main.css" />
+    <Content Include="images\arrow-up.png" />
+    <Content Include="images\back.png" />
+    <Content Include="images\Line.png" />
+    <Content Include="images\menu_a_arrow.png" />
+    <Content Include="Manage\Systems\AJAX\CreatePackageType.aspx" />
+    <Content Include="Manage\Systems\AJAX\CreateStaPackage.aspx" />
+    <Content Include="Manage\Systems\OrgPackage.aspx" />
+    <Content Include="Manage\Systems\AddOrgTrain.aspx" />
+    <Content Include="Manage\Area\AJAX\AddArea.aspx" />
+    <Content Include="Manage\Area\AJAX\AddSelect.aspx" />
+    <Content Include="Manage\Area\AJAX\DelAreaAtt.aspx" />
+    <Content Include="Manage\Area\Area.aspx" />
+    <Content Include="Manage\Area\AreaAtt.aspx" />
+    <Content Include="Manage\Area\AreaMain.aspx" />
+    <Content Include="Manage\CM\CMAuditArticle.aspx" />
+    <Content Include="Manage\CM\CMArticleClickRate.aspx" />
+    <Content Include="Manage\CM\CMColumnClickRate.aspx" />
+    <Content Include="Manage\Systems\OrgTrain.aspx" />
+    <Content Include="Manage\Systems\AJAX\AddPlant.aspx" />
+    <Content Include="Manage\Systems\AJAX\OrgCom.aspx" />
+    <Content Include="Manage\CM\Ajax\AddArticleType.aspx" />
+    <Content Include="Manage\CM\Ajax\AddColumn.aspx" />
+    <Content Include="Manage\CM\Ajax\ColumnShow.aspx" />
+    <Content Include="Manage\CM\Ajax\UpdateStatus.aspx" />
+    <Content Include="Manage\CM\Ajax\UpdateTop.aspx" />
+    <Content Include="Manage\CM\CMArticle.aspx" />
+    <Content Include="Manage\CM\CMArticleType.aspx" />
+    <Content Include="Manage\CM\CMColumn.aspx" />
+    <Content Include="Manage\CM\Point.aspx" />
+    <Content Include="Manage\CM\SWFFileUpload.swf" />
+    <Content Include="Manage\CM\Wine_AddArticle.aspx" />
+    <Content Include="Manage\SysLogs\LogList.aspx" />
+    <Content Include="Manage\SysLogs\ValueCompare.aspx" />
+    <Content Include="Manage\Systems\AddOrgDepUser.aspx" />
+    <Content Include="Manage\Systems\AddOrgWorkStation.aspx" />
+    <Content Include="Manage\Systems\AddOrgWorStaUser.aspx" />
+    <Content Include="Manage\Systems\AddSystemAdminUser.aspx" />
+    <Content Include="Manage\Systems\AddSystemDepartmentInfo.aspx" />
+    <Content Include="Manage\Systems\AddSystemPageConfig.aspx" />
+    <Content Include="Manage\Systems\AddSystemRoleInfo.aspx" />
+    <Content Include="Manage\Systems\AddWorStaMach.aspx" />
+    <Content Include="Manage\Systems\AJAX\AddPC.aspx" />
+    <Content Include="Manage\Systems\AJAX\CheckPC.aspx" />
+    <Content Include="Manage\Systems\AJAX\Consultant.aspx" />
+    <Content Include="Manage\Systems\AJAX\DelPC.aspx" />
+    <Content Include="Manage\Systems\AJAX\DepartmentInfo.aspx" />
+    <Content Include="Manage\Systems\AJAX\EditPC.aspx" />
+    <Content Include="Manage\Systems\AJAX\GetOrgTree.aspx" />
+    <Content Include="Manage\Systems\AJAX\GetWorStaTree.aspx" />
+    <Content Include="Manage\Systems\AJAX\PageInfo.aspx" />
+    <Content Include="Manage\Systems\AJAX\ResPassword.aspx" />
+    <Content Include="Manage\Systems\AJAX\RoleInfo.aspx" />
+    <Content Include="Manage\Systems\ChangePass.aspx" />
+    <Content Include="Manage\Systems\Default.aspx" />
+    <Content Include="Manage\Systems\Left.aspx" />
+    <Content Include="Manage\Systems\OrgDefault.aspx" />
+    <Content Include="Manage\Systems\OrgDep.aspx" />
+    <Content Include="Manage\Systems\OrgUserDefault.aspx" />
+    <Content Include="Manage\Systems\OrgUserDep.aspx" />
+    <Content Include="Manage\Systems\OrgUserWorkStation.aspx" />
+    <Content Include="Manage\Systems\OrgWorkStation.aspx" />
+    <Content Include="Manage\Systems\OrgWorStaDefault.aspx" />
+    <Content Include="Manage\Systems\ResetPassword.aspx" />
+    <Content Include="Manage\Systems\SystemConfig.aspx" />
+    <Content Include="Manage\Systems\SystemDepartmentInfo.aspx" />
+    <Content Include="Manage\Systems\SystemMember.aspx" />
+    <Content Include="Manage\Systems\SystemPageConfig.aspx" />
+    <Content Include="Manage\Systems\SystemRoleInfo.aspx" />
+    <Content Include="Manage\Systems\SystemSetPage.aspx" />
+    <Content Include="Manage\Systems\SystemSetRole.aspx" />
+    <Content Include="Manage\Systems\Top.aspx" />
+    <Content Include="Manage\Systems\UserRole.aspx" />
+    <Content Include="Manage\Systems\Welcome.aspx" />
+    <Content Include="Scripts\artDialog4.1.6\artDialog.js" />
+    <Content Include="Scripts\artDialog4.1.6\artDialog.source.js" />
+    <Content Include="Scripts\artDialog4.1.6\index.html" />
+    <Content Include="Scripts\artDialog4.1.6\jquery.artDialog.js" />
+    <Content Include="Scripts\artDialog4.1.6\jquery.artDialog.source.js" />
+    <Content Include="Scripts\artDialog4.1.6\license.txt" />
+    <Content Include="Scripts\artDialog4.1.6\plugins\iframeTools.js" />
+    <Content Include="Scripts\artDialog4.1.6\plugins\iframeTools.source.js" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero.css" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\aero_s.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\aero_s2.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_close.hover.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_close.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_e.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_n.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_ne.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_nw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_s.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_se.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_sw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_title_icon.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\aero\ie6\aui_w.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black.css" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\bg.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\bg2.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\bg_css3.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\bg_css3_2.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\close.hover.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\close.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\e.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\n.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\ne.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\nw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\s.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\se.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\sw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\black\ie6\w.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue.css" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\bg.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\bg2.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\bg_css3.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\bg_css3_2.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\close.hover.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\close.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\e.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\n.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\ne.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\nw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\s.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\se.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\sw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\blue\ie6\w.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\chrome.css" />
+    <Content Include="Scripts\artDialog4.1.6\skins\chrome\border.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\chrome\chrome_s.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\default.css" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green.css" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\bg.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\bg2.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\bg_css3.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\bg_css3_2.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\color_bg.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\close.hover.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\close.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\e.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\n.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\ne.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\nw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\s.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\se.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\sw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\green\ie6\w.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\icons\error.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\icons\face-sad.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\icons\face-smile.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\icons\loading.gif" />
+    <Content Include="Scripts\artDialog4.1.6\skins\icons\question.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\icons\succeed.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\icons\warning.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog.css" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\idialog_s.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\idialog_s2.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_close.hover.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_close.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_e.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_n.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_ne.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_nw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_s.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_se.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_sw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\idialog\ie6\aui_w.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera.css" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_close.hover.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_close.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_e.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_n.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_ne.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_nw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_s.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_se.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_sw.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\ie6\aui_w.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\s1.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\opera\s2.png" />
+    <Content Include="Scripts\artDialog4.1.6\skins\simple.css" />
+    <Content Include="Scripts\artDialog4.1.6\skins\twitter.css" />
+    <Content Include="Scripts\jquery-ui-1.8.7.custom.css" />
+    <Content Include="Scripts\jquery-ui-1.8.7.custom.min.js" />
+    <Content Include="themes\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="themes\bootstrap-datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="themes\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ca.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.el.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.hu.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.kr.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.no.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sw.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ua.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.uk.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="themes\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <Content Include="themes\default\Account.css" />
+    <Content Include="themes\default\bootstrap\css\bootstrap.min.css" />
+    <Content Include="themes\default\bootstrap\css\todc-bootstrap.css" />
+    <Content Include="themes\default\bootstrap\img\bg.gif" />
+    <Content Include="themes\default\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="themes\default\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="themes\default\bootstrap\js\bootstrap-ie.js" />
+    <Content Include="themes\default\bootstrap\js\bootstrap.min.js" />
+    <Content Include="themes\default\bootstrap\js\jquery-1.8.0.min.js" />
+    <Content Include="themes\default\images\40.png" />
+    <Content Include="themes\default\images\admin_logo.png" />
+    <Content Include="themes\default\images\arrow-down.png" />
+    <Content Include="themes\default\images\arrow-right.png" />
+    <Content Include="themes\default\images\arrow.png" />
+    <Content Include="themes\default\images\bar.png" />
+    <Content Include="themes\default\images\bar_bg.png" />
+    <Content Include="themes\default\images\bg.gif" />
+    <Content Include="themes\default\images\bg.png" />
+    <Content Include="themes\default\images\bg2.png" />
+    <Content Include="themes\default\images\box_h3.png" />
+    <Content Include="themes\default\images\dl_line.png" />
+    <Content Include="themes\default\images\face.png" />
+    <Content Include="themes\default\images\header-bar.png" />
+    <Content Include="themes\default\images\ic1.png" />
+    <Content Include="themes\default\images\ic2.fw.png" />
+    <Content Include="themes\default\images\ic3.fw.png" />
+    <Content Include="themes\default\images\ic4.fw.png" />
+    <Content Include="themes\default\images\ic5.png" />
+    <Content Include="themes\default\images\ic6.png" />
+    <Content Include="themes\default\images\icon-1.fw.png" />
+    <Content Include="themes\default\images\icon-2.fw.png" />
+    <Content Include="themes\default\images\icon-item1.png" />
+    <Content Include="themes\default\images\icon-item2.png" />
+    <Content Include="themes\default\images\icon-item3.png" />
+    <Content Include="themes\default\images\icon_heart.png" />
+    <Content Include="themes\default\images\icon_heart_red.png" />
+    <Content Include="themes\default\images\icon_order.png" />
+    <Content Include="themes\default\images\icon_share.png" />
+    <Content Include="themes\default\images\jiu.png" />
+    <Content Include="themes\default\images\jstree.png" />
+    <Content Include="themes\default\images\left.png" />
+    <Content Include="themes\default\images\left_a_cur.png" />
+    <Content Include="themes\default\images\login_bg.png" />
+    <Content Include="themes\default\images\login_body.jpg" />
+    <Content Include="themes\default\images\login_body.png" />
+    <Content Include="themes\default\images\login_logo.png" />
+    <Content Include="themes\default\images\LOGO-yt.png" />
+    <Content Include="themes\default\images\logo.png" />
+    <Content Include="themes\default\images\NoPhoto.jpg" />
+    <Content Include="themes\default\images\pannel-header.png" />
+    <Content Include="themes\default\images\photo-default.png" />
+    <Content Include="themes\default\images\strong.fw.png" />
+    <Content Include="themes\default\images\tel.png" />
+    <Content Include="themes\default\images\tit.png" />
+    <Content Include="themes\default\images\tit2.png" />
+    <Content Include="themes\default\images\top.png" />
+    <Content Include="themes\default\images\tree_icons.png" />
+    <Content Include="themes\default\main.css" />
+    <Content Include="themes\default\Master.min.css" />
+    <Content Include="themes\default\pad.css" />
+    <Content Include="themes\Font-Awesome-3.2.1\css\font-awesome-ie7.css" />
+    <Content Include="themes\Font-Awesome-3.2.1\css\font-awesome-ie7.min.css" />
+    <Content Include="themes\Font-Awesome-3.2.1\css\font-awesome.css" />
+    <Content Include="themes\Font-Awesome-3.2.1\css\font-awesome.min.css" />
+    <Content Include="themes\Font-Awesome-3.2.1\font\fontawesome-webfont.svg" />
+    <Content Include="themes\js\jquery.min.js" />
+    <Content Include="themes\js\jstree\themes\apple\bg.jpg" />
+    <Content Include="themes\js\jstree\themes\apple\d.png" />
+    <Content Include="themes\js\jstree\themes\apple\dot_for_ie.gif" />
+    <Content Include="themes\js\jstree\themes\apple\style.css" />
+    <Content Include="themes\js\jstree\themes\apple\throbber.gif" />
+    <Content Include="themes\js\jstree\themes\classic\d.gif" />
+    <Content Include="themes\js\jstree\themes\classic\d.png" />
+    <Content Include="themes\js\jstree\themes\classic\dot_for_ie.gif" />
+    <Content Include="themes\js\jstree\themes\classic\style.css" />
+    <Content Include="themes\js\jstree\themes\classic\throbber.gif" />
+    <Content Include="themes\js\jstree\themes\default-rtl\d.gif" />
+    <Content Include="themes\js\jstree\themes\default-rtl\d.png" />
+    <Content Include="themes\js\jstree\themes\default-rtl\dots.gif" />
+    <Content Include="themes\js\jstree\themes\default-rtl\style.css" />
+    <Content Include="themes\js\jstree\themes\default-rtl\throbber.gif" />
+    <Content Include="themes\js\jstree\themes\default\d.gif" />
+    <Content Include="themes\js\jstree\themes\default\d.png" />
+    <Content Include="themes\js\jstree\themes\default\style.css" />
+    <Content Include="themes\js\jstree\themes\default\throbber.gif" />
+    <Content Include="themes\js\jstree\_lib\jquery.cookie.js" />
+    <Content Include="themes\js\jstree\_lib\jquery.js" />
+    <Content Include="themes\js\jstree\_lib\jquery.jstree.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\asp.net\file_manager_json.ashx" />
+    <Content Include="themes\js\kindeditor-4.1.6\asp.net\upload_json.ashx" />
+    <Content Include="themes\js\kindeditor-4.1.6\jsp\demo.jsp" />
+    <Content Include="themes\js\kindeditor-4.1.6\jsp\file_manager_json.jsp" />
+    <Content Include="themes\js\kindeditor-4.1.6\jsp\upload_json.jsp" />
+    <Content Include="themes\js\kindeditor-4.1.6\php\demo.php" />
+    <Content Include="themes\js\kindeditor-4.1.6\php\file_manager_json.php" />
+    <Content Include="themes\js\kindeditor-4.1.6\php\JSON.php" />
+    <Content Include="themes\js\kindeditor-4.1.6\php\upload_json.php" />
+    <Content Include="themes\Font-Awesome-3.2.1\font\fontawesome-webfont.eot" />
+    <Content Include="themes\Font-Awesome-3.2.1\font\fontawesome-webfont.ttf" />
+    <Content Include="themes\Font-Awesome-3.2.1\font\fontawesome-webfont.woff" />
+    <Content Include="themes\Font-Awesome-3.2.1\font\FontAwesome.otf" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\ECommerce20140113.pubxml" />
+    <None Include="Properties\PublishProfiles\Ecommerce20140328.pubxml" />
+    <None Include="Properties\PublishProfiles\Ecommerce20140331.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140401.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140402.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140409.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140411.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140414.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140415.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201404151.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140416.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140418.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201404181.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140516.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405161.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405162.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405163.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405164.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405165.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140519.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405191.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140520.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140529.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405291.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405292.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140530.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405301.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201405302.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140611.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201406112.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140612.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201406121.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140616.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce201406161.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140723.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140724.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140725.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140730.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140801.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140805.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140807.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140811.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140812.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140813.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140822.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140903.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140915.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20140919.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommerce20150605.pubxml" />
+    <None Include="Properties\PublishProfiles\ECommercePublish.pubxml" />
+    <Content Include="themes\js\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="themes\js\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="themes\js\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="themes\js\travel.main.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Alerm.html" />
+    <Content Include="Default.aspx" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\arrow-down.png" />
+    <Content Include="images\arrow-right.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="Login.aspx" />
+    <Content Include="Manage\Login.aspx" />
+    <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="themes\js\bootstrap-carousel\bootstrap-carousel.css" />
+    <Content Include="themes\js\bootstrap-carousel\bootstrap-carousel.js" />
+    <Content Include="themes\js\bootstrap.modal.js" />
+    <Content Include="themes\js\bootstrap\css\bootstrap-icons.css" />
+    <Content Include="themes\js\bootstrap\css\bootstrap.min.css" />
+    <Content Include="themes\js\bootstrap\css\bootstrap2btn.css" />
+    <Content Include="themes\js\bootstrap\css\bootstrap3btn.css" />
+    <Content Include="themes\js\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="themes\js\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="themes\js\html5.js" />
+    <Content Include="themes\js\jquery-1.8.0.min.js" />
+    <Content Include="themes\js\jquery.table.select.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\asp.net\demo.aspx" />
+    <Content Include="themes\js\kindeditor-4.1.6\asp.net\README.txt" />
+    <Content Include="themes\js\kindeditor-4.1.6\asp\demo.asp" />
+    <Content Include="themes\js\kindeditor-4.1.6\asp\file_manager_json.asp" />
+    <Content Include="themes\js\kindeditor-4.1.6\asp\JSON_2.0.4.asp" />
+    <Content Include="themes\js\kindeditor-4.1.6\asp\UpLoad_Class.asp" />
+    <Content Include="themes\js\kindeditor-4.1.6\asp\upload_json.asp" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\auto-height.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\colorpicker.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\custom-plugin.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\custom-theme.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\default.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\dialog.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\dynamic-load.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\file-dialog.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\file-manager.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\filter-mode.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\image-dialog.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\index.css" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\index.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\jquery-ui.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\jquery.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\multi-image-dialog.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\multi-language.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\newline.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\node.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\paste-type.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\qqstyle.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\readonly.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\simple.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\uploadbutton.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\url-type.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\examples\word-count.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\jsp\lib\commons-fileupload-1.2.1.jar" />
+    <Content Include="themes\js\kindeditor-4.1.6\jsp\lib\commons-io-1.4.jar" />
+    <Content Include="themes\js\kindeditor-4.1.6\jsp\lib\json_simple-1.1.jar" />
+    <Content Include="themes\js\kindeditor-4.1.6\jsp\README.txt" />
+    <Content Include="themes\js\kindeditor-4.1.6\kindeditor-all-min.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\kindeditor-all.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\kindeditor-min.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\kindeditor.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\lang\ar.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\lang\en.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\lang\ko.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\lang\zh_CN.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\lang\zh_TW.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\license.txt" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\anchor\anchor.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\autoheight\autoheight.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\baidumap\baidumap.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\baidumap\index.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\baidumap\map.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\clearhtml\clearhtml.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\code\code.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\code\prettify.css" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\code\prettify.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\emoticons.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\0.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\1.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\10.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\100.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\101.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\102.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\103.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\104.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\105.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\106.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\107.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\108.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\109.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\11.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\110.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\111.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\112.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\113.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\114.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\115.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\116.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\117.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\118.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\119.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\12.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\120.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\121.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\122.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\123.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\124.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\125.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\126.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\127.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\128.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\129.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\13.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\130.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\131.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\132.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\133.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\134.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\14.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\15.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\16.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\17.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\18.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\19.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\2.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\20.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\21.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\22.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\23.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\24.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\25.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\26.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\27.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\28.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\29.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\3.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\30.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\31.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\32.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\33.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\34.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\35.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\36.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\37.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\38.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\39.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\4.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\40.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\41.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\42.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\43.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\44.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\45.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\46.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\47.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\48.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\49.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\5.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\50.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\51.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\52.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\53.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\54.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\55.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\56.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\57.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\58.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\59.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\6.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\60.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\61.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\62.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\63.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\64.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\65.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\66.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\67.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\68.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\69.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\7.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\70.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\71.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\72.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\73.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\74.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\75.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\76.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\77.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\78.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\79.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\8.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\80.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\81.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\82.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\83.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\84.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\85.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\86.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\87.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\88.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\89.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\9.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\90.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\91.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\92.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\93.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\94.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\95.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\96.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\97.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\98.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\99.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\emoticons\images\static.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\filemanager\filemanager.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\filemanager\images\file-16.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\filemanager\images\file-64.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\filemanager\images\go-up.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\flash\flash.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\image\image.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\image\images\align_left.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\image\images\align_right.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\image\images\align_top.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\image\images\refresh.png" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\insertfile\insertfile.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\lineheight\lineheight.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\link\link.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\map\map.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\map\map.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\media\media.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\multiimage\images\image.png" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\multiimage\images\select-files-en.png" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\multiimage\images\select-files-zh_CN.png" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\multiimage\images\swfupload.swf" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\multiimage\multiimage.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\pagebreak\pagebreak.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\plainpaste\plainpaste.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\preview\preview.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\quickformat\quickformat.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\table\table.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\template\html\1.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\template\html\2.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\template\html\3.html" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\template\template.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\plugins\wordpaste\wordpaste.js" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\common\anchor.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\common\blank.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\common\flash.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\common\loading.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\common\media.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\common\rm.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\default\background.png" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\default\default.css" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\default\default.png" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\qq\editor.gif" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\qq\qq.css" />
+    <Content Include="themes\js\kindeditor-4.1.6\themes\simple\simple.css" />
+    <Content Include="themes\js\My97DatePicker\calendar.js" />
+    <Content Include="themes\js\My97DatePicker\config.js" />
+    <Content Include="themes\js\My97DatePicker\lang\en.js" />
+    <Content Include="themes\js\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="themes\js\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="themes\js\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="themes\js\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="themes\js\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="themes\js\My97DatePicker\skin\default\img.gif" />
+    <Content Include="themes\js\My97DatePicker\skin\default\tit-bg.png" />
+    <Content Include="themes\js\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="themes\js\My97DatePicker\WdatePicker.js" />
+    <Content Include="themes\js\page.js" />
+    <Content Include="themes\js\respond.min.js" />
+    <Content Include="themes\js\unslider.min.js" />
+    <Content Include="themes\js\wiimedia-market.js" />
+    <Content Include="themes\plugins\adminjs\admin.login.js" />
+    <Content Include="themes\plugins\adminjs\admin.msg.css" />
+    <Content Include="themes\plugins\adminjs\admin.msg.js" />
+    <Content Include="themes\plugins\adminjs\admin.page.js" />
+    <Content Include="themes\plugins\adminjs\jquery.1.2.6.js" />
+    <Content Include="themes\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="themes\plugins\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="themes\plugins\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="themes\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="themes\plugins\jquerylayout\example.html" />
+    <Content Include="themes\plugins\jquerylayout\jquery.layout.min.js" />
+    <Content Include="themes\plugins\jquerylayout\jquery.ui.all.js" />
+    <Content Include="themes\plugins\jquerylayout\layout-default.css" />
+    <Content Include="themes\sco.js\css\sco.message.css" />
+    <Content Include="themes\sco.js\css\scojs.css" />
+    <Content Include="themes\sco.js\js\sco.ajax.js" />
+    <Content Include="themes\sco.js\js\sco.collapse.js" />
+    <Content Include="themes\sco.js\js\sco.confirm.js" />
+    <Content Include="themes\sco.js\js\sco.countdown.js" />
+    <Content Include="themes\sco.js\js\sco.message.js" />
+    <Content Include="themes\sco.js\js\sco.modal.js" />
+    <Content Include="themes\sco.js\js\sco.panes.js" />
+    <Content Include="themes\sco.js\js\sco.tab.js" />
+    <Content Include="themes\sco.js\js\sco.tooltip.js" />
+    <Content Include="themes\sco.js\js\sco.valid.js" />
+    <Content Include="UserControl\OrgTree.ascx" />
+    <Content Include="UserControl\Pager.ascx" />
+    <Content Include="ValidateCode.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HtmlHelper.cs" />
+    <Compile Include="Info.aspx.cs">
+      <DependentUpon>Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Info.aspx.designer.cs">
+      <DependentUpon>Info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\AddArticle.aspx.cs">
+      <DependentUpon>AddArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\AddArticle.aspx.designer.cs">
+      <DependentUpon>AddArticle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddArticleType.aspx.cs">
+      <DependentUpon>AddArticleType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddArticleType.aspx.designer.cs">
+      <DependentUpon>AddArticleType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddCmOrgArea.aspx.cs">
+      <DependentUpon>AddCmOrgArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddCmOrgArea.aspx.designer.cs">
+      <DependentUpon>AddCmOrgArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddColumn.aspx.cs">
+      <DependentUpon>AddColumn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddColumn.aspx.designer.cs">
+      <DependentUpon>AddColumn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\DataProcess.aspx.cs">
+      <DependentUpon>DataProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\DataProcess.aspx.designer.cs">
+      <DependentUpon>DataProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\GetCityList.aspx.cs">
+      <DependentUpon>GetCityList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\GetCityList.aspx.designer.cs">
+      <DependentUpon>GetCityList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\CreatePackageType.aspx.cs">
+      <DependentUpon>CreatePackageType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\CreatePackageType.aspx.designer.cs">
+      <DependentUpon>CreatePackageType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\CreateStaPackage.aspx.cs">
+      <DependentUpon>CreateStaPackage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\CreateStaPackage.aspx.designer.cs">
+      <DependentUpon>CreateStaPackage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgPackage.aspx.cs">
+      <DependentUpon>OrgPackage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgPackage.aspx.designer.cs">
+      <DependentUpon>OrgPackage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddOrgTrain.aspx.cs">
+      <DependentUpon>AddOrgTrain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddOrgTrain.aspx.designer.cs">
+      <DependentUpon>AddOrgTrain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Area\AJAX\AddArea.aspx.cs">
+      <DependentUpon>AddArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Area\AJAX\AddArea.aspx.designer.cs">
+      <DependentUpon>AddArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Area\AJAX\AddSelect.aspx.cs">
+      <DependentUpon>AddSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Area\AJAX\AddSelect.aspx.designer.cs">
+      <DependentUpon>AddSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Area\AJAX\DelAreaAtt.aspx.cs">
+      <DependentUpon>DelAreaAtt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Area\AJAX\DelAreaAtt.aspx.designer.cs">
+      <DependentUpon>DelAreaAtt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Area\Area.aspx.cs">
+      <DependentUpon>Area.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Area\Area.aspx.designer.cs">
+      <DependentUpon>Area.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Area\AreaAtt.aspx.cs">
+      <DependentUpon>AreaAtt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Area\AreaAtt.aspx.designer.cs">
+      <DependentUpon>AreaAtt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Area\AreaMain.aspx.cs">
+      <DependentUpon>AreaMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Area\AreaMain.aspx.designer.cs">
+      <DependentUpon>AreaMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\CMAuditArticle.aspx.cs">
+      <DependentUpon>CMAuditArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\CMAuditArticle.aspx.designer.cs">
+      <DependentUpon>CMAuditArticle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\CMArticleClickRate.aspx.cs">
+      <DependentUpon>CMArticleClickRate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\CMArticleClickRate.aspx.designer.cs">
+      <DependentUpon>CMArticleClickRate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\CMColumnClickRate.aspx.cs">
+      <DependentUpon>CMColumnClickRate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\CMColumnClickRate.aspx.designer.cs">
+      <DependentUpon>CMColumnClickRate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgTrain.aspx.cs">
+      <DependentUpon>OrgTrain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgTrain.aspx.designer.cs">
+      <DependentUpon>OrgTrain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\AddPlant.aspx.cs">
+      <DependentUpon>AddPlant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\AddPlant.aspx.designer.cs">
+      <DependentUpon>AddPlant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\OrgCom.aspx.cs">
+      <DependentUpon>OrgCom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\OrgCom.aspx.designer.cs">
+      <DependentUpon>OrgCom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\AddArticleType.aspx.cs">
+      <DependentUpon>AddArticleType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\AddArticleType.aspx.designer.cs">
+      <DependentUpon>AddArticleType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\AddColumn.aspx.cs">
+      <DependentUpon>AddColumn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\AddColumn.aspx.designer.cs">
+      <DependentUpon>AddColumn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\ColumnShow.aspx.cs">
+      <DependentUpon>ColumnShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\ColumnShow.aspx.designer.cs">
+      <DependentUpon>ColumnShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\UpdateStatus.aspx.cs">
+      <DependentUpon>UpdateStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\UpdateStatus.aspx.designer.cs">
+      <DependentUpon>UpdateStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\UpdateTop.aspx.cs">
+      <DependentUpon>UpdateTop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\Ajax\UpdateTop.aspx.designer.cs">
+      <DependentUpon>UpdateTop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\CMArticle.aspx.cs">
+      <DependentUpon>CMArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\CMArticle.aspx.designer.cs">
+      <DependentUpon>CMArticle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\CMArticleType.aspx.cs">
+      <DependentUpon>CMArticleType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\CMArticleType.aspx.designer.cs">
+      <DependentUpon>CMArticleType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\CMColumn.aspx.cs">
+      <DependentUpon>CMColumn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\CMColumn.aspx.designer.cs">
+      <DependentUpon>CMColumn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\Point.aspx.cs">
+      <DependentUpon>Point.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\Point.aspx.designer.cs">
+      <DependentUpon>Point.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\CM\Wine_AddArticle.aspx.cs">
+      <DependentUpon>Wine_AddArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\CM\Wine_AddArticle.aspx.designer.cs">
+      <DependentUpon>Wine_AddArticle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\SysLogs\LogList.aspx.cs">
+      <DependentUpon>LogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\SysLogs\LogList.aspx.designer.cs">
+      <DependentUpon>LogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\SysLogs\ValueCompare.aspx.cs">
+      <DependentUpon>ValueCompare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\SysLogs\ValueCompare.aspx.designer.cs">
+      <DependentUpon>ValueCompare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddOrgDepUser.aspx.cs">
+      <DependentUpon>AddOrgDepUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddOrgDepUser.aspx.designer.cs">
+      <DependentUpon>AddOrgDepUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddOrgWorkStation.aspx.cs">
+      <DependentUpon>AddOrgWorkStation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddOrgWorkStation.aspx.designer.cs">
+      <DependentUpon>AddOrgWorkStation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddOrgWorStaUser.aspx.cs">
+      <DependentUpon>AddOrgWorStaUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddOrgWorStaUser.aspx.designer.cs">
+      <DependentUpon>AddOrgWorStaUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddSystemAdminUser.aspx.cs">
+      <DependentUpon>AddSystemAdminUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddSystemAdminUser.aspx.designer.cs">
+      <DependentUpon>AddSystemAdminUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddSystemDepartmentInfo.aspx.cs">
+      <DependentUpon>AddSystemDepartmentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddSystemDepartmentInfo.aspx.designer.cs">
+      <DependentUpon>AddSystemDepartmentInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddSystemPageConfig.aspx.cs">
+      <DependentUpon>AddSystemPageConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddSystemPageConfig.aspx.designer.cs">
+      <DependentUpon>AddSystemPageConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddSystemRoleInfo.aspx.cs">
+      <DependentUpon>AddSystemRoleInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddSystemRoleInfo.aspx.designer.cs">
+      <DependentUpon>AddSystemRoleInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddWorStaMach.aspx.cs">
+      <DependentUpon>AddWorStaMach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddWorStaMach.aspx.designer.cs">
+      <DependentUpon>AddWorStaMach.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\AddPC.aspx.cs">
+      <DependentUpon>AddPC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\AddPC.aspx.designer.cs">
+      <DependentUpon>AddPC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\CheckPC.aspx.cs">
+      <DependentUpon>CheckPC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\CheckPC.aspx.designer.cs">
+      <DependentUpon>CheckPC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\Consultant.aspx.cs">
+      <DependentUpon>Consultant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\Consultant.aspx.designer.cs">
+      <DependentUpon>Consultant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\DelPC.aspx.cs">
+      <DependentUpon>DelPC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\DelPC.aspx.designer.cs">
+      <DependentUpon>DelPC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\DepartmentInfo.aspx.cs">
+      <DependentUpon>DepartmentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\DepartmentInfo.aspx.designer.cs">
+      <DependentUpon>DepartmentInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\EditPC.aspx.cs">
+      <DependentUpon>EditPC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\EditPC.aspx.designer.cs">
+      <DependentUpon>EditPC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\GetOrgTree.aspx.cs">
+      <DependentUpon>GetOrgTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\GetOrgTree.aspx.designer.cs">
+      <DependentUpon>GetOrgTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\GetWorStaTree.aspx.cs">
+      <DependentUpon>GetWorStaTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\GetWorStaTree.aspx.designer.cs">
+      <DependentUpon>GetWorStaTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\PageInfo.aspx.cs">
+      <DependentUpon>PageInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\PageInfo.aspx.designer.cs">
+      <DependentUpon>PageInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\ResPassword.aspx.cs">
+      <DependentUpon>ResPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\ResPassword.aspx.designer.cs">
+      <DependentUpon>ResPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\RoleInfo.aspx.cs">
+      <DependentUpon>RoleInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AJAX\RoleInfo.aspx.designer.cs">
+      <DependentUpon>RoleInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\ChangePass.aspx.cs">
+      <DependentUpon>ChangePass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\ChangePass.aspx.designer.cs">
+      <DependentUpon>ChangePass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\Left.aspx.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\Left.aspx.designer.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgDefault.aspx.cs">
+      <DependentUpon>OrgDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgDefault.aspx.designer.cs">
+      <DependentUpon>OrgDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgDep.aspx.cs">
+      <DependentUpon>OrgDep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgDep.aspx.designer.cs">
+      <DependentUpon>OrgDep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgUserDefault.aspx.cs">
+      <DependentUpon>OrgUserDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgUserDefault.aspx.designer.cs">
+      <DependentUpon>OrgUserDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgUserDep.aspx.cs">
+      <DependentUpon>OrgUserDep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgUserDep.aspx.designer.cs">
+      <DependentUpon>OrgUserDep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgUserWorkStation.aspx.cs">
+      <DependentUpon>OrgUserWorkStation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgUserWorkStation.aspx.designer.cs">
+      <DependentUpon>OrgUserWorkStation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgWorkStation.aspx.cs">
+      <DependentUpon>OrgWorkStation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgWorkStation.aspx.designer.cs">
+      <DependentUpon>OrgWorkStation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgWorStaDefault.aspx.cs">
+      <DependentUpon>OrgWorStaDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\OrgWorStaDefault.aspx.designer.cs">
+      <DependentUpon>OrgWorStaDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemConfig.aspx.cs">
+      <DependentUpon>SystemConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemConfig.aspx.designer.cs">
+      <DependentUpon>SystemConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemDepartmentInfo.aspx.cs">
+      <DependentUpon>SystemDepartmentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemDepartmentInfo.aspx.designer.cs">
+      <DependentUpon>SystemDepartmentInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemMember.aspx.cs">
+      <DependentUpon>SystemMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemMember.aspx.designer.cs">
+      <DependentUpon>SystemMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemPageConfig.aspx.cs">
+      <DependentUpon>SystemPageConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemPageConfig.aspx.designer.cs">
+      <DependentUpon>SystemPageConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemRoleInfo.aspx.cs">
+      <DependentUpon>SystemRoleInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemRoleInfo.aspx.designer.cs">
+      <DependentUpon>SystemRoleInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemSetPage.aspx.cs">
+      <DependentUpon>SystemSetPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemSetPage.aspx.designer.cs">
+      <DependentUpon>SystemSetPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemSetRole.aspx.cs">
+      <DependentUpon>SystemSetRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\SystemSetRole.aspx.designer.cs">
+      <DependentUpon>SystemSetRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\Top.aspx.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\Top.aspx.designer.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\UserRole.aspx.cs">
+      <DependentUpon>UserRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\UserRole.aspx.designer.cs">
+      <DependentUpon>UserRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\Welcome.aspx.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\Welcome.aspx.designer.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\WebPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UrlReWriter.cs" />
+    <Compile Include="UserControl\OrgTree.ascx.cs">
+      <DependentUpon>OrgTree.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\OrgTree.ascx.designer.cs">
+      <DependentUpon>OrgTree.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Pager.ascx.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Pager.ascx.designer.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="js\bootstrap\js\.svn\prop-base\" />
+    <Folder Include="js\bootstrap\js\.svn\props\" />
+    <Folder Include="js\bootstrap\js\.svn\text-base\" />
+    <Folder Include="js\bootstrap\js\.svn\tmp\prop-base\" />
+    <Folder Include="js\bootstrap\js\.svn\tmp\props\" />
+    <Folder Include="js\bootstrap\js\.svn\tmp\text-base\" />
+    <Folder Include="TempFile\Excel\" />
+    <Folder Include="Templelate\" />
+    <Folder Include="themes\js\kindeditor-4.1.6\asp.net\bin\" />
+    <Folder Include="themes\js\kindeditor-4.1.6\attached\image\20130916\" />
+    <Folder Include="UploaderTemp\" />
+    <Folder Include="UploadFiles\" />
+    <Folder Include="UpLoad\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.Area\ECommerce.Area.csproj">
+      <Project>{b334210a-bfc1-4b72-aeff-869d11855b7e}</Project>
+      <Name>ECommerce.Area</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECommerce.CM\ECommerce.CM.csproj">
+      <Project>{013cf61d-0526-4cb3-85df-3cdc493cc75c}</Project>
+      <Name>ECommerce.CM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECommerce.Lib\ECommerce.Lib.csproj">
+      <Project>{9b04dbbc-6a09-4678-92d2-87758b4b75c1}</Project>
+      <Name>ECommerce.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1529</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1529/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://localhost:8080/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

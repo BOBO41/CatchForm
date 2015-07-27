@@ -1,0 +1,42 @@
+#menu {width:994px; position:relative; z-index:100;}
+
+#menu ul {padding:0; margin:0; list-style-type:none;}
+/* #menu ul ul {width:180px;} */
+
+#menu li {float:left; width:190px; position:relative; background:#636363; border-left:1px solid #FFFFFF; text-align:center;}
+#menu li.active {}
+#menu li.home {width:39px; border:none; background:#636363 url(../../images/npc/b_home.gif) 14px 6px no-repeat;}
+#menu li.home.active {}
+#menu li.home span {visibility:hidden; display:none;}
+#menu li ul li {width:188px; text-align:left; border-left:1px solid #636363; border-right:1px solid #636363; border-bottom:1px solid #636363;}
+
+#menu a {display:block; font-size:11px; text-decoration:none; color:#FFF; width:190px; height:25px; line-height:24px;}
+#menu li.active a {color:#FFF;}
+#menu li.home a {width:39px; line-height:24px; background:url(../../images/npc/b_home.gif) 14px 6px no-repeat; padding:0;}
+
+/* hide sub levels - positon absolute so  no room */
+#menu ul ul {visibility:hidden; position:absolute; height:0; top:25px; left:0px; width:190px;}
+
+/* style table so takes no part - required for IE */
+#menu table {position:absolute; top:0; left:0;}
+
+/* style second level */
+#menu ul ul a, #menu ul ul a:visited {background:#FFF; color:#000; height:auto; line-height:1em; padding:5px 5px; width:178px/* yet another hack for IE5.5 */}
+#menu ul ul li.active {}
+#menu ul ul li.active a {background:#7B7C7C;}
+/* * html #menu ul ul a{width:165px; w\idth:154px;} */
+
+/* style top level hover */
+#menu a:hover {color:#FFF; background:#000;}
+#menu :hover > a {color:#FFF; background:#000;}
+#menu ul ul :hover > a {color:#000; background:#FFF;}
+/* #menu ul ul :hover > a {color:#FFF; background:#7B7C7C;} */
+#menu li.home a:hover {background:#000 url(../../images/npc/b_home.gif) 14px 6px no-repeat;}
+#menu ul ul a:hover {color:#000; background:#ECEDEE;}
+/* #menu li.home :hover > a {color:#FFF; background:#AAAAAA url(../../images/npc/global/b_home.gif) 14px 8px no-repeat;} */
+/* #menu ul ul :hover > a {color:#FFF; background:#7B7C7C;} */
+
+/* make second level visible when hover on first level list OR link */
+#menu ul li:hover ul,
+#menu ul a:hover ul{visibility:visible;}
+

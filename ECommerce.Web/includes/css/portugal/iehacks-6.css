@@ -1,0 +1,10 @@
+/* CSS Document */
+
+div#container {padding-left:3px;}
+
+div#content {height:425px;}
+#content fieldset label {padding-top:3px;}
+
+div.rollover {float:left;	margin:1px 5px 0 0;}
+a.rollover:hover span {top:-24px; left:-213px;}
+div.rollover.criteria a.rollover:hover span {top:-43px; left:10px;}

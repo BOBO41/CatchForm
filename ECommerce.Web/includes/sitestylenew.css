@@ -1,0 +1,289 @@
+/* sitestyle.css */
+
+/*////////////////////////////////////////////////////////////////////////*/
+/* Start Layout Positioning */
+/* These styles must be left in order for dynamic positioning to work correctly */
+/* Any new layout elements must also be added to the javascript positioning script - elmnts() */
+
+ 	#nav{
+				position: absolute;
+				left: 0px; top: 0px;
+				height: 430px;width:135px;
+				border: black solid 0px;
+				z-index:1;
+				padding:10 0 0 5;
+				}
+
+	#tcontent{
+				position:absolute;
+				left:180px; top:80px;
+				height:35px;width: 475px;
+				border-left:black solid 2px;
+				padding-left:5px;
+				font-weight:bold;
+				line-height:30px;
+				color:gray;
+				font-size:16px;
+				z-index:4;
+				}
+				 
+	#trlogo{
+				position: absolute;
+				/*left: 705px; top: 40px;*/
+				left:0px;top:0px;
+				border: black solid 0px;
+				text-align: center;
+				vertical-align: middle;
+				z-index: 1;
+				}
+
+	#bllogo{
+				position: absolute;
+				/*left: 50px; top: 370px;*/
+				left:0px;top:0px;
+				border: black solid 0px;
+				text-align: center;
+				vertical-align: middle;
+				z-index: 2;
+				}
+
+	#arrow{
+				position:absolute;
+				left:0px; top:0px;
+				}
+	
+	#mcontent{
+				position: absolute;
+				left:180px; top: 115px;
+				height:250px; width: 475px;
+				border-left:black solid 1px;
+				border-right:black solid 0px;
+				border-top:black solid 1px;
+				border-bottom:black solid 1px;
+				padding-top:10px;
+				clip:rect(0px 520px 250px 0px);
+				overflow:auto;
+				text-align:center;
+				color:#AEB9BF;
+				z-index:3;
+				}
+	
+	#rcontent{
+				position: absolute;
+				left: 654px; top: 115px;
+				height: 250px; width: 126px;
+				border-top: black solid 1px;
+				border-bottom: black solid 1px;
+				border-left:black solid 1px;
+				padding: 10px;
+				z-index:5;
+				background-color:#EDF0F2;
+				color:#335F8B;
+				}
+				 
+	#bcontent{
+				position: absolute;
+				left: 180px; top: 365px;
+				height: 50px; width: 475px;
+				border-left: black solid 2px;
+				padding: 5px;
+				vertical-align: middle;
+				color:#AF2226;
+				z-index:6;
+				}
+
+	#ptitle{
+				position:absolute;
+				left:0px;top:205px;
+				width:160px;height:50px;
+				border:black solid 0px;
+				text-align:right;
+				z-index:1;
+				font-family:verdana,arial,sans-serif;
+				font-size:18px;
+				color:white;/*#CED9DF;*/
+				}
+
+	#brcontent{
+				position: absolute;
+				left: 654px; top: 365px;
+				height: 25px; width: 125px;
+				border-left: black solid 1px;
+				padding-top: 3px;
+				padding-left:5px;
+				text-align: left;
+				vertical-align: middle;
+				color:gray;
+				font-size:9px;
+				z-index:6;
+				}
+		
+	#plinks{
+				position:absolute;
+				left:491;top:80;
+				height:35px;
+				border-left:black solid 1px;
+				color:#AEB9BF;
+				padding-left:5px;
+				padding-top:13px;
+				}
+
+	.active{
+				font-weight:bold;
+				color:black;
+				}
+
+	/* layout Questions & input boxes inline */
+	/* small */
+	#qsmall{
+				position:static;
+				width:300px;
+				margin-left:auto;margin-right:auto;
+				line-height:21px;
+				text-align:right;
+				padding-right:122px;
+				overflow:visible;
+				}
+	
+	/* large */
+	#qlarge{
+				position:static;
+				width:95%;
+				margin-left:auto;margin-right:auto;
+				line-height:21px;
+				text-align:right;
+				padding-right:152px;
+				overflow:visible;
+				}
+
+	#qsmall input	, #qsmall select{
+				margin-right:-122px;
+				width:120px;
+				}
+	
+	#qlarge input,  #qlarge select{
+				margin-right:-152px;
+				width:150px;
+				}
+
+	#nav img{
+				position:relative;
+				left:-5px;
+				}
+
+/* End Layout Positioning */
+/*////////////////////////////////////////////////////////////////////////*/
+/* Start Generic Tag Styles */	
+
+	iframe, body, div{
+				scrollbar-3dlight-color: black;
+				scrollbar-arrow-color: #CBD0D0;
+				scrollbar-base-color: #EDF0F2;
+				scrollbar-darkshadow-color: black;
+				scrollbar-face-color: #EDF0F2;
+				scrollbar-highlight-color: #EDF0F2;
+				scrollbar-shadow-color: #EDF0F2;
+				scrollbar-track-color: white;
+				}
+
+	a:link{
+				text-decoration: none;
+				font-size: 11px;
+				font-family: verdana,arial,sans-serif;
+				}
+	
+	a:visited{
+				text-decoration: none;
+				}
+
+	a:hover{
+				text-decoration: underline;
+				}
+	
+	body{
+				font-family: verdana,arial,sans-serif;
+				font-size: 11px;
+				line-height: 1.5em;
+				color: black;
+				background-color:white;
+				}
+	
+	input, select{
+				float:right;
+				border-left: 1px #AEB9BF solid;
+				border-bottom: 1px #AEB9BF solid;
+				border-top: 0px #AEB9BF solid;
+				border-right: 0px #AEB9BF solid;
+				font-size:11px;
+				font-family: verdana,arial,sans-serif;
+				color:#AEB9BF;
+				margin-top:3px;
+				}
+
+	h1, h2, h3, h4, h5{
+				font-weight:bold;
+				line-height:30px;
+				color:gray;
+				}
+	h1	{ 
+				font-size:20px
+				}
+	h3	{ 
+				font-size:16px
+				}
+	hr{
+				color:gray;
+				height:1px;
+				}
+
+/* End Generic Tag Styles */
+/*////////////////////////////////////////////////////////////////////////*/
+/* Start Specific Tag Styles */
+
+	#nav a:link, #nav a:visited{
+				color:white;
+				}
+
+	#mcontent a:link, #mcontent a:visited{
+				color:gray;
+				}
+
+	#brcontent a:link, #brcontent a:visited{
+				color:gray;
+				size:8px;
+				}
+
+	#plinks a{
+				color:#AEB9BF;
+					}
+
+	#qlarge div:focus{
+				color:black;
+				font-weight:bold;
+					}
+
+	#mcontent div{
+				color:#AEB9BF;
+				font-weight:normal;
+				}
+
+/* End Specific Tag Styles */
+/*////////////////////////////////////////////////////////////////////////*/
+/* Start Class Styles */
+
+	.button{
+				border: 1px #999999 ridge;
+				width: 75px;
+				background-color: #eee;
+				color: gray;
+				font-size:10px;
+				}
+			
+	.page{
+				color:#003768;
+				font-weight:bold;
+				}
+				
+
+/* End Class Styles */
+/*////////////////////////////////////////////////////////////////////////*/

@@ -1,0 +1,15 @@
+/* CSS Document */
+
+h2 {float:left; display:inline; font-weight:normal; font-size:0.9em; margin:0; padding:0; margin:10px 0 0 56px;}
+
+#content fieldset.login {width:400px; float:left; display:inline;}
+#content fieldset.login input.button.login {margin:10px 0 0 310px; font-size:0.9em; padding:0; width:77px; height:29px; background:url(../../images/bly/b_login.gif) 5px 2px no-repeat scroll;}
+#content fieldset.login span.error {display:block; width:auto; color:#FF0000;}
+#content fieldset.login label.error {color:#FF0000; font-weight:bold;}
+#content fieldset h3.error {float:none; display:block; text-align:left; width:auto; font-size:1.2em; margin:0 0 5px 0; color:#FF0000;}
+
+#content #notices {float:right; display:inline; width:400px; min-height:200px; background:#E1E1E1 url(../../images/bly/announcement.gif) 12px 12px no-repeat; margin:10px 0 0 40px;}
+#content #notices h2 {display:none; visibility:hidden;}
+#content #notices p {float:left; display:inline; font-size:0.9em; padding:0; margin:10px 50px 20px 56px;}
+#content #notices a {color:#000; text-decoration:underline;}
+#content #notices a:hover {text-decoration:none;}

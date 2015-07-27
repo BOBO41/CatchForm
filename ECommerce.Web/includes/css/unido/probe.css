@@ -1,0 +1,17 @@
+/* css */
+div.number{
+	margin-right:10px; 
+	height: 2em;
+	float:left;
+	width: 20px;
+}
+div.questionWrapper{
+	width: 300px; 
+	float: left;
+	padding: 0px 10px 0px 0px;
+}
+
+div.answerWrapper{
+	clear:both; 
+	padding: 5px 2px;
+}

@@ -1,0 +1,19 @@
+/* CSS Document */
+
+#content p {font-size:1.2em; line-height:1.3em; margin:0 0 20px 0;}
+
+#content table.suspendResumeTable {width:710px; margin:30px 0 0 40px;}
+#content table.suspendResumeTable th {border-bottom:2px solid #AAAAAA; padding:10px 0 5px 0; text-align:left;}
+#content table.suspendResumeTable th.status {text-align:left;width:150px;}
+#content table.suspendResumeTable td {border-bottom:1px solid #AAAAAA; padding:10px 0 5px 0; text-align:left;}
+#content table.suspendResumeTable td.status {text-align:left;width:150px;}
+#content table.suspendResumeTable select {width:150px;}
+#content table.suspendResumeTable select.module {width:210px;}
+
+/* style rule to provide appropriate spacing between the "previous" and "submit" buttons */
+.navSpacing { margin-left: 565px; }
+
+/* ADDED BY DARREN 24/07/2007: STYLE RULES FOR THE SUBMIT BUTTON IN THE bmCompaniesViewInputData.jsp */
+#content input.next {float:none; width:auto; border:none; color:#FFF; font-size:0.9em; text-align:left; cursor:pointer; background:url(../../images/ini/b_next.gif) no-repeat; width:75px; height:25px; padding-left:17px;}
+.buttonSpacing { margin-left: 15px; }
+

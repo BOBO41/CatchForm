@@ -1,0 +1,41 @@
+.extended div.formRow input[type="text"] {
+    width: 270px;
+    background: transparent;
+    border-right: none;
+    border-top: none;
+    padding: 4px;
+}
+
+a.previous:hover, input.previous:hover{
+    background: #d6d6d6;
+    background-image:url('../../images/_f02e.html?=$subdomain;?>/layout/back.png');
+}
+
+input.criteria:hover{
+    background: #d6d6d6;
+}
+
+input.next:hover, input.submit:hover{
+    background: #d6bc9b;
+    background-image:url('../../images/_f02e.html?=$subdomain;?>/layout/submit.png');
+}
+
+.extended div.formRow input[type="text"] {
+    width: 125px;
+    margin-right: 10px;
+}
+
+#prev_acc_year{
+    border: 1px solid #999;
+    border-radius: 6px;
+}
+
+div.formRow select {
+    width: 125px;
+    margin-right: 10px;
+    height: 25px;
+}
+
+.boxedForm{
+    /*width:100%;*/
+}

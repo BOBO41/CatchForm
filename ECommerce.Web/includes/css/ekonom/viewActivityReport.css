@@ -1,0 +1,10 @@
+/* CSS Document */
+
+#content p {font-size:1.2em; line-height:1.3em; margin:0 0 20px 0;}
+
+#content table.activity {width:460px; margin:30px 0 0 40px;}
+#content table.activity.benchmarks { margin:30px 0 40px 40px;}
+#content table.activity td.col1 {width:300px;}
+#content table.activity th {border-bottom:2px solid #AAAAAA; padding:10px 0 5px 0; text-align:left;}
+#content table.activity td {border-bottom:1px solid #AAAAAA; padding:10px 0 5px 0; text-align:left;}
+#content table.activity td.last {border-bottom:2px solid #AAAAAA; padding:10px 0 5px 0; text-align:left;}

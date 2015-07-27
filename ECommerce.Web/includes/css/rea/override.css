@@ -1,0 +1,36 @@
+/*
+Created this because there are some caching issues when updating header images
+*/
+/* 
+    Created on : 19-Jan-2015, 11:50:46
+    Author     : richardmohammed
+*/
+
+#header {
+    background-image: url('../../images/rea/headerTopRea.png'); 
+}
+
+#login-form, .boxedForm {
+    padding: 20px;
+    background: rgba(247, 247, 247, 0.74);
+    border: 1px solid rgb(242, 242, 242);
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px rgba(192, 192, 192, 0.35);
+}
+
+#supportImage
+{
+    padding-top: 30px;
+}
+
+
+#supportImage img
+{
+    display: block;
+    margin: 0 auto;
+}
+
+#supportImage h3
+{
+    margin-top: 0px;
+}

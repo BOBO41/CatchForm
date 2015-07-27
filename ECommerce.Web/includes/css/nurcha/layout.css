@@ -1,0 +1,237 @@
+/* css document
+ 
+ * #008635 footer color $mainColor
+ * #008635 menu color
+ */
+
+body{
+	margin:0;	
+	padding:0;  
+	font:0.75em Helvetica, Arial, sans-serif, Verdana; 
+	color:#000000;
+	background-color:#333333;
+	background-image:url('../../images/newLayout/bodyBK.png');
+	background-repeat:repeat-x;
+	height: 100%;
+}
+#header {
+	height:90px; 
+	background-image: url('../../images/newLayout/headerTop.png'); 
+	background-repeat:no-repeat;
+	}
+
+
+#header ul {
+	float:right; 
+	list-style-type:none; 
+	margin:55px 40px 0 0; 
+	font-size:0.9em; 
+}
+#header ul li {
+	float:left; 
+	padding: 0 8px; border-left:1px solid #333;
+}
+
+#header ul li.first {
+	border:none; 
+	color:#333;
+}
+
+#header ul li a {
+	color:#333; 
+	text-decoration:none;
+}
+#header ul li a:hover {
+	text-decoration:underline;
+}
+
+#menu { 
+	height:35px; 
+	background-color:<?=$mainColor;?>;       /*  change back color */ 
+	margin-bottom:20px;
+}
+
+#menu ul {
+	padding:0; 
+	margin:0; 
+	list-style-type:none;
+}
+
+#menu ul li {
+	float:left; 
+}
+
+#menu ul li.title{
+	height:18px;
+	color:#FFFFFF;
+	padding: 13px 0 0 0;
+	font-size: 14px;
+}
+
+#menu ul li a {
+	color:#FFF; 
+	text-decoration:none;
+}
+#menu ul li a:hover {
+	text-decoration:underline;
+}
+
+#menu li {
+	float:left; 
+	position:relative; 
+	text-align:center;
+}
+
+#menu li.home {
+	width:50px;
+	height:35px;
+	background-image:url('../../images/newLayout/homeBK.png');
+	background-repeat:no-repeat;
+	
+}
+
+#menu li.home a{
+	width:50px;
+	height:15px; 
+	text-decoration:none;
+
+}
+
+#menu li.home a:hover{
+	background-image:url('../../images/newLayout/home.png');
+	background-repeat:no-repeat;
+	text-decoration:none;
+
+}
+
+#menu a {
+	display:block; 
+	font-size:11px; 
+	text-decoration:none; 
+	color:#FFF;
+	height:15px;
+	padding:13px 10px 10px 10px;
+}
+
+#menu a.selected {
+	color:#000;
+	
+}
+#menu a:hover {
+	color:#000;
+}
+
+.container{
+	background: #FFFFFF url('../../images/wm2admin/layout/backgroundleaf.png') no-repeat bottom right; 
+	
+}
+.row{
+	min-height: 600px;
+}
+#footer {
+	clear:both;
+	height:26px;
+	color:#FFF;
+	background-color:#008635;       /*  change back color */ 
+	margin-top:20px;
+}
+
+#footer #acknowledgements {
+	float:right; 
+	margin:7px 40px 0 0;
+}
+
+#footer ul {
+	float:left; 
+	display:inline; 
+	list-style-type:none; 
+	margin:7px 0 0 40px; 
+	padding:0; 
+	font-size:0.9em;
+}
+
+#footer ul li {
+	float:left; 
+	padding: 0 8px 0 8px; 
+	border-left:1px solid #FFF;
+}
+
+#footer ul li.first {
+	border:none;
+}
+
+#footer a {
+	color:#FFF; 
+	text-decoration:none;
+}
+
+#footer a:hover {
+	color:#000;
+	text-decoration:underline;
+}
+
+
+/* login page */
+
+#login-form{
+	padding:5px;
+    background-color:#EAEAEA;
+    border: solid 1px #CCC;
+/* modern browsers only*/
+/* border with rounded corners*/
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+	box-shadow:2px 2px 2px #EBEBEB;
+	-webkit-box-shadow:2px 2px 2px #EBEBEB;
+	-moz-box-shadow: 2px 2px 2px #EBEBEB;
+/* gradient*/
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#EAEAEA'); /* for IE 8-9 */
+	background: -ms-linear-gradient(top, #ffffff, #EAEAEA);/* IE 10 */
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#EAEAEA)); /* for webkit browsers   */
+	background: -moz-linear-gradient(top,  #ffffff,  #EAEAEA); /* for firefox 3.6+ */ 
+	background: -o-linear-gradient(top, #ffffff, #EAEAEA); /* Opera 11.10+ */
+	background: -webkit-linear-gradient(top, #ffffff, #EAEAEA); /* Safari 5.1, Chrome 10+ */
+  	/*
+  	 *  Safari 4-5, Chrome 1-9
+  	 * background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#EAEAEA)); 
+  	 * 
+  	 */	
+/* end */
+}
+form input.submit{
+	width:72px;
+	height:19px;
+	background-image:url('../../images/wm2admin/layout/submit.png'); /*   submit buton URL*/
+	background-repeat:no-repeat;
+	border:0;
+	color:#FFFFFF;
+}
+
+h1{
+	font-family:Arial;
+	font-size:18px;
+	color:#008633;
+	font-weight:normal;
+}
+div.formRow{
+	clear: both;
+	width:400px;
+	height:30px;
+}
+
+.error{
+	color: #FF0000;	
+}
+
+div.formRow label.required, div.formRow label.create{
+	float:left;
+}
+div.formRow input, div.formRow select{
+	float:right;
+	width:200px;
+}
+
+div.label{
+	width: 100px;
+	display:inline-block;
+}

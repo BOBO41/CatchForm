@@ -1,0 +1,28 @@
+/* CSS Document */
+
+h2 {font-size:1.2em; margin:40px 0 30px 0;}
+h2 span {font-weight:normal;}
+
+#content ul#indicator {float:left; display:inline; list-style-type:none; font-size:0.9em; color:#636363; margin:0 0 10px 0; padding:0;}
+#content ul#indicator li {float:left; text-align:center; width:19px; height:19px; line-height:19px; margin-right:4px; font-weight:bold; padding-left:1px;}
+#content ul#indicator li.active {background: url(../../images/ekonom/indicator.gif) 0em 0em no-repeat scroll; color:#FFF;}
+
+#content fieldset {border-bottom:1px solid #B2B2B2; margin-left:40px; padding:10px 0 10px 0;}
+#content fieldset.navigate {border:0; display:inline; padding:0; margin-bottom:40px;}
+#content fieldset h3 {float:left; font-size:1.2em; line-height:1.3em; display:inline; margin:0 20px 0 0; padding:0;}
+#content fieldset label {width:390px; padding:0; border:none; margin:0 20px 0 0;}
+#content input {float:left; display:inline; width:390px; font-size:0.9em; padding:2px;}
+#content fieldset textarea {float:left; display:inline; font-size:0.9em; width:390px; height:40px; border:1px solid #636363; padding:2px;}
+
+/* buttons */
+#content input.previous {float:none;width:auto; border:none; margin-left:40px; margin-top:25px; color:#FFF; font-size:0.9em; text-align:left; cursor:pointer; background:url(../../images/ekonom/b_previous.gif) no-repeat; width:72px; height:25px; padding-left:19px;}
+#content input.previous:hover {color:#000;}
+#content input.previous.inactive {background:url(../../images/ekonom/b_previous_disabled.gif) no-repeat; color:#FFF; cursor:auto; border:0;}
+#content input.cancel {float:none; width:auto; border:none; margin-top:25px; color:#000; font-size:0.9em; text-align:left; cursor:pointer; background:#EDEDED url(../../images/ekonom/b_cancel.gif) 45px center no-repeat; width:220px; height:25px; padding-left:70px;}
+#content input.cancel:hover {background:#D6D6D6 url(../../images/ekonom/b_cancel.gif) 45px center no-repeat;}
+#content input.save {float:none;width:auto; border:none; margin-top:25px; color:#000; font-size:0.9em; text-align:left; cursor:pointer; background:#EDEDED url(../../images/ekonom/b_save.gif) 45px center no-repeat; width:220px; height:25px; padding-left:72px;}
+#content input.save:hover {background:#D6D6D6 url(../../images/ekonom/b_save.gif) 45px center no-repeat;}
+#content input.next {float:none;width:auto; border:none; margin-top:25px; color:#FFF; font-size:0.9em; text-align:left; cursor:pointer; background:url(../../images/ekonom/b_next.gif) no-repeat; width:72px; height:25px; padding-left:17px;}
+#content input.next:hover {color:#000;}
+
+.navSpacing { margin-left: 660px; }
