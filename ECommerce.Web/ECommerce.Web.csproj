@@ -48,10 +48,6 @@
     <Reference Include="DotNet.Framework.Common">
       <HintPath>..\ECommerce.Lib\DLL\DotNet.Framework.Common.dll</HintPath>
     </Reference>
-    <Reference Include="ECommerce.Admin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ECommerce.Lib\DLL\ECommerce.Admin.dll</HintPath>
-    </Reference>
     <Reference Include="ECommerce.DBUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ECommerce.Lib\DLL\ECommerce.DBUtilities.dll</HintPath>
@@ -1696,16 +1692,12 @@
     <Content Include="Manage\Systems\AddCmOrgArea.aspx" />
     <Content Include="Manage\Systems\AddColumn.aspx" />
     <Content Include="Manage\Systems\AJAX\DataProcess.aspx" />
-    <Content Include="Manage\Systems\AJAX\GetCityList.aspx" />
     <Content Include="App_Browsers\config.browser" />
     <Content Include="css\main.css" />
     <Content Include="images\arrow-up.png" />
     <Content Include="images\back.png" />
     <Content Include="images\Line.png" />
     <Content Include="images\menu_a_arrow.png" />
-    <Content Include="Manage\Systems\AJAX\CreatePackageType.aspx" />
-    <Content Include="Manage\Systems\AJAX\CreateStaPackage.aspx" />
-    <Content Include="Manage\Systems\OrgPackage.aspx" />
     <Content Include="Manage\Systems\AddOrgTrain.aspx" />
     <Content Include="Manage\Area\AJAX\AddArea.aspx" />
     <Content Include="Manage\Area\AJAX\AddSelect.aspx" />
@@ -1758,7 +1750,6 @@
     <Content Include="Manage\Systems\OrgDep.aspx" />
     <Content Include="Manage\Systems\OrgUserDefault.aspx" />
     <Content Include="Manage\Systems\OrgUserDep.aspx" />
-    <Content Include="Manage\Systems\OrgUserWorkStation.aspx" />
     <Content Include="Manage\Systems\OrgWorkStation.aspx" />
     <Content Include="Manage\Systems\OrgWorStaDefault.aspx" />
     <Content Include="Manage\Systems\ResetPassword.aspx" />
@@ -2439,13 +2430,6 @@
     <Compile Include="Manage\Systems\AJAX\DataProcess.aspx.designer.cs">
       <DependentUpon>DataProcess.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manage\Systems\AJAX\GetCityList.aspx.cs">
-      <DependentUpon>GetCityList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manage\Systems\AJAX\GetCityList.aspx.designer.cs">
-      <DependentUpon>GetCityList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2459,27 +2443,6 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Manage\Systems\AJAX\CreatePackageType.aspx.cs">
-      <DependentUpon>CreatePackageType.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manage\Systems\AJAX\CreatePackageType.aspx.designer.cs">
-      <DependentUpon>CreatePackageType.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Manage\Systems\AJAX\CreateStaPackage.aspx.cs">
-      <DependentUpon>CreateStaPackage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manage\Systems\AJAX\CreateStaPackage.aspx.designer.cs">
-      <DependentUpon>CreateStaPackage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Manage\Systems\OrgPackage.aspx.cs">
-      <DependentUpon>OrgPackage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manage\Systems\OrgPackage.aspx.designer.cs">
-      <DependentUpon>OrgPackage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Systems\AddOrgTrain.aspx.cs">
       <DependentUpon>AddOrgTrain.aspx</DependentUpon>
@@ -2845,13 +2808,6 @@
     <Compile Include="Manage\Systems\OrgUserDep.aspx.designer.cs">
       <DependentUpon>OrgUserDep.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manage\Systems\OrgUserWorkStation.aspx.cs">
-      <DependentUpon>OrgUserWorkStation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manage\Systems\OrgUserWorkStation.aspx.designer.cs">
-      <DependentUpon>OrgUserWorkStation.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Manage\Systems\OrgWorkStation.aspx.cs">
       <DependentUpon>OrgWorkStation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2979,6 +2935,10 @@
     <Folder Include="UpLoad\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ECommerce.Admin\ECommerce.Admin.csproj">
+      <Project>{0e625f58-1312-447b-8393-98087031e46d}</Project>
+      <Name>ECommerce.Admin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ECommerce.Area\ECommerce.Area.csproj">
       <Project>{b334210a-bfc1-4b72-aeff-869d11855b7e}</Project>
       <Name>ECommerce.Area</Name>

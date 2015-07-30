@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,11 @@ namespace ECommerce.Web {
             if (!string.IsNullOrEmpty(form)) {
                 var paras = form.Split('&');
                 foreach (var data in paras.Select(para => para.Split('='))) {
-                    dictionary.Add(data[0], data[1]);
+                    try {
+                        dictionary.Add(data[0], data[1]);
+                    }
+                    catch (Exception) {
+                    }
                 }
             }
 

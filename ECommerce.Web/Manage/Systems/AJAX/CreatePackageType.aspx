@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreatePackageType.aspx.cs" Inherits="ECommerce.Web.Manage.Systems.AJAX.CreatePackageType" %>
