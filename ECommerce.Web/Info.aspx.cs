@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using HtmlAgilityPack;
 
 namespace ECommerce.Web {
-    public partial class Info : System.Web.UI.Page {
+    public partial class Info : Page {
         private static readonly string DefaultUserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)";
         protected void Page_Load(object sender, EventArgs e) {
             try {
@@ -20,7 +18,7 @@ namespace ECommerce.Web {
                     GetHttpResponse();
                 }
             }
-            catch (System.Threading.ThreadAbortException ex) {
+            catch (ThreadAbortException) {
             }
             catch (Exception) {
                 Response.Write("Error!!!");
@@ -29,29 +27,28 @@ namespace ECommerce.Web {
         }
 
         public void GetHttpResponse() {
-            HttpWebRequest request = null;
             var cookieContainer = new CookieContainer();
-            if (null != Session["CookieContainer"]) {
-                cookieContainer = Session["CookieContainer"] as CookieContainer;
+            if (null != HttpContext.Current.Session["CookieContainer"]) {
+                cookieContainer = HttpContext.Current.Session["CookieContainer"] as CookieContainer;
             }
-            ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(CheckValidationResult);
-            string or_path = HttpContext.Current.Server.UrlDecode(Request.QueryString["or_path"]);
-            string url = "https://unido.benchmarkindex.com" + or_path;
+            ServicePointManager.ServerCertificateValidationCallback = CheckValidationResult;
+            string orPath = HttpContext.Current.Server.UrlDecode(Request.QueryString["or_path"]);
+            string url = "https://unido.benchmarkindex.com" + orPath;
             string query = HttpUtility.UrlDecode(Request.QueryString["query"]);
             if (!string.IsNullOrEmpty(query)) {
                 url = url + "?" + query;
             }
-            request = WebRequest.Create(url) as HttpWebRequest;
+            var request = WebRequest.Create(url) as HttpWebRequest;
             request.CookieContainer = cookieContainer;
             request.ProtocolVersion = HttpVersion.Version10;
 
-            string method = Request.QueryString["method"];
+            string method = Request.HttpMethod;
             if ("POST" == method.ToUpper()) {
                 request.ContentType = "application/x-www-form-urlencoded";
                 request.Method = method;
             }
             request.UserAgent = DefaultUserAgent;
-            string form = HttpUtility.UrlDecode(Request.QueryString["form"]);
+            string form = HttpUtility.UrlDecode(Request.Form.ToString());
             if (!string.IsNullOrEmpty(form)) {
                 byte[] data = Encoding.UTF8.GetBytes(form);
                 request.ContentLength = data.Length;
@@ -64,16 +61,17 @@ namespace ECommerce.Web {
             Session["CookieContainer"] = cookieContainer;
             string urlResponse = wr.ResponseUri.ToString();
             if ("POST" == method) {
-                HtmlHelper.DataProcess(or_path, wr.ResponseUri.AbsolutePath, query, form);
+                var helper = new HtmlHelper();
+                helper.DataProcess(orPath, wr.ResponseUri.AbsolutePath, query, Request.Form);
             }
             if (url != urlResponse) {
                 Response.Redirect(wr.ResponseUri.PathAndQuery);
             }
             else {
-                System.IO.Stream resp = wr.GetResponseStream();
+                Stream resp = wr.GetResponseStream();
                 string coder = wr.CharacterSet;
-                System.IO.StreamReader respreader = new System.IO.StreamReader(resp);
-                HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                StreamReader respreader = new StreamReader(resp);
+                HtmlDocument doc = new HtmlDocument();
                 doc.Load(respreader);
                 try {
                     doc.GetElementbyId("header").Remove();
@@ -85,7 +83,7 @@ namespace ECommerce.Web {
                     HtmlNode jquery = HtmlNode.CreateNode("<script src=\"/includes/js/formsubmit.js\"></script>");
                     head.AppendChild(jquery);
                 }
-                catch (Exception e) {
+                catch (Exception) {
                 }
                 string response = doc.DocumentNode.OuterHtml;
                 response = response.Replace("includes/css/base.css.php", "includes/css/base.css.css");

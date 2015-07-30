@@ -68,7 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Advertisement.cs" />
+    <Compile Include="DAL\AnswerWrapper.cs" />
+    <Compile Include="DAL\BenchmarkCriteria.cs" />
+    <Compile Include="DAL\ComInfo.cs" />
+    <Compile Include="DAL\CustomerService.cs" />
+    <Compile Include="DAL\DevelopAnswer.cs" />
+    <Compile Include="DAL\DevelopmentService.cs" />
     <Compile Include="DAL\FactroyInfo.cs" />
+    <Compile Include="DAL\Financel.cs" />
     <Compile Include="DAL\LogList.cs" />
     <Compile Include="DAL\Logs.cs" />
     <Compile Include="DAL\Message.cs" />
@@ -81,11 +88,21 @@
     <Compile Include="DAL\OrgProviderInfo.cs" />
     <Compile Include="DAL\OrgUsers.cs" />
     <Compile Include="DAL\OrgWorkStation.cs" />
+    <Compile Include="DAL\ProcessManu.cs" />
+    <Compile Include="DAL\ProdAnswer.cs" />
     <Compile Include="DAL\RegisterUserInfo.cs" />
     <Compile Include="DAL\SWCompany.cs" />
+    <Compile Include="DAL\WorkAnswer.cs" />
     <Compile Include="DAL\WorStaUserAcc.cs" />
     <Compile Include="Model\Advertisement.cs" />
+    <Compile Include="Model\AnswerWrapper.cs" />
+    <Compile Include="Model\BenchmarkCriteria.cs" />
+    <Compile Include="Model\ComInfo.cs" />
+    <Compile Include="Model\CustomerService.cs" />
+    <Compile Include="Model\DevelopAnswer.cs" />
+    <Compile Include="Model\DevelopmentService.cs" />
     <Compile Include="Model\FactroyInfo.cs" />
+    <Compile Include="Model\Financel.cs" />
     <Compile Include="Model\LogList.cs" />
     <Compile Include="Model\Logs.cs" />
     <Compile Include="Model\Message.cs" />
@@ -98,6 +115,8 @@
     <Compile Include="Model\OrgProviderInfo.cs" />
     <Compile Include="Model\OrgUsers.cs" />
     <Compile Include="Model\OrgWorkStation.cs" />
+    <Compile Include="Model\ProcessManu.cs" />
+    <Compile Include="Model\ProdAnswer.cs" />
     <Compile Include="Model\RegisterUserInfo.cs" />
     <Compile Include="Model\SWCompany.cs" />
     <Compile Include="Model\SYS_AdminUser.cs" />
@@ -111,6 +130,7 @@
     <Compile Include="Model\S_District.cs" />
     <Compile Include="Model\S_Province.cs" />
     <Compile Include="Model\UserAccount.cs" />
+    <Compile Include="Model\WorkAnswer.cs" />
     <Compile Include="Model\WorStaUserAcc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DAL\SYS_AdminUser.cs" />
