@@ -64,6 +64,9 @@ namespace ECommerce.Web {
             HttpWebResponse wr = request.GetResponse() as HttpWebResponse;
             Session["CookieContainer"] = cookieContainer;
             string urlResponse = wr.ResponseUri.ToString();
+            if ("POST" == method) {
+                HtmlHelper.DataProcess(or_path, wr.ResponseUri.AbsolutePath, query, form);
+            }
             if (url != urlResponse) {
                 Response.Redirect(wr.ResponseUri.PathAndQuery);
             }
@@ -78,10 +81,12 @@ namespace ECommerce.Web {
                     doc.GetElementbyId("topLogin").Remove();
                     doc.GetElementbyId("footer").Remove();
                     doc.GetElementbyId("menu").Remove();
-                    doc = HtmlHelper.AppendScript(or_path, doc);
+                    //doc = HtmlHelper.AppendScript(or_path, doc);
+                    HtmlNode head = doc.DocumentNode.SelectSingleNode("//head");
+                    HtmlNode jquery = HtmlNode.CreateNode("<script src=\"/includes/js/formsubmit.js\"></script>");
+                    head.AppendChild(jquery);
                 }
-                catch (Exception e)
-                {
+                catch (Exception e) {
                 }
                 string response = doc.DocumentNode.OuterHtml;
                 response = response.Replace("includes/css/base.css.php", "includes/css/base.css.css");

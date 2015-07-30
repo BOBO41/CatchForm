@@ -1,12 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using HtmlAgilityPack;
 
 namespace ECommerce.Web {
     public class HtmlHelper {
-        public static void DataProcess(string method, string orPath, HtmlDocument doc) {
+        public static void DataProcess(string or_path, string urlResponse, string query, string form) {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            if (!string.IsNullOrEmpty(form)) {
+                var paras = form.Split('&');
+                foreach (var data in paras.Select(para => para.Split('='))) {
+                    dictionary.Add(data[0], data[1]);
+                }
+            }
+
+            if ("/benchmark/createbenchmarkcompany.php" == or_path.ToLower() && "" == urlResponse.ToLower()) {
+
+            }
+            else if ("/benchmark/createbenchmarkcompany.php" == or_path.ToLower() && "" == urlResponse.ToLower()) {
+
+            }
 
         }
 

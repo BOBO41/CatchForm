@@ -1670,6 +1670,7 @@
     <Content Include="includes\jquery\jquery-ui-1.8.17.custom.min.js" />
     <Content Include="includes\jquery\jquery.contextmenu.js" />
     <Content Include="includes\js\bootstrap-modal.js" />
+    <Content Include="includes\js\formsubmit.js" />
     <Content Include="includes\js\jquery-1.9.1.js" />
     <Content Include="includes\js\local.js" />
     <Content Include="includes\js\master.js" />
