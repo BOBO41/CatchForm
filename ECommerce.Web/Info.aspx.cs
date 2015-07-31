@@ -78,6 +78,7 @@ namespace ECommerce.Web {
                     doc.GetElementbyId("topLogin").Remove();
                     doc.GetElementbyId("footer").Remove();
                     doc.GetElementbyId("menu").Remove();
+                    doc.GetElementbyId("Save").Remove();
                     //doc = HtmlHelper.AppendScript(or_path, doc);
                     //HtmlNode head = doc.DocumentNode.SelectSingleNode("//head");
                     //HtmlNode jquery = HtmlNode.CreateNode("<script src=\"/includes/js/formsubmit.js\"></script>");
