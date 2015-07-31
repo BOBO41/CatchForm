@@ -20,8 +20,8 @@ namespace ECommerce.Web {
             }
             catch (ThreadAbortException) {
             }
-            catch (Exception) {
-                Response.Write("Error!!!");
+            catch (Exception ex) {
+                Response.Write(ex.Message);
                 Response.End();
             }
         }
@@ -79,10 +79,6 @@ namespace ECommerce.Web {
                     doc.GetElementbyId("footer").Remove();
                     doc.GetElementbyId("menu").Remove();
                     doc.GetElementbyId("Save").Remove();
-                    //doc = HtmlHelper.AppendScript(or_path, doc);
-                    //HtmlNode head = doc.DocumentNode.SelectSingleNode("//head");
-                    //HtmlNode jquery = HtmlNode.CreateNode("<script src=\"/includes/js/formsubmit.js\"></script>");
-                    //head.AppendChild(jquery);
                 }
                 catch (Exception) {
                 }
