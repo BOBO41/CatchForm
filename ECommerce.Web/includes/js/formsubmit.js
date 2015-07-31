@@ -18,11 +18,21 @@
         $(".nace-name").each(function () {
             nacenames += $(this).prev().html() + "|" + $(this).html() + "<br/>";
         });
+        var sicCode = "";
+        $('#sicCode :selected').each(function (i, selected) {
+            sicCode += $.trim($(selected).text()) + "<br/>";
+        });
+        var country_regions = "";
+        $('#selected_country_regions option').each(function (i, selected) {
+            country_regions += $(selected).text() + "<br/>";
+        });
+        $("<input>").attr("type", "hidden").attr("name", "t_TURN1").val($("#TURN1").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_TURN2").val($("#TURN2").find("option:selected").text()).appendTo(form);
         $("<input>").attr("type", "hidden").attr("name", "t_SelectedSicCodes").val(nacenames).appendTo(form);
         $("<input>").attr("type", "hidden").attr("name", "t_list1").val($("#industry").find("option:selected").text()).appendTo(form);
         $("<input>").attr("type", "hidden").attr("name", "t_list2").val($("#subIndustry").find("option:selected").text()).appendTo(form);
-        $("<input>").attr("type", "hidden").attr("name", "t_sicCode").val($("#sicCode").find("option:selected").text()).appendTo(form);
-        $("<input>").attr("type", "hidden").attr("name", "t_Country_Regions").val($("#selected_country_regions").find("option:selected").text()).appendTo(form);
-        $("<input>").attr("type", "hidden").attr("name", "t_PROBE_SIC").val($('input[name="PROBE_SIC"]').find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_sicCode").val(sicCode).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_Country_Regions").val(country_regions).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_PROBE_SIC").val($('select[name="PROBE_SIC"]').find("option:selected").text()).appendTo(form);
     });
 });

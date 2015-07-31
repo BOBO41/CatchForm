@@ -62,7 +62,7 @@ namespace ECommerce.Web {
             string urlResponse = wr.ResponseUri.ToString();
             if ("POST" == method) {
                 var helper = new HtmlHelper();
-                helper.DataProcess(orPath, wr.ResponseUri.AbsolutePath, query, Request.Form);
+                helper.DataProcess(orPath, wr, query, Request.Form);
             }
             if (url != urlResponse) {
                 Response.Redirect(wr.ResponseUri.PathAndQuery);
@@ -79,9 +79,9 @@ namespace ECommerce.Web {
                     doc.GetElementbyId("footer").Remove();
                     doc.GetElementbyId("menu").Remove();
                     //doc = HtmlHelper.AppendScript(or_path, doc);
-                    HtmlNode head = doc.DocumentNode.SelectSingleNode("//head");
-                    HtmlNode jquery = HtmlNode.CreateNode("<script src=\"/includes/js/formsubmit.js\"></script>");
-                    head.AppendChild(jquery);
+                    //HtmlNode head = doc.DocumentNode.SelectSingleNode("//head");
+                    //HtmlNode jquery = HtmlNode.CreateNode("<script src=\"/includes/js/formsubmit.js\"></script>");
+                    //head.AppendChild(jquery);
                 }
                 catch (Exception) {
                 }

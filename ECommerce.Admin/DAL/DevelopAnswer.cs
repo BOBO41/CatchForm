@@ -571,6 +571,33 @@ namespace ECommerce.Admin.DAL
 		}
 
 		#endregion  Method
+
+        #region
+
+        public Model.DevelopAnswer GetModel(string strWhere, List<SqlParameter> parameters) {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select * from DevelopAnswer ");
+            Database db = DatabaseFactory.CreateDatabase();
+            if (strWhere.Trim() != "") {
+                strSql.Append(" where " + strWhere);
+            }
+            DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
+            if (parameters.Count > 0) {
+                foreach (SqlParameter sqlParameter in parameters) {
+                    dbCommand.Parameters.Add(sqlParameter);
+                }
+            }
+            Model.DevelopAnswer model = null;
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand)) {
+                if (dataReader.Read()) {
+                    model = ReaderBind(dataReader);
+                }
+            }
+            return model;
+        }
+
+        #endregion
 	}
 }
 

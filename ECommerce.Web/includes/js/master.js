@@ -2933,7 +2933,42 @@
 
 
 $(document).ready(function() {
-
+    $('form[name="BMCompanyForm"]').submit(function () {
+        var form = $("form");
+        $("<input>").attr("type", "hidden").attr("name", "t_region").val($("#region").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_industry").val($("#industry").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_subIndustry").val($("#subIndustry").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_sicCode").val($("#sicCode").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_industry_2").val($("#industry_2").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_subIndustry_2").val($("#subIndustry_2").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_sicCode_2").val($("#sicCode_2").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_probe_sic_select_1").val($("#probe_sic_select_1").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_probe_sic_select_2").val($("#probe_sic_select_2").find("option:selected").text()).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_probe_sic_select_3").val($("#probe_sic_select_3").find("option:selected").text()).appendTo(form);
+    });
+    $('form[name="BenchmarkCriteriaPageForm"]').submit(function () {
+        var form = $("form");
+        var nacenames = "";
+        $(".nace-name").each(function () {
+            nacenames += $(this).prev().html() + "|" + $(this).html() + "<br/>";
+        });
+        var sicCode = "";
+        $('#sicCode :selected').each(function (i, selected) {
+            sicCode += $.trim($(selected).text().replace(/[\r\n]/g, "")) + "<br/>";
+        });
+        var country_regions = "";
+        $('#selected_country_regions option').each(function (i, selected) {
+            country_regions += $.trim($(selected).text()).replace(/[\r\n]/g, "") + "<br/>";
+        });
+        $("<input>").attr("type", "hidden").attr("name", "t_TURN1").val($.trim($("#TURN1").find("option:selected").text()).replace(/[\r\n]/g, "")).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_TURN2").val($.trim($("#TURN2").find("option:selected").text()).replace(/[\r\n]/g, "")).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_SelectedSicCodes").val($.trim(nacenames).replace(/[\r\n]/g, "")).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_list1").val($.trim($("#industry").find("option:selected").text()).replace(/[\r\n]/g, "")).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_list2").val($.trim($("#subIndustry").find("option:selected").text()).replace(/[\r\n]/g, "")).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_sicCode").val($.trim(sicCode).replace(/[\r\n]/g, "")).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_Country_Regions").val(country_regions).appendTo(form);
+        $("<input>").attr("type", "hidden").attr("name", "t_PROBE_SIC").val($.trim($('select[name="PROBE_SIC"]').find("option:selected").text()).replace(/[\r\n]/g, "")).appendTo(form);
+    });
 });
 
 // JavaScript Document
@@ -3271,53 +3306,3 @@ function philfinance()
 }
 
 window.onload = externalLinks;
-
-/*******
-new function
-*******/
-function createcompany() {
-    var companyName = $("#companyName").val();
-    var add1 = $("#add1").val();
-    var add2 = $("#add2").val();
-    var add3 = $("#add3").val();
-    var city = $("#city").val();
-    var region = $("#region").find("option:selected").text();
-    var postcode = $("#postcode").val();
-    var country_name = $('input[name=country_name]').val();
-    var telephone = $("#telephone").val();
-    var fax = $("#fax").val();
-    var businessDescription = $("#businessDescription").val();
-    var industry = $("#industry").find("option:selected").text();
-    var subIndustry = $("#subIndustry").find("option:selected").text();
-    var sicCode = $("#sicCode").find("option:selected").text();
-    var industry_2 = $("#industry_2").find("option:selected").text();
-    var subIndustry_2 = $("#subIndustry_2").find("option:selected").text();
-    var sicCode_2 = $("#sicCode_2").find("option:selected").text();
-    var probe_sic_select_1 = $("#probe_sic_select_1").find("option:selected").text();
-    var probe_sic_select_2 = $("#probe_sic_select_2").find("option:selected").text();
-    var probe_sic_select_3 = $("#probe_sic_select_3").find("option:selected").text();
-    var employees = $("#employees").val();
-    var domestic_company = $("input[name='domestic_company'][checked]").val();
-    var title = $("#title").find("option:selected").text();
-    var contactFirstName = $("#contactFirstName").val();
-    var contactSurname = $("#contactSurname").val();
-    var jobTitle = $("#jobTitle").val();
-    var form = $("form");
-    $("<input>").attr("type", "hidden").attr("name", "t_industry").val(industry).appendTo(form);
-    $("<input>").attr("type", "hidden").attr("name", "t_subIndustry").val(subIndustry).appendTo(form);
-    $("<input>").attr("type", "hidden").attr("name", "t_sicCode").val(sicCode).appendTo(form);
-    $("<input>").attr("type", "hidden").attr("name", "t_industry_2").val(industry_2).appendTo(form);
-    $("<input>").attr("type", "hidden").attr("name", "t_subIndustry_2").val(subIndustry_2).appendTo(form);
-    $("<input>").attr("type", "hidden").attr("name", "t_sicCode_2").val(sicCode_2).appendTo(form);
-    $("<input>").attr("type", "hidden").attr("name", "t_probe_sic_select_1").val(probe_sic_select_1).appendTo(form);
-    $("<input>").attr("type", "hidden").attr("name", "t_probe_sic_select_2").val(probe_sic_select_2).appendTo(form);
-    $("<input>").attr("type", "hidden").attr("name", "t_probe_sic_select_3").val(probe_sic_select_3).appendTo(form);
-    form.submit();
-    //$.ajax({
-    //    type: 'POST',
-    //    url: "/Manage/Systems/AJAX/DataProcess.aspx",
-    //    data: "companyName=" + escape(companyName) + "&add1=" + escape(add1) + "&add2=" + escape(add2) + "&add3=" + escape(add3) + "&city=" + escape(city) + "&region=" + escape(region) + "&postcode=" + escape(postcode) + "&country_name=" + escape(country_name) + "&telephone=" + escape(telephone) + "&fax=" + escape(fax) + "&businessDescription=" + escape(businessDescription) + "&industry=" + escape(industry) + "&subIndustry=" + escape(subIndustry) + "&sicCode=" + escape(sicCode) + "&industry_2=" + escape(industry_2) + "&subIndustry_2=" + escape(subIndustry_2) + "&sicCode_2=" + escape(sicCode_2) + "&probe_sic_select_1=" + escape(probe_sic_select_1) + "&probe_sic_select_2=" + escape(probe_sic_select_2) + "&probe_sic_select_3=" + escape(probe_sic_select_3) + "&employees=" + escape(employees) + "&domestic_company=" + escape(domestic_company) + "&title=" + escape(title) + "&contactFirstName=" + escape(contactFirstName) + "&contactSurname=" + escape(contactSurname) + "&jobTitle=" + escape(jobTitle),
-    //    success: function (data) {
-    //}
-//});
-}

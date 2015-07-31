@@ -80,15 +80,15 @@ namespace ECommerce.Admin.DAL
 			DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
 			db.AddInParameter(dbCommand, "ComID", DbType.String, model.ComID);
 			db.AddInParameter(dbCommand, "UId", DbType.Int32, model.UId);
-			db.AddInParameter(dbCommand, "Country_Regions", DbType.String, model.Country_Regions);
+			db.AddInParameter(dbCommand, "Country_Regions", DbType.AnsiString, model.Country_Regions);
 			db.AddInParameter(dbCommand, "EMP1", DbType.String, model.EMP1);
 			db.AddInParameter(dbCommand, "EMP2", DbType.String, model.EMP2);
 			db.AddInParameter(dbCommand, "TURN1", DbType.String, model.TURN1);
 			db.AddInParameter(dbCommand, "TURN2", DbType.String, model.TURN2);
-			db.AddInParameter(dbCommand, "INDUSTRY", DbType.String, model.INDUSTRY);
+			db.AddInParameter(dbCommand, "INDUSTRY", DbType.AnsiString, model.INDUSTRY);
 			db.AddInParameter(dbCommand, "List1", DbType.String, model.List1);
 			db.AddInParameter(dbCommand, "List2", DbType.String, model.List2);
-			db.AddInParameter(dbCommand, "SicCode", DbType.String, model.SicCode);
+			db.AddInParameter(dbCommand, "SicCode", DbType.AnsiString, model.SicCode);
 			db.AddInParameter(dbCommand, "SelectedSicCodes", DbType.AnsiString, model.SelectedSicCodes);
 			db.AddInParameter(dbCommand, "PROBE_SIC", DbType.String, model.PROBE_SIC);
 			db.AddInParameter(dbCommand, "CreateDate", DbType.DateTime, model.CreateDate);
@@ -129,15 +129,15 @@ namespace ECommerce.Admin.DAL
 			db.AddInParameter(dbCommand, "ID", DbType.Int32, model.ID);
 			db.AddInParameter(dbCommand, "ComID", DbType.String, model.ComID);
 			db.AddInParameter(dbCommand, "UId", DbType.Int32, model.UId);
-			db.AddInParameter(dbCommand, "Country_Regions", DbType.String, model.Country_Regions);
+			db.AddInParameter(dbCommand, "Country_Regions", DbType.AnsiString, model.Country_Regions);
 			db.AddInParameter(dbCommand, "EMP1", DbType.String, model.EMP1);
 			db.AddInParameter(dbCommand, "EMP2", DbType.String, model.EMP2);
 			db.AddInParameter(dbCommand, "TURN1", DbType.String, model.TURN1);
 			db.AddInParameter(dbCommand, "TURN2", DbType.String, model.TURN2);
-			db.AddInParameter(dbCommand, "INDUSTRY", DbType.String, model.INDUSTRY);
+			db.AddInParameter(dbCommand, "INDUSTRY", DbType.AnsiString, model.INDUSTRY);
 			db.AddInParameter(dbCommand, "List1", DbType.String, model.List1);
 			db.AddInParameter(dbCommand, "List2", DbType.String, model.List2);
-			db.AddInParameter(dbCommand, "SicCode", DbType.String, model.SicCode);
+			db.AddInParameter(dbCommand, "SicCode", DbType.AnsiString, model.SicCode);
 			db.AddInParameter(dbCommand, "SelectedSicCodes", DbType.AnsiString, model.SelectedSicCodes);
 			db.AddInParameter(dbCommand, "PROBE_SIC", DbType.String, model.PROBE_SIC);
 			db.AddInParameter(dbCommand, "CreateDate", DbType.DateTime, model.CreateDate);
@@ -515,6 +515,33 @@ namespace ECommerce.Admin.DAL
 		}
 
 		#endregion  Method
+
+        #region
+
+        public Model.BenchmarkCriteria GetModel(string strWhere, List<SqlParameter> parameters) {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select * from BenchmarkCriteria ");
+            Database db = DatabaseFactory.CreateDatabase();
+            if (strWhere.Trim() != "") {
+                strSql.Append(" where " + strWhere);
+            }
+            DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
+            if (parameters.Count > 0) {
+                foreach (SqlParameter sqlParameter in parameters) {
+                    dbCommand.Parameters.Add(sqlParameter);
+                }
+            }
+            Model.BenchmarkCriteria model = null;
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand)) {
+                if (dataReader.Read()) {
+                    model = ReaderBind(dataReader);
+                }
+            }
+            return model;
+        }
+
+        #endregion
 	}
 }
 
