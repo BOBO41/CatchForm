@@ -1687,9 +1687,13 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\page.js" />
     <Content Include="js\respond.min.js" />
+    <Content Include="Manage\BaselineData\Default.aspx" />
+    <Content Include="Manage\BaselineData\Detail.aspx" />
     <Content Include="Manage\CM\AddArticle.aspx" />
     <Content Include="Manage\Companies\Detail.aspx" />
     <Content Include="Manage\Companies\Default.aspx" />
+    <Content Include="Manage\MeasurementData\Default.aspx" />
+    <Content Include="Manage\MeasurementData\Detail.aspx" />
     <Content Include="Manage\Systems\AddArticleType.aspx" />
     <Content Include="Manage\Systems\AddCmOrgArea.aspx" />
     <Content Include="Manage\Systems\AddColumn.aspx" />
@@ -2397,6 +2401,20 @@
     <Compile Include="Info.aspx.designer.cs">
       <DependentUpon>Info.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manage\BaselineData\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\BaselineData\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\BaselineData\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\BaselineData\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manage\CM\AddArticle.aspx.cs">
       <DependentUpon>AddArticle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2417,6 +2435,20 @@
     </Compile>
     <Compile Include="Manage\Companies\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\MeasurementData\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\MeasurementData\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\MeasurementData\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\MeasurementData\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Systems\AddArticleType.aspx.cs">
       <DependentUpon>AddArticleType.aspx</DependentUpon>
