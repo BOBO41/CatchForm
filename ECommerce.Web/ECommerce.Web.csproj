@@ -1931,7 +1931,6 @@
     <Content Include="themes\default\bootstrap\js\bootstrap-ie.js" />
     <Content Include="themes\default\bootstrap\js\bootstrap.min.js" />
     <Content Include="themes\default\bootstrap\js\jquery-1.8.0.min.js" />
-    <Content Include="themes\default\images\40.png" />
     <Content Include="themes\default\images\admin_logo.png" />
     <Content Include="themes\default\images\arrow-down.png" />
     <Content Include="themes\default\images\arrow-right.png" />
@@ -1965,10 +1964,6 @@
     <Content Include="themes\default\images\left.png" />
     <Content Include="themes\default\images\left_a_cur.png" />
     <Content Include="themes\default\images\login_bg.png" />
-    <Content Include="themes\default\images\login_body.jpg" />
-    <Content Include="themes\default\images\login_body.png" />
-    <Content Include="themes\default\images\login_logo.png" />
-    <Content Include="themes\default\images\LOGO-yt.png" />
     <Content Include="themes\default\images\logo.png" />
     <Content Include="themes\default\images\NoPhoto.jpg" />
     <Content Include="themes\default\images\pannel-header.png" />
