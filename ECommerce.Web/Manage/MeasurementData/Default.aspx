@@ -21,23 +21,13 @@
                 }
             });
         });
-        function addData() {
-            window.top.$op = this.window;
-            window.top.$modal = window.top.$.scojs_modal({ remote: '/Manage/Systems/AddOrgDepUser.aspx', title: '新增人员' });
-            window.top.$modal.show();
-        }
-        function openModal(url, title) {
-            window.top.$op = this.window;
-            window.top.$modal = window.top.$.scojs_modal({ remote: url, title: title });
-            window.top.$modal.show();
-        }
     </script>
 </head>
 <body class="pd">
     <form id="form1" runat="server">
         <div class="pannel" style="border-top: none">
             <div class="pannel-header">
-                <strong>测评公司</strong>
+                <strong>测评数据</strong>
             </div>
             <div class="pannel-body">
                 <div class="form-inline">
@@ -70,7 +60,7 @@
                                 <td style="text-align: center"><%#Eval("OrgName")%></td>--%>
                                 <td style="text-align: center"><%#Convert.ToDateTime(Eval("CreateDate")).ToString("yyyy-MM-dd")%></td>
                                 <td class="act">
-                                    <a href="Detail.aspx?id=<%#Eval("ID") %>" class="btn btn-mini">查看详情</a>
+                                    <a href="Detail.aspx?id=<%#Eval("ComID") %>" class="btn btn-mini">查看详情</a>
                                 </td>
                             </tr>
                         </ItemTemplate>

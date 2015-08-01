@@ -1,44 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using ECommerce.Admin.DAL;
 using ECommerce.Web.UI;
 
 namespace ECommerce.Web.Manage.MeasurementData {
     public partial class Detail : WebPage {
         private readonly ComInfo _comInfoDal = new ComInfo();
+        private readonly BenchmarkCriteria _benchmarkDal = new BenchmarkCriteria();
         protected void Page_Load(object sender, EventArgs e) {
             VerifyPage("", false);
             try {
                 if (!string.IsNullOrEmpty(Request.QueryString["id"])) {
-                    Admin.Model.ComInfo model = _comInfoDal.GetModel(Convert.ToInt32(Request.QueryString["id"]));
+                    List<SqlParameter> parameters = new List<SqlParameter>();
+                    var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = Request.QueryString["id"] };
+                    parameters.Add(comId);
+                    Admin.Model.BenchmarkCriteria model = _benchmarkDal.GetModel(" ComID=@ComID ", parameters);
                     if (null != model) {
-                        Literal1.Text = model.ComName;
-                        Literal2.Text = model.Add1;
-                        Literal3.Text = model.Add2;
-                        Literal4.Text = model.Add3;
-                        Literal5.Text = model.City;
-                        Literal6.Text = model.Area;
-                        Literal7.Text = model.PostCode;
-                        Literal8.Text = model.Country;
-                        Literal9.Text = model.Phone;
-                        Literal10.Text = model.Fax;
-                        Literal11.Text = model.ComDesc;
-                        Literal12.Text = model.Industry;
-                        Literal13.Text = model.SubIndustry;
-                        Literal14.Text = model.SicCode;
-
-                        Literal24.Text = model.Industry2;
-                        Literal25.Text = model.SubIndustry2;
-                        Literal26.Text = model.SicCode2;
-
-                        Literal15.Text = model.Probe_sic;
-                        Literal16.Text = model.Probe_sic2;
-                        Literal17.Text = model.Probe_sic3;
-                        Literal18.Text = model.Employees;
-                        Literal19.Text = model.Domestic_company;
-                        Literal20.Text = model.Title;
-                        Literal21.Text = model.ContactFirstName;
-                        Literal22.Text = model.contactSurname;
-                        Literal23.Text = model.JobTitle;
+                        Literal1.Text = model.Country_Regions;
+                        Literal2.Text = model.EMP1;
+                        Literal3.Text = model.EMP2;
+                        Literal4.Text = model.TURN1;
+                        Literal5.Text = model.TURN2;
+                        Literal6.Text = model.INDUSTRY;
+                        Literal7.Text = model.List1;
+                        Literal8.Text = model.List2;
+                        Literal9.Text = model.SicCode.Replace("全部选中<br/>", "");
+                        Literal10.Text = model.SelectedSicCodes;
+                        Literal11.Text = model.PROBE_SIC;
                     }
                 }
             }

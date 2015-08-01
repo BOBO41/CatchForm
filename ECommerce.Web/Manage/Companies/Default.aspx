@@ -21,16 +21,6 @@
                 }
             });
         });
-        function addData() {
-            window.top.$op = this.window;
-            window.top.$modal = window.top.$.scojs_modal({ remote: '/Manage/Systems/AddOrgDepUser.aspx', title: '新增人员' });
-            window.top.$modal.show();
-        }
-        function openModal(url, title) {
-            window.top.$op = this.window;
-            window.top.$modal = window.top.$.scojs_modal({ remote: url, title: title });
-            window.top.$modal.show();
-        }
     </script>
 </head>
 <body class="pd">

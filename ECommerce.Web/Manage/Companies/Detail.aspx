@@ -22,6 +22,13 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="tf-label">企业编号：
+                        </td>
+                        <td class="tf-con">
+                            <asp:Literal ID="Literal27" runat="server"></asp:Literal>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="tf-label">地址1：
                         </td>
                         <td class="tf-con">

@@ -22,177 +22,73 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">地址1：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal2" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">地址2：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal3" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">地址3：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal4" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">城市：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal5" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">地区：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal6" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">邮政编码：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal7" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">国家：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal8" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">联系电话：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal9" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">传真：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal10" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">企业描述：
+                        <td class="tf-label">企业名称：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal11" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">行业：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal12" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">支行业：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal13" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">NACE代码：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal14" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">行业：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal24" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">支行业：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal25" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">NACE代码：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal26" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">选择SIC代码：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal15" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">选择支行业：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal16" runat="server"></asp:Literal>
-                        </td>
-                        <tr>
-                            <td class="tf-label">选择支行业：
-                            </td>
-                            <td class="tf-con">
-                                <asp:Literal ID="Literal17" runat="server"></asp:Literal>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td class="tf-label">员工人数：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal18" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">本国公司：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal19" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">联系人称谓：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal20" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">联系人姓氏：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal21" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">联系人名字：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal22" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">职位：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal23" runat="server"></asp:Literal>
                         </td>
                     </tr>
 

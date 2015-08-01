@@ -39,6 +39,7 @@ namespace ECommerce.Web.Manage.Companies {
                         Literal21.Text = model.ContactFirstName;
                         Literal22.Text = model.contactSurname;
                         Literal23.Text = model.JobTitle;
+                        Literal27.Text = model.ComID;
                     }
                 }
             }
