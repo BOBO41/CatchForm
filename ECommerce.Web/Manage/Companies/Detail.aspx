@@ -153,13 +153,14 @@
                         <td class="tf-con">
                             <asp:Literal ID="Literal16" runat="server"></asp:Literal>
                         </td>
-                        <tr>
-                            <td class="tf-label">选择支行业：
-                            </td>
-                            <td class="tf-con">
-                                <asp:Literal ID="Literal17" runat="server"></asp:Literal>
-                            </td>
-                        </tr>
+                    </tr>
+                    <tr>
+                        <td class="tf-label">选择支行业：
+                        </td>
+                        <td class="tf-con">
+                            <asp:Literal ID="Literal17" runat="server"></asp:Literal>
+                        </td>
+                    </tr>
                     <tr>
                         <td class="tf-label">员工人数：
                         </td>

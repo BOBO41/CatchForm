@@ -33,6 +33,7 @@
                 <div class="form-inline">
                     公司名称：<input type="text" runat="server" id="txtRealName" class="input-small" placeholder="公司名称" />
                     <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-success" Text="搜索" OnClick="btnSearch_Click" />
+                    <asp:Button ID="btnExport" runat="server" CssClass="btn btn-success" Text="导出" OnClick="btnExport_Click"/>
                 </div>
                 <table class="table table-bordered" border="0" id="tabList">
                     <tr>

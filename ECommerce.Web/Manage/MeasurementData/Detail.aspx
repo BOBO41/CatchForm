@@ -15,77 +15,63 @@
             <div class="pannel-body">
                 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0" class="table-form">
                     <tr>
-                        <td class="tf-label">企业名称：
+                        <td class="tf-label">国家及地区：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal1" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">企业名称：
+                        <td class="tf-label">员工人数：
                         </td>
                         <td class="tf-con">
-                            <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+                            多于 <asp:Literal ID="Literal2" runat="server"></asp:Literal> 少于 <asp:Literal ID="Literal3" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">企业名称：
+                        <td class="tf-label">营业额：
                         </td>
                         <td class="tf-con">
-                            <asp:Literal ID="Literal3" runat="server"></asp:Literal>
+                            多于 <asp:Literal ID="Literal4" runat="server"></asp:Literal> 少于 <asp:Literal ID="Literal5" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">企业名称：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal4" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">企业名称：
-                        </td>
-                        <td class="tf-con">
-                            <asp:Literal ID="Literal5" runat="server"></asp:Literal>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tf-label">企业名称：
+                        <td class="tf-label">行业领域：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal6" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">企业名称：
+                        <td class="tf-label">NACE代码：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal7" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">企业名称：
+                        <td class="tf-label">行业：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal8" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">企业名称：
+                        <td class="tf-label">支行业：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal9" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">企业名称：
+                        <td class="tf-label">Select NACE：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal10" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tf-label">企业名称：
+                        <td class="tf-label">SIC Code：
                         </td>
                         <td class="tf-con">
                             <asp:Literal ID="Literal11" runat="server"></asp:Literal>
