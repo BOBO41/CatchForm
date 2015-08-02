@@ -136,33 +136,33 @@ namespace ECommerce.Web.Manage.MeasurementData {
                 //5） 百分比：vnd.ms-excel.numberformat: #0.00% 
                 table.Append("<tr>");
 
-                table.Append("<td>");
-                table.Append(ds.Tables[0].Rows[i]["Country_Regions"]);
+                table.Append("<td width='100px' style='word-break:keep-all;overflow:hidden;white-space:nowrap;'>");
+                table.Append(ds.Tables[0].Rows[i]["Country_Regions"].ToString().Replace("<br/>", "; "));
                 table.Append("</td>");
-                table.Append("<td>");
+                table.Append("<td width='100px' style='word-break:keep-all;overflow:hidden;white-space:nowrap;'>");
                 table.Append(ds.Tables[0].Rows[i]["EMP1"] + "-" + ds.Tables[0].Rows[i]["EMP2"]);
                 table.Append("</td>");
-                table.Append("<td>");
+                table.Append("<td width='100px' style='word-break:keep-all;overflow:hidden;white-space:nowrap;'>");
                 table.Append(ds.Tables[0].Rows[i]["TURN1"] + "-" + ds.Tables[0].Rows[i]["TURN2"]);
                 table.Append("</td>");
-                table.Append("<td>");
-                table.Append(ds.Tables[0].Rows[i]["INDUSTRY"]);
+                table.Append("<td width='100px' style='word-break:keep-all;overflow:hidden;white-space:nowrap;'>");
+                table.Append(ds.Tables[0].Rows[i]["INDUSTRY"].ToString().Replace("<br/>", "; "));
                 table.Append("</td>");
 
-                table.Append("<td>");
+                table.Append("<td width='100px' style='word-break:keep-all;overflow:hidden;white-space:nowrap;'>");
                 table.Append(ds.Tables[0].Rows[i]["List1"]);
                 table.Append("</td>");
 
-                table.Append("<td>");
+                table.Append("<td width='100px' style='word-break:keep-all;overflow:hidden;white-space:nowrap;'>");
                 table.Append(ds.Tables[0].Rows[i]["List2"]);
                 table.Append("</td>");
-                table.Append("<td>");
-                table.Append(ds.Tables[0].Rows[i]["SicCode"]);
+                table.Append("<td width='100px' style='word-break:keep-all;overflow:hidden;white-space:nowrap;'>");
+                table.Append(ds.Tables[0].Rows[i]["SicCode"].ToString().Replace("全部选中<br/>", "").Replace("<br/>", "; "));
                 table.Append("</td>");
-                table.Append("<td>");
-                table.Append(ds.Tables[0].Rows[i]["SelectedSicCodes"]);
+                table.Append("<td width='100px' style='word-break:keep-all;overflow:hidden;white-space:nowrap;'>");
+                table.Append(ds.Tables[0].Rows[i]["SelectedSicCodes"].ToString().Replace("<br/>", "; "));
                 table.Append("</td>");
-                table.Append("<td>");
+                table.Append("<td width='100px' style='word-break:keep-all;overflow:hidden;white-space:nowrap;'>");
                 table.Append(ds.Tables[0].Rows[i]["PROBE_SIC"]);
                 table.Append("</td>");
                 table.Append("</tr>");
