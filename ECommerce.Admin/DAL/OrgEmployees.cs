@@ -7,27 +7,22 @@ using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
 //Please add references
-namespace ECommerce.Admin.DAL
-{
+namespace ECommerce.Admin.DAL {
     /// <summary>
     /// 数据访问类:OrgEmployees
     /// </summary>
-    public partial class OrgEmployees
-    {
-        public OrgEmployees()
-        { }
+    public partial class OrgEmployees {
+        public OrgEmployees() { }
         #region  Method
 
         /// <summary>
         /// 得到最大ID
         /// </summary>
-        public int GetMaxId()
-        {
+        public int GetMaxId() {
             string strsql = "select max(EmplId)+1 from OrgEmployees";
             Database db = DatabaseFactory.CreateDatabase();
             object obj = db.ExecuteScalar(CommandType.Text, strsql);
-            if (obj != null && obj != DBNull.Value)
-            {
+            if (obj != null && obj != DBNull.Value) {
                 return int.Parse(obj.ToString());
             }
             return 1;
@@ -36,8 +31,7 @@ namespace ECommerce.Admin.DAL
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(int EmplId)
-        {
+        public bool Exists(int EmplId) {
             Database db = DatabaseFactory.CreateDatabase();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select count(1) from OrgEmployees where EmplId=@EmplId ");
@@ -45,20 +39,16 @@ namespace ECommerce.Admin.DAL
             db.AddInParameter(dbCommand, "EmplId", DbType.Int32, EmplId);
             int cmdresult;
             object obj = db.ExecuteScalar(dbCommand);
-            if ((Object.Equals(obj, null)) || (Object.Equals(obj, global::System.DBNull.Value)))
-            {
+            if ((Object.Equals(obj, null)) || (Object.Equals(obj, global::System.DBNull.Value))) {
                 cmdresult = 0;
             }
-            else
-            {
+            else {
                 cmdresult = int.Parse(obj.ToString());
             }
-            if (cmdresult == 0)
-            {
+            if (cmdresult == 0) {
                 return false;
             }
-            else
-            {
+            else {
                 return true;
             }
         }
@@ -67,8 +57,7 @@ namespace ECommerce.Admin.DAL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public int Add(Model.OrgEmployees model)
-        {
+        public int Add(Model.OrgEmployees model) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into OrgEmployees(");
             strSql.Append("OrgId,EmplName,Sex,Birthday,HomeAddress,Phone,Status,Addtime)");
@@ -88,8 +77,7 @@ namespace ECommerce.Admin.DAL
             db.AddInParameter(dbCommand, "Addtime", DbType.DateTime, model.Addtime);
             int result;
             object obj = db.ExecuteScalar(dbCommand);
-            if (!int.TryParse(obj.ToString(), out result))
-            {
+            if (!int.TryParse(obj.ToString(), out result)) {
                 return 0;
             }
             return result;
@@ -97,8 +85,7 @@ namespace ECommerce.Admin.DAL
         /// <summary>
         /// 更新一条数据
         /// </summary>
-        public bool Update(Model.OrgEmployees model)
-        {
+        public bool Update(Model.OrgEmployees model) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update OrgEmployees set ");
             strSql.Append("OrgId=@OrgId,");
@@ -123,12 +110,10 @@ namespace ECommerce.Admin.DAL
             db.AddInParameter(dbCommand, "Addtime", DbType.DateTime, model.Addtime);
             int rows = db.ExecuteNonQuery(dbCommand);
 
-            if (rows > 0)
-            {
+            if (rows > 0) {
                 return true;
             }
-            else
-            {
+            else {
                 return false;
             }
         }
@@ -136,8 +121,7 @@ namespace ECommerce.Admin.DAL
         /// <summary>
         /// 删除一条数据
         /// </summary>
-        public bool Delete(int EmplId)
-        {
+        public bool Delete(int EmplId) {
 
             StringBuilder strSql = new StringBuilder();
             strSql.Append("delete from OrgEmployees ");
@@ -147,20 +131,17 @@ namespace ECommerce.Admin.DAL
             db.AddInParameter(dbCommand, "EmplId", DbType.Int32, EmplId);
             int rows = db.ExecuteNonQuery(dbCommand);
 
-            if (rows > 0)
-            {
+            if (rows > 0) {
                 return true;
             }
-            else
-            {
+            else {
                 return false;
             }
         }
         /// <summary>
         /// 批量删除数据
         /// </summary>
-        public bool DeleteList(string EmplIdlist)
-        {
+        public bool DeleteList(string EmplIdlist) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("delete from OrgEmployees ");
             strSql.Append(" where EmplId in (" + EmplIdlist + ")  ");
@@ -168,12 +149,10 @@ namespace ECommerce.Admin.DAL
             DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
             int rows = db.ExecuteNonQuery(dbCommand);
 
-            if (rows > 0)
-            {
+            if (rows > 0) {
                 return true;
             }
-            else
-            {
+            else {
                 return false;
             }
         }
@@ -181,8 +160,7 @@ namespace ECommerce.Admin.DAL
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public Model.OrgEmployees GetModel(int EmplId)
-        {
+        public Model.OrgEmployees GetModel(int EmplId) {
 
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select EmplId,OrgId,EmplName,Sex,Birthday,HomeAddress,Phone,Status,Addtime from OrgEmployees ");
@@ -191,10 +169,8 @@ namespace ECommerce.Admin.DAL
             DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
             db.AddInParameter(dbCommand, "EmplId", DbType.Int32, EmplId);
             Model.OrgEmployees model = null;
-            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
-            {
-                if (dataReader.Read())
-                {
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand)) {
+                if (dataReader.Read()) {
                     model = ReaderBind(dataReader);
                 }
             }
@@ -205,45 +181,34 @@ namespace ECommerce.Admin.DAL
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public Model.OrgEmployees DataRowToModel(DataRow row)
-        {
+        public Model.OrgEmployees DataRowToModel(DataRow row) {
             Model.OrgEmployees model = new Model.OrgEmployees();
-            if (row != null)
-            {
-                if (row["EmplId"] != null && row["EmplId"].ToString() != "")
-                {
+            if (row != null) {
+                if (row["EmplId"] != null && row["EmplId"].ToString() != "") {
                     model.EmplId = Convert.ToInt32(row["EmplId"].ToString());
                 }
-                if (row["OrgId"] != null && row["OrgId"].ToString() != "")
-                {
+                if (row["OrgId"] != null && row["OrgId"].ToString() != "") {
                     model.OrgId = Convert.ToInt64(row["OrgId"].ToString());
                 }
-                if (row["EmplName"] != null)
-                {
+                if (row["EmplName"] != null) {
                     model.EmplName = row["EmplName"].ToString();
                 }
-                if (row["Sex"] != null)
-                {
+                if (row["Sex"] != null) {
                     model.Sex = row["Sex"].ToString();
                 }
-                if (row["Birthday"] != null && row["Birthday"].ToString() != "")
-                {
+                if (row["Birthday"] != null && row["Birthday"].ToString() != "") {
                     model.Birthday = Convert.ToDateTime(row["Birthday"].ToString());
                 }
-                if (row["HomeAddress"] != null)
-                {
+                if (row["HomeAddress"] != null) {
                     model.HomeAddress = row["HomeAddress"].ToString();
                 }
-                if (row["Phone"] != null)
-                {
+                if (row["Phone"] != null) {
                     model.Phone = row["Phone"].ToString();
                 }
-                if (row["Status"] != null && row["Status"].ToString() != "")
-                {
+                if (row["Status"] != null && row["Status"].ToString() != "") {
                     model.Status = Convert.ToInt32(row["Status"].ToString());
                 }
-                if (row["Addtime"] != null && row["Addtime"].ToString() != "")
-                {
+                if (row["Addtime"] != null && row["Addtime"].ToString() != "") {
                     model.Addtime = Convert.ToDateTime(row["Addtime"].ToString());
                 }
             }
@@ -255,21 +220,17 @@ namespace ECommerce.Admin.DAL
         /// <param name="strWhere">查询条件 Status=@Status and Cell=@Cell order by CreateDate Desc  like写法:'%'+@Cell+'%' </param>
         /// <param name="parameters">List<SqlParameter> parameters</param>
         /// </summary>
-        public DataSet GetList(string strWhere, List<SqlParameter> parameters)
-        {
+        public DataSet GetList(string strWhere, List<SqlParameter> parameters) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select EmplId,OrgId,EmplName,Sex,Birthday,HomeAddress,Phone,Status,Addtime ");
             strSql.Append(" FROM OrgEmployees ");
             Database db = DatabaseFactory.CreateDatabase();
-            if (strWhere.Trim() != "")
-            {
+            if (strWhere.Trim() != "") {
                 strSql.Append(" where " + strWhere);
             }
             DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
-            if (parameters.Count > 0)
-            {
-                foreach (SqlParameter sqlParameter in parameters)
-                {
+            if (parameters.Count > 0) {
+                foreach (SqlParameter sqlParameter in parameters) {
                     dbCommand.Parameters.Add(sqlParameter);
                 }
             }
@@ -282,26 +243,21 @@ namespace ECommerce.Admin.DAL
         /// <param name="strWhere">查询条件 Status=@Status and Cell=@Cell order by CreateDate Desc  like写法:'%'+@Cell+'%' </param>
         /// <param name="parameters">List<SqlParameter> parameters</param>
         /// </summary>
-        public DataSet GetList(int Top, string strWhere, List<SqlParameter> parameters)
-        {
+        public DataSet GetList(int Top, string strWhere, List<SqlParameter> parameters) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select ");
-            if (Top > 0)
-            {
+            if (Top > 0) {
                 strSql.Append(" top " + Top.ToString());
             }
             strSql.Append(" EmplId,OrgId,EmplName,Sex,Birthday,HomeAddress,Phone,Status,Addtime ");
             strSql.Append(" FROM OrgEmployees ");
             Database db = DatabaseFactory.CreateDatabase();
-            if (strWhere.Trim() != "")
-            {
+            if (strWhere.Trim() != "") {
                 strSql.Append(" where " + strWhere);
             }
             DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
-            if (parameters.Count > 0)
-            {
-                foreach (SqlParameter sqlParameter in parameters)
-                {
+            if (parameters.Count > 0) {
+                foreach (SqlParameter sqlParameter in parameters) {
                     dbCommand.Parameters.Add(sqlParameter);
                 }
             }
@@ -338,32 +294,26 @@ namespace ECommerce.Admin.DAL
         /// <param name="endIndex">结束页码</param>
         /// <param name="parameters">List<SqlParameter> parameters</param>
         /// </summary>
-        public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex, List<SqlParameter> parameters)
-        {
+        public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex, List<SqlParameter> parameters) {
             Database db = DatabaseFactory.CreateDatabase();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("SELECT * FROM ( ");
             strSql.Append(" SELECT ROW_NUMBER() OVER (");
-            if (!string.IsNullOrEmpty(orderby.Trim()))
-            {
+            if (!string.IsNullOrEmpty(orderby.Trim())) {
                 strSql.Append("order by T." + orderby);
             }
-            else
-            {
+            else {
                 strSql.Append("order by T.EmplId desc");
             }
             strSql.Append(")AS Row, T.*  from OrgEmployees T ");
-            if (strWhere.Trim() != "")
-            {
+            if (strWhere.Trim() != "") {
                 strSql.Append(" where " + strWhere);
             }
             strSql.Append(" ) TT");
             strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
             DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
-            if (parameters.Count > 0)
-            {
-                foreach (SqlParameter sqlParameter in parameters)
-                {
+            if (parameters.Count > 0) {
+                foreach (SqlParameter sqlParameter in parameters) {
                     dbCommand.Parameters.Add(sqlParameter);
                 }
             }
@@ -374,8 +324,7 @@ namespace ECommerce.Admin.DAL
         /// <summary>
         /// 分页获取数据列表
         /// </summary>
-        public DataSet GetList(int PageSize, int PageIndex, string strWhere)
-        {
+        public DataSet GetList(int PageSize, int PageIndex, string strWhere) {
             Database db = DatabaseFactory.CreateDatabase();
             DbCommand dbCommand = db.GetStoredProcCommand("UP_GetRecordByPage");
             db.AddInParameter(dbCommand, "tblName", DbType.AnsiString, "OrgEmployees");
@@ -393,29 +342,23 @@ namespace ECommerce.Admin.DAL
         /// <param name="strWhere">查询条件 Status=@Status and Cell=@Cell order by CreateDate Desc  like写法:'%'+@Cell+'%' </param>
         /// <param name="parameters">List<SqlParameter> parameters</param>
         /// </summary>
-        public List<Model.OrgEmployees> GetListArray(string strWhere, List<SqlParameter> parameters)
-        {
+        public List<Model.OrgEmployees> GetListArray(string strWhere, List<SqlParameter> parameters) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select EmplId,OrgId,EmplName,Sex,Birthday,HomeAddress,Phone,Status,Addtime ");
             strSql.Append(" FROM OrgEmployees ");
-            if (strWhere.Trim() != "")
-            {
+            if (strWhere.Trim() != "") {
                 strSql.Append(" where " + strWhere);
             }
             Database db = DatabaseFactory.CreateDatabase();
             DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
-            if (parameters.Count > 0)
-            {
-                foreach (SqlParameter sqlParameter in parameters)
-                {
+            if (parameters.Count > 0) {
+                foreach (SqlParameter sqlParameter in parameters) {
                     dbCommand.Parameters.Add(sqlParameter);
                 }
             }
             List<Model.OrgEmployees> list = new List<Model.OrgEmployees>();
-            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
-            {
-                while (dataReader.Read())
-                {
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand)) {
+                while (dataReader.Read()) {
                     list.Add(ReaderBind(dataReader));
                 }
             }
@@ -426,37 +369,31 @@ namespace ECommerce.Admin.DAL
         /// <summary>
         /// 对象实体绑定数据
         /// </summary>
-        public Model.OrgEmployees ReaderBind(IDataReader dataReader)
-        {
+        public Model.OrgEmployees ReaderBind(IDataReader dataReader) {
             Model.OrgEmployees model = new Model.OrgEmployees();
             object ojb;
             ojb = dataReader["EmplId"];
-            if (ojb != null && ojb != DBNull.Value)
-            {
+            if (ojb != null && ojb != DBNull.Value) {
                 model.EmplId = Convert.ToInt32(ojb);
             }
             ojb = dataReader["OrgId"];
-            if (ojb != null && ojb != DBNull.Value)
-            {
+            if (ojb != null && ojb != DBNull.Value) {
                 model.OrgId = Convert.ToInt64(ojb);
             }
             model.EmplName = dataReader["EmplName"].ToString();
             model.Sex = dataReader["Sex"].ToString();
             ojb = dataReader["Birthday"];
-            if (ojb != null && ojb != DBNull.Value)
-            {
+            if (ojb != null && ojb != DBNull.Value) {
                 model.Birthday = Convert.ToDateTime(ojb);
             }
             model.HomeAddress = dataReader["HomeAddress"].ToString();
             model.Phone = dataReader["Phone"].ToString();
             ojb = dataReader["Status"];
-            if (ojb != null && ojb != DBNull.Value)
-            {
+            if (ojb != null && ojb != DBNull.Value) {
                 model.Status = Convert.ToInt32(ojb);
             }
             ojb = dataReader["Addtime"];
-            if (ojb != null && ojb != DBNull.Value)
-            {
+            if (ojb != null && ojb != DBNull.Value) {
                 model.Addtime = Convert.ToDateTime(ojb);
             }
             return model;
@@ -469,8 +406,7 @@ namespace ECommerce.Admin.DAL
         /// <summary>
         /// 批量删除数据
         /// </summary>
-        public bool DelList(string BrandIdlist)
-        {
+        public bool DelList(string BrandIdlist) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("delete from ProductBrand ");
             strSql.Append(" where BrandId in (select * from SplitToTable(@BrandId,','))");
@@ -481,12 +417,10 @@ namespace ECommerce.Admin.DAL
             dbCommand.Parameters.Add(parameter);
             int rows = db.ExecuteNonQuery(dbCommand);
 
-            if (rows > 0)
-            {
+            if (rows > 0) {
                 return true;
             }
-            else
-            {
+            else {
                 return false;
             }
         }
@@ -497,8 +431,7 @@ namespace ECommerce.Admin.DAL
         /// <param name="brandName">品牌信息名称</param>
         /// <param name="brandIds">品牌Id</param>
         /// <returns></returns>
-        public bool InsertProBrands(string brandName, string brandIds)
-        {
+        public bool InsertProBrands(string brandName, string brandIds) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into ProductBrand(");
             strSql.Append("BrandName,addtime)");
@@ -511,12 +444,10 @@ namespace ECommerce.Admin.DAL
             db.AddInParameter(dbCommand, "BrandName", DbType.AnsiString, brandName);
             db.AddInParameter(dbCommand, "addtime", DbType.DateTime, DateTime.Now);
             bool result = false;
-            using (DbConnection conn = db.CreateConnection())
-            {
+            using (DbConnection conn = db.CreateConnection()) {
                 conn.Open();
                 DbTransaction trans = conn.BeginTransaction();
-                try
-                {
+                try {
                     object obj = db.ExecuteScalar(dbCommand, trans);
                     StringBuilder strSql2 = new StringBuilder();
                     strSql2.Append("insert into [ProductBrandType] ([BrandId],[PTId]) select " + obj + ",fieldvalue from dbo.SplitToTable('" + brandIds + "',',')");
@@ -526,8 +457,7 @@ namespace ECommerce.Admin.DAL
 
                     result = true;
                 }
-                catch
-                {
+                catch {
                     trans.Rollback();
                 }
                 conn.Close();
@@ -543,8 +473,7 @@ namespace ECommerce.Admin.DAL
         /// <param name="brandName">品牌信息名称</param>
         /// <param name="brandIds">品牌Id</param>
         /// <returns></returns>
-        public bool UpdateProBrands(string brandId, string brandName, string brandIds)
-        {
+        public bool UpdateProBrands(string brandId, string brandName, string brandIds) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update ProductBrand");
             strSql.Append(" set BrandName=@BrandName ");
@@ -554,12 +483,10 @@ namespace ECommerce.Admin.DAL
             db.AddInParameter(dbCommand, "BrandName", DbType.AnsiString, brandName);
             db.AddInParameter(dbCommand, "BrandId", DbType.Int32, brandId);
             bool result = false;
-            using (DbConnection conn = db.CreateConnection())
-            {
+            using (DbConnection conn = db.CreateConnection()) {
                 conn.Open();
                 DbTransaction trans = conn.BeginTransaction();
-                try
-                {
+                try {
                     object obj = db.ExecuteScalar(dbCommand, trans);
                     StringBuilder strSql3 = new StringBuilder();
                     strSql3.Append("delete from  ProductBrandType where BrandId=@BrandId");
@@ -573,8 +500,7 @@ namespace ECommerce.Admin.DAL
                     trans.Commit();
                     result = true;
                 }
-                catch
-                {
+                catch {
                     trans.Rollback();
                 }
                 conn.Close();
@@ -588,8 +514,7 @@ namespace ECommerce.Admin.DAL
         /// </summary>
         /// <param name="emplIds">EmplIds</param>
         /// <returns></returns>
-        public bool DelEmpTran(string emplIds)
-        {
+        public bool DelEmpTran(string emplIds) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update OrgUsers ");
             strSql.Append(" set Status=0 ");
@@ -597,12 +522,10 @@ namespace ECommerce.Admin.DAL
             Database db = DatabaseFactory.CreateDatabase();
             DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
             bool result = false;
-            using (DbConnection conn = db.CreateConnection())
-            {
+            using (DbConnection conn = db.CreateConnection()) {
                 conn.Open();
                 DbTransaction trans = conn.BeginTransaction();
-                try
-                {
+                try {
                     object objDel = db.ExecuteNonQuery(dbCommand, trans);
                     StringBuilder strSql2 = new StringBuilder();
                     strSql2.Append("update OrgEmployees ");
@@ -619,8 +542,7 @@ namespace ECommerce.Admin.DAL
                     trans.Commit();
                     result = true;
                 }
-                catch
-                {
+                catch {
                     trans.Rollback();
                 }
                 conn.Close();
@@ -642,8 +564,7 @@ namespace ECommerce.Admin.DAL
         /// <param name="userPwd">密码</param>
         /// <param name="type">添加哪种类型人员(1.我公司人员；2.物流公司人员；4.农技推广站人员)</param>
         /// <returns></returns>
-        public int AddEmpUserType(string orgId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, int type)
-        {
+        public int AddEmpUserType(string orgId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, int type, string uUser, string uPwd) {
             int result = 0;
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into OrgEmployees(");
@@ -662,12 +583,10 @@ namespace ECommerce.Admin.DAL
             db.AddInParameter(dbCommand, "Phone", DbType.AnsiString, phone);
             db.AddInParameter(dbCommand, "Status", DbType.Int32, 1);
             db.AddInParameter(dbCommand, "AddTime", DbType.DateTime, DateTime.Now);
-            using (DbConnection conn = db.CreateConnection())
-            {
+            using (DbConnection conn = db.CreateConnection()) {
                 conn.Open();
                 DbTransaction trans = conn.BeginTransaction();
-                try
-                {
+                try {
                     var empId = db.ExecuteScalar(dbCommand, trans);
                     StringBuilder strSql3 = new StringBuilder();
 
@@ -676,14 +595,13 @@ namespace ECommerce.Admin.DAL
                     DbCommand dbCommand3 = db.GetSqlStringCommand(strSql3.ToString());
                     db.AddInParameter(dbCommand3, "UserName", DbType.AnsiString, userName);
                     object obj3 = db.ExecuteScalar(dbCommand3, trans);
-                    if (obj3.ToString() == "0")
-                    {
+                    if (obj3.ToString() == "0") {
                         StringBuilder strSql2 = new StringBuilder();
                         strSql2.Append("insert into OrgUsers(");
-                        strSql2.Append("EmplId,UserName,UserPwd,AddTime,Type,Status)");
+                        strSql2.Append("EmplId,UserName,UserPwd,AddTime,Type,Status,UuserId,Upwd)");
 
                         strSql2.Append(" values (");
-                        strSql2.Append("@EmplId,@UserName,@UserPwd,@AddTime,@Type,@Status)");
+                        strSql2.Append("@EmplId,@UserName,@UserPwd,@AddTime,@Type,@Status,@UuserId,@Upwd)");
                         strSql2.Append(";select @@IDENTITY");
                         DbCommand dbCommand2 = db.GetSqlStringCommand(strSql2.ToString());
                         db.AddInParameter(dbCommand2, "EmplId", DbType.Int64, empId);
@@ -692,9 +610,10 @@ namespace ECommerce.Admin.DAL
                         db.AddInParameter(dbCommand2, "AddTime", DbType.DateTime, DateTime.Now);
                         db.AddInParameter(dbCommand2, "Type", DbType.AnsiString, type);
                         db.AddInParameter(dbCommand2, "Status", DbType.Int32, 1);
+                        db.AddInParameter(dbCommand2, "UuserId", DbType.AnsiString, uUser);
+                        db.AddInParameter(dbCommand2, "Upwd", DbType.AnsiString, uPwd);
                         object obj = db.ExecuteScalar(dbCommand2, trans);
-                        if (!int.TryParse(obj.ToString(), out result))
-                        {
+                        if (!int.TryParse(obj.ToString(), out result)) {
                             trans.Rollback();
                             return 0;
                         }
@@ -710,21 +629,18 @@ namespace ECommerce.Admin.DAL
                         db.AddInParameter(dbCommand1, "Adn_Id", DbType.Int32, obj);
                         db.AddInParameter(dbCommand1, "Role_Id", DbType.Int32, type);
                         object obj1 = db.ExecuteScalar(dbCommand1, trans);
-                        if (!int.TryParse(obj1.ToString(), out result))
-                        {
+                        if (!int.TryParse(obj1.ToString(), out result)) {
                             trans.Rollback();
                             return 0;
                         }
                         trans.Commit();
                     }
-                    else
-                    {
+                    else {
                         trans.Rollback();
                         return 0;
                     }
                 }
-                catch
-                {
+                catch {
                     trans.Rollback();
                 }
                 conn.Close();
@@ -746,8 +662,7 @@ namespace ECommerce.Admin.DAL
         /// <param name="userPwd">密码</param>
         /// <param name="uId">操作人</param>
         /// <returns></returns>
-        public string AddEmpUser(string orgId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, int uId, string selfCard)
-        {
+        public string AddEmpUser(string orgId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, int uId, string selfCard) {
             string result = "操作失败！";
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into OrgEmployees(");
@@ -766,12 +681,10 @@ namespace ECommerce.Admin.DAL
             db.AddInParameter(dbCommand, "Phone", DbType.AnsiString, phone);
             db.AddInParameter(dbCommand, "Status", DbType.Int32, 1);
             db.AddInParameter(dbCommand, "AddTime", DbType.DateTime, DateTime.Now);
-            using (DbConnection conn = db.CreateConnection())
-            {
+            using (DbConnection conn = db.CreateConnection()) {
                 conn.Open();
                 DbTransaction trans = conn.BeginTransaction();
-                try
-                {
+                try {
                     StringBuilder strSql0 = new StringBuilder();
                     strSql0.Append("select count(1) from OrgUsers  a left join OrgEmployees b on a.EmplId=b.EmplId left join  OrgOrganize c on c.OrgId=b.OrgId  where a.UserName=@UserName and a.Status=1 and b.Status=1 and b.OrgId=@OrgId and c.OrgType=5");
 
@@ -779,8 +692,7 @@ namespace ECommerce.Admin.DAL
                     db.AddInParameter(dbCommand0, "OrgId", DbType.Int64, orgId);
                     db.AddInParameter(dbCommand0, "UserName", DbType.AnsiString, userName);
                     object obj0 = db.ExecuteScalar(dbCommand0, trans);
-                    if (obj0.ToString() == "0")
-                    {
+                    if (obj0.ToString() == "0") {
                         var empId = db.ExecuteScalar(dbCommand, trans);
 
                         #region 插入站长默认代付帐户
@@ -809,8 +721,7 @@ namespace ECommerce.Admin.DAL
                         db.AddInParameter(dbCommand4, "Mobile", DbType.AnsiString, phone);
                         object obj4 = db.ExecuteScalar(dbCommand4, trans);
                         var cId = 0;
-                        if (!int.TryParse(obj4.ToString(), out cId))
-                        {
+                        if (!int.TryParse(obj4.ToString(), out cId)) {
                             trans.Rollback();
                         }
 
@@ -828,8 +739,7 @@ namespace ECommerce.Admin.DAL
                         db.AddInParameter(dbCommand5, "EmplId", DbType.Int32, empId);
                         db.AddInParameter(dbCommand5, "CId", DbType.Int32, cId);
                         int obj5 = db.ExecuteNonQuery(dbCommand5, trans);
-                        if (obj5 <= 0)
-                        {
+                        if (obj5 <= 0) {
                             trans.Rollback();
                         }
 
@@ -854,8 +764,7 @@ namespace ECommerce.Admin.DAL
                         db.AddInParameter(dbCommand2, "Status", DbType.Int32, 1);
                         object obj = db.ExecuteScalar(dbCommand2, trans);
                         int res;
-                        if (!int.TryParse(obj.ToString(), out res))
-                        {
+                        if (!int.TryParse(obj.ToString(), out res)) {
                             trans.Rollback();
                         }
 
@@ -882,22 +791,19 @@ namespace ECommerce.Admin.DAL
                         db.AddInParameter(dbCommandAdd, "Status", DbType.Byte, 1);
                         object objAdd = db.ExecuteScalar(dbCommandAdd, trans);
                         int resAdd;
-                        if (!int.TryParse(obj.ToString(), out resAdd))
-                        {
+                        if (!int.TryParse(obj.ToString(), out resAdd)) {
                             trans.Rollback();
                         }
                         #endregion
                         trans.Commit();
                         result = "1";
                     }
-                    else
-                    {
+                    else {
                         trans.Rollback();
                         return "该工作站下已存在站长！";
                     }
                 }
-                catch
-                {
+                catch {
                     trans.Rollback();
                 }
                 conn.Close();
@@ -921,8 +827,7 @@ namespace ECommerce.Admin.DAL
         /// <param name="userPwd">密码</param>
         /// <param name="type">添加哪种类型人员(1.我公司人员；2.物流公司人员；4.农技推广站人员;5.工作站人员)</param>
         /// <returns></returns>
-        public string UpdateEmpUser(string orgId, string emplId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, int type, string selfCard)
-        {
+        public string UpdateEmpUser(string orgId, string emplId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, int type, string selfCard, string uUser, string uPwd) {
             string result = "更新失败";
             Database db = DatabaseFactory.CreateDatabase();
             StringBuilder strSql3 = new StringBuilder();
@@ -934,8 +839,7 @@ namespace ECommerce.Admin.DAL
             db.AddInParameter(dbCommand3, "EmplId", DbType.AnsiString, emplId);
             db.AddInParameter(dbCommand3, "OrgId", DbType.AnsiString, orgId);
             object obj3 = db.ExecuteScalar(dbCommand3);
-            if (obj3.ToString() == "0")
-            {
+            if (obj3.ToString() == "0") {
                 StringBuilder strSql = new StringBuilder();
                 strSql.Append("update OrgEmployees set ");
                 strSql.Append("OrgId=@OrgId,");
@@ -955,18 +859,15 @@ namespace ECommerce.Admin.DAL
                 db.AddInParameter(dbCommand, "HomeAddress", DbType.String, homeAddress);
                 db.AddInParameter(dbCommand, "Phone", DbType.AnsiString, phone);
 
-                using (DbConnection conn = db.CreateConnection())
-                {
+                using (DbConnection conn = db.CreateConnection()) {
                     conn.Open();
                     DbTransaction trans = conn.BeginTransaction();
-                    try
-                    {
+                    try {
                         int rows = db.ExecuteNonQuery(dbCommand, trans);
                         StringBuilder strSql2 = new StringBuilder();
                         strSql2.Append("update OrgUsers set ");
-                        strSql2.Append("UserName=@UserName,Type=@Type");
-                        if (!string.IsNullOrEmpty(userPwd))
-                        {
+                        strSql2.Append("UserName=@UserName,Type=@Type,UuserId=@UuserId,Upwd=@Upwd");
+                        if (!string.IsNullOrEmpty(userPwd)) {
                             strSql2.Append(",UserPwd=@UserPwd ");
                         }
                         strSql2.Append(" where EmplId=@EmplId ");
@@ -974,8 +875,9 @@ namespace ECommerce.Admin.DAL
                         db.AddInParameter(dbCommand2, "EmplId", DbType.Int32, emplId);
                         db.AddInParameter(dbCommand2, "UserName", DbType.AnsiString, userName);
                         db.AddInParameter(dbCommand2, "Type", DbType.Int32, type);
-                        if (!string.IsNullOrEmpty(userPwd))
-                        {
+                        db.AddInParameter(dbCommand2, "UuserId", DbType.AnsiString, uUser);
+                        db.AddInParameter(dbCommand2, "Upwd", DbType.AnsiString, uPwd);
+                        if (!string.IsNullOrEmpty(userPwd)) {
                             db.AddInParameter(dbCommand2, "UserPwd", DbType.AnsiString, userPwd);
                         }
                         db.ExecuteNonQuery(dbCommand2, trans);
@@ -999,8 +901,7 @@ namespace ECommerce.Admin.DAL
                         result = "1";
                         trans.Commit();
                     }
-                    catch (Exception ee)
-                    {
+                    catch (Exception ee) {
                         result = ee.Message;
                         trans.Rollback();
                     }
@@ -1009,8 +910,7 @@ namespace ECommerce.Admin.DAL
                     return result;
                 }
             }
-            else
-            {
+            else {
                 result = "用户名已经存在";
             }
             return result;
@@ -1021,8 +921,7 @@ namespace ECommerce.Admin.DAL
         /// <param name="strWhere">查询条件 Status=@Status and Cell=@Cell order by CreateDate Desc  like写法:'%'+@Cell+'%' </param>
         /// <param name="parameters">List<SqlParameter> parameters</param>
         /// </summary>
-        public DataSet GetListEmp(string sid)
-        {
+        public DataSet GetListEmp(string sid) {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("SELECT * FROM dbo.OrgEmployees  where EmplId IN (SELECT EmplId FROM dbo.OrgUsers ");
             strSql.Append(" where UID IN (select UID from dbo.SYS_UserForRole where Role_Id ");

@@ -1,5 +1,5 @@
-﻿using System;
-
+﻿
+using System;
 namespace ECommerce.Admin.Model
 {
 	/// <summary>
@@ -19,6 +19,8 @@ namespace ECommerce.Admin.Model
 		private int? _type;
 		private int? _status;
 		private DateTime? _lastlogintime;
+		private string _uuserid;
+		private string _upwd;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -82,6 +84,22 @@ namespace ECommerce.Admin.Model
 		{
 			set{ _lastlogintime=value;}
 			get{return _lastlogintime;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string UuserId
+		{
+			set{ _uuserid=value;}
+			get{return _uuserid;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string Upwd
+		{
+			set{ _upwd=value;}
+			get{return _upwd;}
 		}
 		#endregion Model
 

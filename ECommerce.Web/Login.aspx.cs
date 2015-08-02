@@ -6,6 +6,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Web;
+using ECommerce.Admin.Model;
 using ECommerce.Lib.Security;
 
 namespace ECommerce.Web {
@@ -112,7 +113,9 @@ namespace ECommerce.Web {
                 request.ContentType = "application/x-www-form-urlencoded";
                 request.Method = "POST";
                 request.UserAgent = DefaultUserAgent;
-                string form = "userId=" + ConfigurationManager.AppSettings["user"] + "&password=" + ConfigurationManager.AppSettings["pwd"] + "&login=Enter&theaction=1";
+                //string form = "userId=" + ConfigurationManager.AppSettings["user"] + "&password=" + ConfigurationManager.AppSettings["pwd"] + "&login=Enter&theaction=1";
+                var user = HttpContext.Current.Session["CurrentUser"] as OrgUsers;
+                string form = "userId=" + user.UuserId + "&password=" + user.Upwd + "&login=Enter&theaction=1";
                 byte[] data = Encoding.UTF8.GetBytes(form);
                 request.ContentLength = data.Length;
                 using (Stream stream = request.GetRequestStream()) {

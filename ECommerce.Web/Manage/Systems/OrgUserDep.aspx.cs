@@ -205,10 +205,10 @@ namespace ECommerce.Web.Manage.Systems
                     res = "系统管理员";
                     break;
                 case "14":
-                    res = "分站编辑";
+                    res = "普通管理员";
                     break;
                 case "15":
-                    res = "分站管理员";
+                    res = "测评人员";
                     break;
             }
             return res;

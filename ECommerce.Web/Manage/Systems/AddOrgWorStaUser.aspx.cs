@@ -165,7 +165,7 @@ namespace ECommerce.Web.Manage.Systems
                     model.HomeAddress = addr;
                     model.Phone = cell;
                     model.Sex = sex;
-                    var res = _dataDal.UpdateEmpUser(orgId, Request.QueryString["empId"], name, sex, birthDay, addr, cell, userName, pwd, 5, selfCard);
+                    var res = _dataDal.UpdateEmpUser(orgId, Request.QueryString["empId"], name, sex, birthDay, addr, cell, userName, pwd, 5, selfCard,"","");
                     if (res == "1")
                     {
                         Page.ClientScript.RegisterStartupScript(GetType(), "",

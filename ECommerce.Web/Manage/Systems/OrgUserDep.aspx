@@ -58,7 +58,6 @@
                         <th nowrap="nowrap">电话</th>
                         <%--<th nowrap="nowrap">地址</th>--%>
                         <th nowrap="nowrap">人员类型</th>
-                        <th nowrap="nowrap">所属分站</th>
                         <th nowrap="nowrap">创建时间</th>
                         <th nowrap="nowrap">上次登录</th>
                         <%--<th class="act" nowrap="nowrap">设置角色</th>--%>
@@ -74,12 +73,11 @@
                                 <td style="text-align: center"><%#Eval("Sex").ToString()=="1" ? "男":"女"%></td>
                                 <td style="text-align: center"><%#Eval("Phone")%></td>
                                 <td style="text-align: center"><%#GetRoleName(Eval("Type"))%></td>
-                                <td style="text-align: center"><%#Eval("OrgName")%></td>
                                 <td style="text-align: center"><%#Convert.ToDateTime(Eval("Addtime")).ToString("yyyy-MM-dd")%></td>
                                 <td style="text-align: center"><%#Eval("LastLoginTime")==DBNull.Value?"":Convert.ToDateTime(Eval("LastLoginTime")).ToString("yyyy-MM-dd")%></td>
                                 <td class="act">
                                     <a href="javascript:void(0);" class="btn btn-mini" onclick="openModal('/Manage/Systems/AddOrgDepUser.aspx?empId=<%#Eval("EmplId")%>','编辑人员信息')">编辑</a>
-                                    <asp:LinkButton ID="lbtnDel" CssClass="btn btn-mini" CommandName='<%#Eval("EmplId")%>' OnCommand="lbtnDel_Click" OnClientClick="return confirm('你确定要删除吗？')" runat="server">删除</asp:LinkButton>
+                                    <asp:LinkButton ID="lbtnDel" CssClass="btn btn-mini" CommandName='<%#Eval("EmplId")%>' OnCommand="lbtnDel_Click" OnClientClick="return confirm('你确定要删除吗？')" runat="server" Visible='<%#Eval("EmplId").ToString()!="2"%>'>删除</asp:LinkButton>
                                 </td>
                             </tr>
                         </ItemTemplate>
