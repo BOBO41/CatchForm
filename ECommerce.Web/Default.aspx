@@ -4,7 +4,7 @@
 <head id="Head1" runat="server">
     <link rel="shortcut icon" href="favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>沿途后台管理系统</title>
+    <title>企业测评诊断与提升服务系统</title>
     <link href="themes/default/main.css" rel="stylesheet" type="text/css">
 </head>
 <frameset rows="60,*" cols="*" border="0" frameborder="no" framespacing="0">

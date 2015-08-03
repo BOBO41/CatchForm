@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="header">
-            <div class="logo">沿途</div>
+            <div class="logo">企业测评诊断与提升服务系统</div>
             <div class="userinfo" id="divLogged" runat="server">
                 欢迎您，<strong><asp:Literal ID="litUserName" runat="server"></asp:Literal></strong> 登录成功！ <a href="#">通知</a> | <a href="ChangePass.aspx" target="mainFrame">密码更改</a><strong>
                     <asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click">[退出]</asp:LinkButton></strong>

@@ -14,7 +14,7 @@
 <body class="login">
     <div class="loginbox">
         <%--<div class="login-logo"></div>--%>
-        <div class="title">登录你的沿途管理员帐号</div>
+        <div class="title">登录你的管理员帐号</div>
         <form class="border_radius" id="focus" name="form1" runat="server">
             <label><%--<span>账号</span>--%><asp:TextBox ID="TextBox1" placeholder="账号" runat="server" CssClass="input_txt border_radius"></asp:TextBox></label>
             <label><%--<span>密码</span>--%><asp:TextBox ID="TextBox2" runat="server" placeholder="密码" TextMode="Password" CssClass="input_txt border_radius"></asp:TextBox></label>

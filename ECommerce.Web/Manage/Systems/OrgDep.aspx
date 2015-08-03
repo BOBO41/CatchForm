@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>沿途后台</title>
+    <title>企业测评诊断与提升服务系统</title>
     <link href="/themes/default/Master.min.css" rel="stylesheet" type="text/css" />
     <link href="/themes/sco.js/css/scojs.css" rel="stylesheet" />
     <script src="/themes/js/jquery.min.js"></script>

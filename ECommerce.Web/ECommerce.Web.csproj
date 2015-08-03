@@ -1704,7 +1704,6 @@
     <Content Include="images\back.png" />
     <Content Include="images\Line.png" />
     <Content Include="images\menu_a_arrow.png" />
-    <Content Include="Manage\Systems\AddOrgTrain.aspx" />
     <Content Include="Manage\Area\AJAX\AddArea.aspx" />
     <Content Include="Manage\Area\AJAX\AddSelect.aspx" />
     <Content Include="Manage\Area\AJAX\DelAreaAtt.aspx" />
@@ -1714,7 +1713,6 @@
     <Content Include="Manage\CM\CMAuditArticle.aspx" />
     <Content Include="Manage\CM\CMArticleClickRate.aspx" />
     <Content Include="Manage\CM\CMColumnClickRate.aspx" />
-    <Content Include="Manage\Systems\OrgTrain.aspx" />
     <Content Include="Manage\Systems\AJAX\AddPlant.aspx" />
     <Content Include="Manage\Systems\AJAX\OrgCom.aspx" />
     <Content Include="Manage\CM\Ajax\AddArticleType.aspx" />
@@ -1756,7 +1754,6 @@
     <Content Include="Manage\Systems\OrgDep.aspx" />
     <Content Include="Manage\Systems\OrgUserDefault.aspx" />
     <Content Include="Manage\Systems\OrgUserDep.aspx" />
-    <Content Include="Manage\Systems\OrgWorkStation.aspx" />
     <Content Include="Manage\Systems\OrgWorStaDefault.aspx" />
     <Content Include="Manage\Systems\ResetPassword.aspx" />
     <Content Include="Manage\Systems\SystemConfig.aspx" />
@@ -2487,13 +2484,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manage\Systems\AddOrgTrain.aspx.cs">
-      <DependentUpon>AddOrgTrain.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manage\Systems\AddOrgTrain.aspx.designer.cs">
-      <DependentUpon>AddOrgTrain.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Manage\Area\AJAX\AddArea.aspx.cs">
       <DependentUpon>AddArea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2556,13 +2546,6 @@
     </Compile>
     <Compile Include="Manage\CM\CMColumnClickRate.aspx.designer.cs">
       <DependentUpon>CMColumnClickRate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Manage\Systems\OrgTrain.aspx.cs">
-      <DependentUpon>OrgTrain.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manage\Systems\OrgTrain.aspx.designer.cs">
-      <DependentUpon>OrgTrain.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Systems\AJAX\AddPlant.aspx.cs">
       <DependentUpon>AddPlant.aspx</DependentUpon>
@@ -2850,13 +2833,6 @@
     </Compile>
     <Compile Include="Manage\Systems\OrgUserDep.aspx.designer.cs">
       <DependentUpon>OrgUserDep.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Manage\Systems\OrgWorkStation.aspx.cs">
-      <DependentUpon>OrgWorkStation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manage\Systems\OrgWorkStation.aspx.designer.cs">
-      <DependentUpon>OrgWorkStation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Systems\OrgWorStaDefault.aspx.cs">
       <DependentUpon>OrgWorStaDefault.aspx</DependentUpon>

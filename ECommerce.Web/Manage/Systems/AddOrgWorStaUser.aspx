@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>沿途后台</title>
+    <title>企业测评诊断与提升服务系统</title>
     <%--<link href="/themes/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <script src="/themes/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <script src="/themes/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>--%>

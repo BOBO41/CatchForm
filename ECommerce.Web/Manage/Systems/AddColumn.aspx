@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>农资电商后台管理系统</title>
+    <title>企业测评诊断与提升服务系统</title>
 </head>
 <body>
     <form id="form1" runat="server" style="margin: 0">
