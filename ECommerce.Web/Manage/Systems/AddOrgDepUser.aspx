@@ -85,7 +85,7 @@
                         <input id="rboSingle" type="radio" runat="server" name="rboSelectType" value="1" onclick="hideorg();" />
                         系统管理员
                         <input id="rboSinglestaadmin" type="radio" runat="server" name="rboSelectType" value="15" onclick="shorg();" />
-                        测评人员
+                        测评师
                         <%--<input id="rboDouble" type="radio" runat="server" name="rboSelectType" value="14" onclick="shorg();" />
                         专家--%>
                     </div>
