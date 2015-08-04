@@ -39,6 +39,9 @@ namespace ECommerce.Web {
                 url = url + "?" + query;
             }
             var request = WebRequest.Create(url) as HttpWebRequest;
+            //String refer = url.Substring(0, url.LastIndexOf("/") + 1);
+            //request.AllowAutoRedirect = true;
+            //request.Referer = refer;
             request.CookieContainer = cookieContainer;
             request.ProtocolVersion = HttpVersion.Version10;
 

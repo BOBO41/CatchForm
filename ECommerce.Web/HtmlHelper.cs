@@ -23,7 +23,7 @@ namespace ECommerce.Web {
         private readonly BenchmarkCriteria _benchmarkDal = new BenchmarkCriteria();
         public void DataProcess(string or_path, HttpWebResponse wr, string query, NameValueCollection form) {
             string urlResponse = wr.ResponseUri.AbsolutePath;
-            //var user = HttpContext.Current.Session["CurrentUser"] as OrgUsers;
+            var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
 
             #region
 
@@ -48,7 +48,7 @@ namespace ECommerce.Web {
                     parameters.Add(comId);
                     Admin.Model.ComInfo exists = _comInfoDal.GetModel(" ComID=@ComID ", parameters);
                     var model = new Admin.Model.ComInfo();
-                    //model.UId = user.UId;
+                    model.UId = user.UId;
                     model.ComID = dic["compId"];
                     model.Add1 = form["add1"];
                     model.Add2 = form["add2"];
@@ -98,7 +98,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 Admin.Model.ComInfo exists = _comInfoDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.ComInfo();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.Add1 = form["add1"];
                 model.Add2 = form["add2"];
@@ -148,7 +148,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 var exists = _financelDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.Financel();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.Fyear = form["fyear"];
                 model.HF1 = form["HF1"];
@@ -197,7 +197,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 var exists = _customerServiceDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.CustomerService();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.CS1 = form["CS1"];
                 model.INN4 = form["INN4"];
@@ -227,7 +227,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 var exists = _processManuDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.ProcessManu();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.ICT1 = form["ICT1"];
                 model.PC2 = form["PC2"];
@@ -265,7 +265,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 var exists = _developmentServiceDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.DevelopmentService();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.HF15 = form["HF15"];
                 model.PS3 = form["PS3"];
@@ -297,7 +297,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 var exists = _answerWrapperDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.AnswerWrapper();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.Question_answer_1 = FormatAnswer(form["question_answer[1]"]);
                 model.Question_answer_2 = FormatAnswer(form["question_answer[2]"]);
@@ -327,7 +327,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 var exists = _developAnswerDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.DevelopAnswer();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.Question_answer_7 = NAString(form["question_answer[7]"]);
                 model.Question_answer_8 = NAString(form["question_answer[8]"]);
@@ -369,7 +369,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 var exists = _workAnswerDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.WorkAnswer();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.Question_answer_25 = NAString(form["question_answer[25]"]);
                 model.Question_answer_26 = NAString(form["question_answer[26]"]);
@@ -416,7 +416,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 var exists = _prodAnswerDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.ProdAnswer();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.Question_answer_48 = NAString(form["question_answer[48]"]);
                 model.Question_answer_49 = NAString(form["question_answer[49]"]);
@@ -447,7 +447,7 @@ namespace ECommerce.Web {
                 parameters.Add(comId);
                 var exists = _benchmarkDal.GetModel(" ComID=@ComID ", parameters);
                 var model = new Admin.Model.BenchmarkCriteria();
-                //model.UId = user.UId;
+                model.UId = user.UId;
                 model.ComID = form["comp_id"];
                 model.Country_Regions = form["t_Country_Regions"];
                 model.EMP1 = form["EMP1"];
@@ -521,6 +521,43 @@ namespace ECommerce.Web {
                 head.AppendChild(jquery);
             }
             return doc;
+        }
+
+        public HtmlDocument DownLoad(HtmlDocument doc) {
+            var trs = doc.DocumentNode.Elements("tbody//tr");
+            return doc;
+        }
+
+        public void DownLoad() {
+            String url = "http://img04.taobaocdn.com/sns_album/i4/T1yAdWXgdGXXb1upjX.jpg";
+            String fileName = url.Substring(url.LastIndexOf("/") + 1);
+            String refer = url.Substring(0, url.LastIndexOf("/") + 1);
+            HttpWebRequest req = WebRequest.Create(url) as HttpWebRequest;
+            req.AllowAutoRedirect = true;
+            req.Referer = refer;
+            req.UserAgent = "Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13";
+            HttpWebResponse res = req.GetResponse() as System.Net.HttpWebResponse;
+            var stream = res.GetResponseStream();
+            byte[] buffer = new byte[32 * 1024];
+            int bytesProcessed = 0;
+            FileStream fs = File.Create(HttpContext.Current.Server.MapPath(fileName));
+            int bytesRead;
+            do {
+                bytesRead = stream.Read(buffer, 0, buffer.Length);
+                fs.Write(buffer, 0, bytesRead);
+                bytesProcessed += bytesRead;
+            }
+            while (bytesRead > 0);
+            fs.Flush();
+            fs.Close();
+            res.Close();
+        }
+
+        public void DownLoadFile()
+        {
+            string url = "http://www.mozilla.org/images/feature-back-cnet.png";
+            WebClient myWebClient = new WebClient();
+            myWebClient.DownloadFile(url, "C:\\temp\\feature-back-cnet.png");
         }
     }
 }

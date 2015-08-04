@@ -20,12 +20,13 @@ namespace ECommerce.Web.Manage.Companies {
         /// </summary>
         /// <param name="isFirstPage">搜索和删除用true IsPostBack用false</param>
         private void BindData(bool isFirstPage) {
+            var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
             #region 分页
             //当前页码
             int pageNum = 1;
             int pageSize = 10;
             //分页查询语句
-            string sql = "select row_number() over(order by CreateDate desc,ID DESC) as rownum,* FROM ComInfo where 1=1 ";
+            string sql = "select row_number() over(order by CreateDate desc,ID DESC) as rownum,* FROM ComInfo where 1=1 and UId= " + user.UId;
             var name = string.Empty;
             if (!string.IsNullOrEmpty(txtRealName.Value)) {
                 name = txtRealName.Value;
