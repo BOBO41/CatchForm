@@ -1687,6 +1687,7 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\page.js" />
     <Content Include="js\respond.min.js" />
+    <Content Include="Manage\Companies\Report.aspx" />
     <Content Include="Manage\BaselineData\Default.aspx" />
     <Content Include="Manage\BaselineData\Detail.aspx" />
     <Content Include="Manage\CM\AddArticle.aspx" />
@@ -2392,6 +2393,13 @@
     </Compile>
     <Compile Include="Info.aspx.designer.cs">
       <DependentUpon>Info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Companies\Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Companies\Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\BaselineData\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

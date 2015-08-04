@@ -63,8 +63,12 @@ namespace ECommerce.Web {
             HttpWebResponse wr = request.GetResponse() as HttpWebResponse;
             Session["CookieContainer"] = cookieContainer;
             string urlResponse = wr.ResponseUri.ToString();
+            var helper = new HtmlHelper();
+            if ("/download.php" == orPath) {
+                helper.FileProcess(Page, wr, query);
+            }
             if ("POST" == method) {
-                var helper = new HtmlHelper();
+
                 helper.DataProcess(orPath, wr, query, Request.Form);
             }
             if (url != urlResponse) {
@@ -76,6 +80,9 @@ namespace ECommerce.Web {
                 StreamReader respreader = new StreamReader(resp);
                 HtmlDocument doc = new HtmlDocument();
                 doc.Load(respreader);
+                if ("/benchmark/getpdfreportlist.php" == orPath) {
+                    helper.DownLoad(doc);
+                }
                 try {
                     doc.GetElementbyId("header").Remove();
                     doc.GetElementbyId("topLogin").Remove();

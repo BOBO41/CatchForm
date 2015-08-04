@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Net;
 using System.Web;
+using System.Web.UI;
 using ECommerce.Admin.DAL;
 using HtmlAgilityPack;
 
@@ -21,13 +22,14 @@ namespace ECommerce.Web {
         private readonly WorkAnswer _workAnswerDal = new WorkAnswer();
         private readonly ProdAnswer _prodAnswerDal = new ProdAnswer();
         private readonly BenchmarkCriteria _benchmarkDal = new BenchmarkCriteria();
-        public void DataProcess(string or_path, HttpWebResponse wr, string query, NameValueCollection form) {
+        private readonly FileList _fileListDal = new FileList();
+        public void DataProcess(string orPath, HttpWebResponse wr, string query, NameValueCollection form) {
             string urlResponse = wr.ResponseUri.AbsolutePath;
             var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
 
             #region
 
-            if ("/benchmark/createbenchmarkcompany.php" == or_path.ToLower() &&
+            if ("/benchmark/createbenchmarkcompany.php" == orPath.ToLower() &&
                 "/benchmark/benchmarkcompanycomplete.php" == urlResponse.ToLower()) {
                 Dictionary<string, string> dic = new Dictionary<string, string>();
                 var rQuery = wr.ResponseUri.Query;
@@ -91,7 +93,7 @@ namespace ECommerce.Web {
 
             #region 编辑公司信息
 
-            else if ("/benchmark/getbmcompanydetails.php" == or_path.ToLower() &&
+            else if ("/benchmark/getbmcompanydetails.php" == orPath.ToLower() &&
                      "/benchmark/benchmarkcompanycomplete.php" == urlResponse.ToLower()) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -141,7 +143,7 @@ namespace ECommerce.Web {
 
             #region 编辑企业财务
 
-            else if ("/benchmark/financemini.php" == or_path.ToLower() &&
+            else if ("/benchmark/financemini.php" == orPath.ToLower() &&
                      "/benchmark/customerservicemini.php" == urlResponse.ToLower()) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -190,7 +192,7 @@ namespace ECommerce.Web {
 
             #region 编辑企业客户
 
-            else if ("/benchmark/customerservicemini.php" == or_path.ToLower() &&
+            else if ("/benchmark/customerservicemini.php" == orPath.ToLower() &&
                      "/benchmark/processmanumini.php" == urlResponse.ToLower()) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -220,7 +222,7 @@ namespace ECommerce.Web {
 
             #region 企业流程
 
-            else if ("/benchmark/processmanumini.php" == or_path.ToLower() &&
+            else if ("/benchmark/processmanumini.php" == orPath.ToLower() &&
                      "/benchmark/developmentmanumini.php" == urlResponse.ToLower()) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -258,7 +260,7 @@ namespace ECommerce.Web {
 
             #region 企业成长
 
-            else if ("/benchmark/developmentmanumini.php" == or_path.ToLower() &&
+            else if ("/benchmark/developmentmanumini.php" == orPath.ToLower() &&
                      "/benchmark/unido_inputpartb.php" == urlResponse.ToLower()) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -290,7 +292,7 @@ namespace ECommerce.Web {
 
             #region 企业计划
 
-            else if ("/benchmark/unido_inputpartb.php" == or_path.ToLower() &&
+            else if ("/benchmark/unido_inputpartb.php" == orPath.ToLower() &&
                      "/benchmark/unido_inputpartb.php" == urlResponse.ToLower() && "2" == form["section"]) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -320,7 +322,7 @@ namespace ECommerce.Web {
 
             #region 业务发展
 
-            else if ("/benchmark/unido_inputpartb.php" == or_path.ToLower() &&
+            else if ("/benchmark/unido_inputpartb.php" == orPath.ToLower() &&
                      "/benchmark/unido_inputpartb.php" == urlResponse.ToLower() && "3" == form["section"]) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -329,24 +331,24 @@ namespace ECommerce.Web {
                 var model = new Admin.Model.DevelopAnswer();
                 model.UId = user.UId;
                 model.ComID = form["comp_id"];
-                model.Question_answer_7 = NAString(form["question_answer[7]"]);
-                model.Question_answer_8 = NAString(form["question_answer[8]"]);
-                model.Question_answer_9 = NAString(form["question_answer[9]"]);
-                model.Question_answer_10 = NAString(form["question_answer[10]"]);
-                model.Question_answer_11 = NAString(form["question_answer[11]"]);
-                model.Question_answer_12 = NAString(form["question_answer[12]"]);
-                model.Question_answer_13 = NAString(form["question_answer[13]"]);
-                model.Question_answer_14 = NAString(form["question_answer[14]"]);
-                model.Question_answer_15 = NAString(form["question_answer[15]"]);
-                model.Question_answer_16 = NAString(form["question_answer[16]"]);
-                model.Question_answer_17 = NAString(form["question_answer[17]"]);
-                model.Question_answer_18 = NAString(form["question_answer[18]"]);
-                model.Question_answer_19 = NAString(form["question_answer[19]"]);
-                model.Question_answer_20 = NAString(form["question_answer[20]"]);
-                model.Question_answer_21 = NAString(form["question_answer[21]"]);
-                model.Question_answer_22 = NAString(form["question_answer[22]"]);
-                model.Question_answer_23 = NAString(form["question_answer[23]"]);
-                model.Question_answer_24 = NAString(form["question_answer[24]"]);
+                model.Question_answer_7 = NaString(form["question_answer[7]"]);
+                model.Question_answer_8 = NaString(form["question_answer[8]"]);
+                model.Question_answer_9 = NaString(form["question_answer[9]"]);
+                model.Question_answer_10 = NaString(form["question_answer[10]"]);
+                model.Question_answer_11 = NaString(form["question_answer[11]"]);
+                model.Question_answer_12 = NaString(form["question_answer[12]"]);
+                model.Question_answer_13 = NaString(form["question_answer[13]"]);
+                model.Question_answer_14 = NaString(form["question_answer[14]"]);
+                model.Question_answer_15 = NaString(form["question_answer[15]"]);
+                model.Question_answer_16 = NaString(form["question_answer[16]"]);
+                model.Question_answer_17 = NaString(form["question_answer[17]"]);
+                model.Question_answer_18 = NaString(form["question_answer[18]"]);
+                model.Question_answer_19 = NaString(form["question_answer[19]"]);
+                model.Question_answer_20 = NaString(form["question_answer[20]"]);
+                model.Question_answer_21 = NaString(form["question_answer[21]"]);
+                model.Question_answer_22 = NaString(form["question_answer[22]"]);
+                model.Question_answer_23 = NaString(form["question_answer[23]"]);
+                model.Question_answer_24 = NaString(form["question_answer[24]"]);
                 if (null != exists) {
                     model.ID = exists.ID;
                     model.UpdateDate = DateTime.Now;
@@ -362,7 +364,7 @@ namespace ECommerce.Web {
 
             #region 工作市场
 
-            else if ("/benchmark/unido_inputpartb.php" == or_path.ToLower() &&
+            else if ("/benchmark/unido_inputpartb.php" == orPath.ToLower() &&
                      "/benchmark/unido_inputpartb.php" == urlResponse.ToLower() && "4" == form["section"]) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -371,29 +373,29 @@ namespace ECommerce.Web {
                 var model = new Admin.Model.WorkAnswer();
                 model.UId = user.UId;
                 model.ComID = form["comp_id"];
-                model.Question_answer_25 = NAString(form["question_answer[25]"]);
-                model.Question_answer_26 = NAString(form["question_answer[26]"]);
-                model.Question_answer_27 = NAString(form["question_answer[27]"]);
-                model.Question_answer_28 = NAString(form["question_answer[28]"]);
-                model.Question_answer_29 = NAString(form["question_answer[29]"]);
-                model.Question_answer_30 = NAString(form["question_answer[30]"]);
-                model.Question_answer_31 = NAString(form["question_answer[31]"]);
-                model.Question_answer_32 = NAString(form["question_answer[32]"]);
-                model.Question_answer_33 = NAString(form["question_answer[33]"]);
-                model.Question_answer_34 = NAString(form["question_answer[34]"]);
-                model.Question_answer_35 = NAString(form["question_answer[35]"]);
-                model.Question_answer_36 = NAString(form["question_answer[36]"]);
-                model.Question_answer_37 = NAString(form["question_answer[37]"]);
-                model.Question_answer_38 = NAString(form["question_answer[38]"]);
-                model.Question_answer_39 = NAString(form["question_answer[39]"]);
-                model.Question_answer_40 = NAString(form["question_answer[40]"]);
-                model.Question_answer_41 = NAString(form["question_answer[41]"]);
-                model.Question_answer_42 = NAString(form["question_answer[42]"]);
-                model.Question_answer_43 = NAString(form["question_answer[43]"]);
-                model.Question_answer_44 = NAString(form["question_answer[44]"]);
-                model.Question_answer_45 = NAString(form["question_answer[45]"]);
-                model.Question_answer_46 = NAString(form["question_answer[46]"]);
-                model.Question_answer_47 = NAString(form["question_answer[47]"]);
+                model.Question_answer_25 = NaString(form["question_answer[25]"]);
+                model.Question_answer_26 = NaString(form["question_answer[26]"]);
+                model.Question_answer_27 = NaString(form["question_answer[27]"]);
+                model.Question_answer_28 = NaString(form["question_answer[28]"]);
+                model.Question_answer_29 = NaString(form["question_answer[29]"]);
+                model.Question_answer_30 = NaString(form["question_answer[30]"]);
+                model.Question_answer_31 = NaString(form["question_answer[31]"]);
+                model.Question_answer_32 = NaString(form["question_answer[32]"]);
+                model.Question_answer_33 = NaString(form["question_answer[33]"]);
+                model.Question_answer_34 = NaString(form["question_answer[34]"]);
+                model.Question_answer_35 = NaString(form["question_answer[35]"]);
+                model.Question_answer_36 = NaString(form["question_answer[36]"]);
+                model.Question_answer_37 = NaString(form["question_answer[37]"]);
+                model.Question_answer_38 = NaString(form["question_answer[38]"]);
+                model.Question_answer_39 = NaString(form["question_answer[39]"]);
+                model.Question_answer_40 = NaString(form["question_answer[40]"]);
+                model.Question_answer_41 = NaString(form["question_answer[41]"]);
+                model.Question_answer_42 = NaString(form["question_answer[42]"]);
+                model.Question_answer_43 = NaString(form["question_answer[43]"]);
+                model.Question_answer_44 = NaString(form["question_answer[44]"]);
+                model.Question_answer_45 = NaString(form["question_answer[45]"]);
+                model.Question_answer_46 = NaString(form["question_answer[46]"]);
+                model.Question_answer_47 = NaString(form["question_answer[47]"]);
                 if (null != exists) {
                     model.ID = exists.ID;
                     model.UpdateDate = DateTime.Now;
@@ -409,7 +411,7 @@ namespace ECommerce.Web {
 
             #region 开发产品与服务
 
-            else if ("/benchmark/unido_inputpartb.php" == or_path.ToLower() &&
+            else if ("/benchmark/unido_inputpartb.php" == orPath.ToLower() &&
                      "/benchmark/confbenchmark.php" == urlResponse.ToLower() && "last" == form["section"]) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -418,13 +420,13 @@ namespace ECommerce.Web {
                 var model = new Admin.Model.ProdAnswer();
                 model.UId = user.UId;
                 model.ComID = form["comp_id"];
-                model.Question_answer_48 = NAString(form["question_answer[48]"]);
-                model.Question_answer_49 = NAString(form["question_answer[49]"]);
-                model.Question_answer_50 = NAString(form["question_answer[50]"]);
-                model.Question_answer_51 = NAString(form["question_answer[51]"]);
-                model.Question_answer_52 = NAString(form["question_answer[52]"]);
-                model.Question_answer_53 = NAString(form["question_answer[53]"]);
-                model.Question_answer_54 = NAString(form["question_answer[54]"]);
+                model.Question_answer_48 = NaString(form["question_answer[48]"]);
+                model.Question_answer_49 = NaString(form["question_answer[49]"]);
+                model.Question_answer_50 = NaString(form["question_answer[50]"]);
+                model.Question_answer_51 = NaString(form["question_answer[51]"]);
+                model.Question_answer_52 = NaString(form["question_answer[52]"]);
+                model.Question_answer_53 = NaString(form["question_answer[53]"]);
+                model.Question_answer_54 = NaString(form["question_answer[54]"]);
                 if (null != exists) {
                     model.ID = exists.ID;
                     model.UpdateDate = DateTime.Now;
@@ -440,7 +442,7 @@ namespace ECommerce.Web {
 
             #region 基准测评
 
-            else if ("/benchmark/acceptterms.php" == or_path.ToLower() &&
+            else if ("/benchmark/acceptterms.php" == orPath.ToLower() &&
                      "/benchmark/acceptterms.php" == urlResponse.ToLower()) {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = form["comp_id"] };
@@ -474,7 +476,70 @@ namespace ECommerce.Web {
             #endregion
         }
 
-        private string FormatAnswer(string form) {
+        public void FileProcess(Page page, HttpWebResponse wr, string query) {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            if (!string.IsNullOrEmpty(query)) {
+                var paras = query.Split('&');
+                foreach (string para in paras) {
+                    try {
+                        var kv = para.Split('=');
+                        dic.Add(kv[0], kv[1]);
+                    }
+                    catch (Exception) {
+                    }
+                }
+            }
+            if (!dic.ContainsKey("companyID") || string.IsNullOrEmpty(dic["companyID"]) || !dic.ContainsKey("path") ||
+                string.IsNullOrEmpty(dic["path"])) return;
+            var fileName = dic["path"].Substring(dic["path"].LastIndexOf('/') + 1);
+            var filePath = HttpContext.Current.Server.MapPath("/UploadFiles/") + fileName;
+            byte[] buffer = new byte[1024];
+            Stream outStream = File.Create(filePath);
+            Stream inStream = wr.GetResponseStream();
+
+            int l;
+            do {
+                l = inStream.Read(buffer, 0, buffer.Length);
+                if (l > 0)
+                    outStream.Write(buffer, 0, l);
+            } while (l > 0);
+
+            outStream.Close();
+            inStream.Close();
+
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@ComID", DbType.AnsiString) { Value = dic["companyID"] });
+            parameters.Add(new SqlParameter("@FileName", DbType.AnsiString) { Value = fileName });
+            Admin.Model.FileList exists = _fileListDal.GetModel(" ComID=@ComID and FileName=@FileName ", parameters);
+            var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
+            var model = new Admin.Model.FileList();
+            model.UId = user.UId;
+            model.ComID = dic["companyID"];
+            model.FileName = fileName;
+            if (null != exists) {
+                model.ID = exists.ID;
+                model.UpdateDate = DateTime.Now;
+                _fileListDal.Update(model);
+            }
+            else {
+                model.CreateDate = DateTime.Now;
+                _fileListDal.Add(model);
+            }
+
+            page.Response.Clear();
+            page.Response.Charset = "utf-8";
+            page.Response.Buffer = true;
+            page.EnableViewState = false;
+            page.Response.ContentEncoding = System.Text.Encoding.UTF8;
+
+            page.Response.AppendHeader("Content-Disposition", "attachment;filename=" + fileName);
+            page.Response.WriteFile(filePath);
+            page.Response.Flush();
+            page.Response.Close();
+            page.Response.End();
+        }
+
+        private static string FormatAnswer(string form) {
             switch (form) {
                 case "0":
                     return "N/A";
@@ -493,13 +558,9 @@ namespace ECommerce.Web {
             }
         }
 
-        private string NAString(string form) {
-            if ("0" == form) {
-                return "N/A";
-            }
-            else {
-                return form;
-            }
+        private static string NaString(string form)
+        {
+            return "0" == form ? "N/A" : form;
         }
 
         public static HtmlDocument AppendScript(string orPath, HtmlDocument doc) {
@@ -510,21 +571,28 @@ namespace ECommerce.Web {
                     break;
                 case "": fun = "";
                     break;
-                default:
-                    break;
             }
             HtmlNode head = doc.DocumentNode.SelectSingleNode("//head");
-            if (!string.IsNullOrEmpty(fun)) {
-                HtmlNode btn = doc.GetElementbyId("next");
-                btn.SetAttributeValue("onclick", fun);
-                HtmlNode jquery = HtmlNode.CreateNode("<script src=\"/Scripts/jquery-1.7.1.min.js\"></script>");
-                head.AppendChild(jquery);
-            }
+            if (string.IsNullOrEmpty(fun)) return doc;
+            HtmlNode btn = doc.GetElementbyId("next");
+            btn.SetAttributeValue("onclick", fun);
+            HtmlNode jquery = HtmlNode.CreateNode("<script src=\"/Scripts/jquery-1.7.1.min.js\"></script>");
+            head.AppendChild(jquery);
             return doc;
         }
 
         public HtmlDocument DownLoad(HtmlDocument doc) {
-            var trs = doc.DocumentNode.Elements("tbody//tr");
+            try {
+                var trs = doc.DocumentNode.SelectNodes("//tbody//tr");
+                foreach (HtmlNode htmlNode in trs) {
+                    var hrefComId = htmlNode.ChildNodes[1].FirstChild.Attributes["href"].Value;
+                    var hrefPdf = htmlNode.ChildNodes[7].FirstChild.Attributes["href"];
+                    var comId = hrefComId.Substring(hrefComId.LastIndexOf('?') + 1);
+                    hrefPdf.Value = hrefPdf.Value + "&" + comId;
+                }
+            }
+            catch (Exception) {
+            }
             return doc;
         }
 
@@ -553,9 +621,7 @@ namespace ECommerce.Web {
             res.Close();
         }
 
-        public void DownLoadFile()
-        {
-            string url = "http://www.mozilla.org/images/feature-back-cnet.png";
+        public void DownLoadFile(string url) {
             WebClient myWebClient = new WebClient();
             myWebClient.DownloadFile(url, "C:\\temp\\feature-back-cnet.png");
         }

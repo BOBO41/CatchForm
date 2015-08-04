@@ -46,7 +46,7 @@
                         <th nowrap="nowrap">人员类型</th>
                         <th nowrap="nowrap">所属分站</th>--%>
                         <th nowrap="nowrap">录入时间</th>
-                        <th class="act" nowrap="nowrap" style="width:300px;">查看详情</th>
+                        <th class="act" nowrap="nowrap" style="width: 300px;">查看详情</th>
                     </tr>
                     <asp:Repeater ID="rptList" runat="server">
                         <ItemTemplate>
@@ -60,8 +60,8 @@
                                 <td style="text-align: center"><%#GetRoleName(Eval("Type"))%></td>
                                 <td style="text-align: center"><%#Eval("OrgName")%></td>--%>
                                 <td style="text-align: center"><%#Convert.ToDateTime(Eval("CreateDate")).ToString("yyyy-MM-dd")%></td>
-                                <td class="act" style="width:300px;">
-                                    <a href="Detail.aspx?id=<%#Eval("ID") %>" class="btn btn-mini">基本信息</a> <a href="/Manage/BaselineData/Detail.aspx?id=<%#Eval("ComID") %>" class="btn btn-mini">测评数据</a> <a href="/Manage/MeasurementData/Detail.aspx?id=<%#Eval("ComID") %>" class="btn btn-mini">对比数据</a> <a href="Detail.aspx?id=<%#Eval("ComID") %>" class="btn btn-mini">报告下载</a>
+                                <td class="act" style="width: 300px;">
+                                    <a href="Detail.aspx?id=<%#Eval("ID") %>" class="btn btn-mini">基本信息</a> <a href="/Manage/BaselineData/Detail.aspx?id=<%#Eval("ComID") %>" class="btn btn-mini">测评数据</a> <a href="/Manage/MeasurementData/Detail.aspx?id=<%#Eval("ComID") %>" class="btn btn-mini">对比数据</a> <a href="Report.aspx?id=<%#Eval("ComID") %>" class="btn btn-mini">报告下载</a>
                                 </td>
                             </tr>
                         </ItemTemplate>
