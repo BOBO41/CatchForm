@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace ECommerce.Web.Manage.Companies {
+namespace ECommerce.Web.Manage.Services {
     
     
-    public partial class Default {
+    public partial class ApplyList1 {
         
         /// <summary>
         /// form1 控件。
@@ -22,40 +22,22 @@ namespace ECommerce.Web.Manage.Companies {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtRealName 控件。
+        /// txtProName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtRealName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtProName;
         
         /// <summary>
-        /// Text1 控件。
+        /// ddlStatus 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
-        
-        /// <summary>
-        /// Text2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
-        
-        /// <summary>
-        /// txtUser 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUser;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         
         /// <summary>
         /// btnSearch 控件。
@@ -67,21 +49,39 @@ namespace ECommerce.Web.Manage.Companies {
         protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// rptList 控件。
+        /// btnCheck 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptList;
+        protected global::System.Web.UI.WebControls.LinkButton btnCheck;
         
         /// <summary>
-        /// Pager1 控件。
+        /// btnoBackCheck 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ECommerce.Web.UserControl.Pager Pager1;
+        protected global::System.Web.UI.WebControls.LinkButton btnoBackCheck;
+        
+        /// <summary>
+        /// rptArticle 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptArticle;
+        
+        /// <summary>
+        /// Pager 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ECommerce.Web.UserControl.Pager Pager;
     }
 }

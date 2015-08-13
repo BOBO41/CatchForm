@@ -8,8 +8,9 @@ body{
     padding:0;  
     font:0.75em Helvetica, Arial, sans-serif, Verdana; 
     color:#000000;
-    background-color:#333333;
-    background-image:url('../images/newLayout/bodyBK.png');
+    /*background-color:#333333;*/
+    /*background-image:url('../images/newLayout/bodyBK.png');*/
+    background-color:white;
     background-repeat:repeat-x;
 
     height: 100%;

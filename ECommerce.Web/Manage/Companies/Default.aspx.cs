@@ -11,6 +11,15 @@ namespace ECommerce.Web.Manage.Companies {
         protected void Page_Load(object sender, EventArgs e) {
             VerifyPage("", true);
             if (!IsPostBack) {
+                if (!string.IsNullOrEmpty(Request.QueryString["sdate"])) {
+                    Text1.Value = Convert.ToDateTime(Request.QueryString["sdate"]).ToString("yyyy-MM-dd");
+                }
+                if (!string.IsNullOrEmpty(Request.QueryString["edate"])) {
+                    Text2.Value = Convert.ToDateTime(Request.QueryString["edate"]).ToString("yyyy-MM-dd");
+                }
+                if (!string.IsNullOrEmpty(Request.QueryString["uname"])) {
+                    txtUser.Value = Request.QueryString["uname"];
+                }
                 BindData(false);
             }
         }
@@ -26,7 +35,7 @@ namespace ECommerce.Web.Manage.Companies {
             int pageNum = 1;
             int pageSize = 10;
             //分页查询语句
-            string sql = "select row_number() over(order by CreateDate desc,ID DESC) as rownum,* FROM ComInfo where 1=1 and UId= " + user.UId;
+            string sql = "select row_number() over(order by ComInfo.CreateDate desc,ComInfo.ID DESC) as rownum,ComInfo.*,OrgEmployees.EmplName FROM ComInfo join OrgUsers on OrgUsers.UId=ComInfo.UId join OrgEmployees on OrgEmployees.EmplId=OrgUsers.EmplId where 1=1 and ComInfo.UId= " + user.UId;
             var name = string.Empty;
             if (!string.IsNullOrEmpty(txtRealName.Value)) {
                 name = txtRealName.Value;
@@ -36,6 +45,26 @@ namespace ECommerce.Web.Manage.Companies {
                 name = Request.QueryString["name"];
                 txtRealName.Value = name;
                 sql += " and  ComName like '%" + name + "%' ";
+            }
+            var uname = string.Empty;
+            if (!string.IsNullOrEmpty(txtUser.Value)) {
+                uname = txtUser.Value;
+                sql += " and  OrgEmployees.EmplName like '%" + uname + "%' ";
+            }
+            else if (!string.IsNullOrEmpty(Request.QueryString["uname"])) {
+                uname = Request.QueryString["uname"];
+                txtUser.Value = name;
+                sql += " and  OrgEmployees.EmplName like '%" + uname + "%' ";
+            }
+            var sdate = string.Empty;
+            if (!string.IsNullOrEmpty(Text1.Value)) {
+                sdate = Text1.Value;
+                sql += " and ComInfo.CreateDate>='" + Convert.ToDateTime(Text1.Value).ToString("yyyy-MM-dd HH:mm:ss") + "' ";
+            }
+            var edate = string.Empty;
+            if (!string.IsNullOrEmpty(Text2.Value)) {
+                edate = Text2.Value;
+                sql += " and ComInfo.CreateDate<='" + Convert.ToDateTime(Text2.Value).ToString("yyyy-MM-dd HH:mm:ss") + "' ";
             }
             if (!isFirstPage) {
                 try {
@@ -50,7 +79,7 @@ namespace ECommerce.Web.Manage.Companies {
                 }
             }
             //分页方法
-            Pager1.GetDataBind("Repeater", "rptList", sql, pageNum, pageSize, "", "rownum", "Default.aspx?id=" + Request.QueryString["id"] + "&name=" + name + "&");
+            Pager1.GetDataBind("Repeater", "rptList", sql, pageNum, pageSize, "", "rownum", "Default.aspx?id=" + Request.QueryString["id"] + "&name=" + name + "&sdate=" + sdate + "&edate=" + edate + "&uname=" + uname + "&");
             #endregion
         }
 

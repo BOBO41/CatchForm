@@ -1695,6 +1695,14 @@
     <Content Include="Manage\Companies\Default.aspx" />
     <Content Include="Manage\MeasurementData\Default.aspx" />
     <Content Include="Manage\MeasurementData\Detail.aspx" />
+    <Content Include="Manage\Services\ProfInfo.aspx" />
+    <Content Include="Manage\Services\ProfType.aspx" />
+    <Content Include="Manage\Services\ProfOrg.aspx" />
+    <Content Include="Manage\Services\ApplyList.aspx" />
+    <Content Include="Manage\Services\ApplyList1.aspx" />
+    <Content Include="Manage\Systems\AddProfOrg.aspx" />
+    <Content Include="Manage\Systems\AddProfInfo.aspx" />
+    <Content Include="Manage\Systems\AddProfType.aspx" />
     <Content Include="Manage\Systems\AddArticleType.aspx" />
     <Content Include="Manage\Systems\AddCmOrgArea.aspx" />
     <Content Include="Manage\Systems\AddColumn.aspx" />
@@ -2449,6 +2457,62 @@
     </Compile>
     <Compile Include="Manage\MeasurementData\Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Services\ProfInfo.aspx.cs">
+      <DependentUpon>ProfInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Services\ProfInfo.aspx.designer.cs">
+      <DependentUpon>ProfInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Services\ProfType.aspx.cs">
+      <DependentUpon>ProfType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Services\ProfType.aspx.designer.cs">
+      <DependentUpon>ProfType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Services\ProfOrg.aspx.cs">
+      <DependentUpon>ProfOrg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Services\ProfOrg.aspx.designer.cs">
+      <DependentUpon>ProfOrg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Services\ApplyList.aspx.cs">
+      <DependentUpon>ApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Services\ApplyList.aspx.designer.cs">
+      <DependentUpon>ApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Services\ApplyList1.aspx.cs">
+      <DependentUpon>ApplyList1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Services\ApplyList1.aspx.designer.cs">
+      <DependentUpon>ApplyList1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddProfOrg.aspx.cs">
+      <DependentUpon>AddProfOrg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddProfOrg.aspx.designer.cs">
+      <DependentUpon>AddProfOrg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddProfInfo.aspx.cs">
+      <DependentUpon>AddProfInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddProfInfo.aspx.designer.cs">
+      <DependentUpon>AddProfInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Systems\AddProfType.aspx.cs">
+      <DependentUpon>AddProfType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddProfType.aspx.designer.cs">
+      <DependentUpon>AddProfType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Systems\AddArticleType.aspx.cs">
       <DependentUpon>AddArticleType.aspx</DependentUpon>

@@ -5,6 +5,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using ECommerce.Admin.DAL;
@@ -23,6 +26,7 @@ namespace ECommerce.Web {
         private readonly ProdAnswer _prodAnswerDal = new ProdAnswer();
         private readonly BenchmarkCriteria _benchmarkDal = new BenchmarkCriteria();
         private readonly FileList _fileListDal = new FileList();
+        private static readonly string DefaultUserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)";
         public void DataProcess(string orPath, HttpWebResponse wr, string query, NameValueCollection form) {
             string urlResponse = wr.ResponseUri.AbsolutePath;
             var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
@@ -625,5 +629,41 @@ namespace ECommerce.Web {
             WebClient myWebClient = new WebClient();
             myWebClient.DownloadFile(url, "C:\\temp\\feature-back-cnet.png");
         }
+
+        public void LoginToUnido() {
+            try {
+                HttpWebRequest request = null;
+                var cookieContainer = new CookieContainer();
+                if (null != HttpContext.Current.Session["CookieContainer"]) {
+                    cookieContainer = HttpContext.Current.Session["CookieContainer"] as CookieContainer;
+                }
+                ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(CheckValidationResult);
+                string url = "https://unido.benchmarkindex.com/login.php";
+                request = WebRequest.Create(url) as HttpWebRequest;
+                request.CookieContainer = cookieContainer;
+                request.ProtocolVersion = HttpVersion.Version10;
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.Method = "POST";
+                request.UserAgent = DefaultUserAgent;
+                //string form = "userId=" + ConfigurationManager.AppSettings["user"] + "&password=" + ConfigurationManager.AppSettings["pwd"] + "&login=Enter&theaction=1";
+                var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
+                string form = "userId=" + user.UuserId + "&password=" + user.Upwd + "&login=Enter&theaction=1";
+                byte[] data = Encoding.UTF8.GetBytes(form);
+                request.ContentLength = data.Length;
+                using (Stream stream = request.GetRequestStream()) {
+                    stream.Write(data, 0, data.Length);
+                    stream.Close();
+                }
+                HttpWebResponse wr = request.GetResponse() as HttpWebResponse;
+                HttpContext.Current.Session["CookieContainer"] = cookieContainer;
+            }
+            catch (Exception) {
+            }
+        }
+
+        private static bool CheckValidationResult(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors) {
+            return true;
+        }
+
     }
 }

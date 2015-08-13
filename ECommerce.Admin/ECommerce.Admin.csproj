@@ -68,7 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Advertisement.cs" />
+    <Compile Include="DAL\AdvisoryList.cs" />
     <Compile Include="DAL\AnswerWrapper.cs" />
+    <Compile Include="DAL\ApplyList.cs" />
     <Compile Include="DAL\BenchmarkCriteria.cs" />
     <Compile Include="DAL\ComInfo.cs" />
     <Compile Include="DAL\CustomerService.cs" />
@@ -91,12 +93,17 @@
     <Compile Include="DAL\OrgWorkStation.cs" />
     <Compile Include="DAL\ProcessManu.cs" />
     <Compile Include="DAL\ProdAnswer.cs" />
+    <Compile Include="DAL\ProfInfo.cs" />
+    <Compile Include="DAL\ProfOrg.cs" />
+    <Compile Include="DAL\ProfType.cs" />
     <Compile Include="DAL\RegisterUserInfo.cs" />
     <Compile Include="DAL\SWCompany.cs" />
     <Compile Include="DAL\WorkAnswer.cs" />
     <Compile Include="DAL\WorStaUserAcc.cs" />
     <Compile Include="Model\Advertisement.cs" />
+    <Compile Include="Model\AdvisoryList.cs" />
     <Compile Include="Model\AnswerWrapper.cs" />
+    <Compile Include="Model\ApplyList.cs" />
     <Compile Include="Model\BenchmarkCriteria.cs" />
     <Compile Include="Model\ComInfo.cs" />
     <Compile Include="Model\CustomerService.cs" />
@@ -119,6 +126,9 @@
     <Compile Include="Model\OrgWorkStation.cs" />
     <Compile Include="Model\ProcessManu.cs" />
     <Compile Include="Model\ProdAnswer.cs" />
+    <Compile Include="Model\ProfInfo.cs" />
+    <Compile Include="Model\ProfOrg.cs" />
+    <Compile Include="Model\ProfType.cs" />
     <Compile Include="Model\RegisterUserInfo.cs" />
     <Compile Include="Model\SWCompany.cs" />
     <Compile Include="Model\SYS_AdminUser.cs" />

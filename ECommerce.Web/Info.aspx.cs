@@ -71,6 +71,10 @@ namespace ECommerce.Web {
 
                 helper.DataProcess(orPath, wr, query, Request.Form);
             }
+            if ("https://unido.benchmarkindex.com/login.php" == urlResponse) {
+                helper.LoginToUnido();
+                Response.Redirect(Request.Url.ToString());
+            }
             if (url != urlResponse) {
                 Response.Redirect(wr.ResponseUri.PathAndQuery);
             }
