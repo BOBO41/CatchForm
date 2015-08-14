@@ -64,16 +64,16 @@ namespace ECommerce.Web {
             Session["CookieContainer"] = cookieContainer;
             string urlResponse = wr.ResponseUri.ToString();
             var helper = new HtmlHelper();
+            if ("https://unido.benchmarkindex.com/login.php" == urlResponse) {
+                helper.LoginToUnido();
+                Response.Redirect(Request.Url.ToString());
+            }
             if ("/download.php" == orPath) {
                 helper.FileProcess(Page, wr, query);
             }
             if ("POST" == method) {
 
                 helper.DataProcess(orPath, wr, query, Request.Form);
-            }
-            if ("https://unido.benchmarkindex.com/login.php" == urlResponse) {
-                helper.LoginToUnido();
-                Response.Redirect(Request.Url.ToString());
             }
             if (url != urlResponse) {
                 Response.Redirect(wr.ResponseUri.PathAndQuery);
