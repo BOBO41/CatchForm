@@ -35,20 +35,8 @@ namespace ECommerce.Web {
 
             if ("/benchmark/createbenchmarkcompany.php" == orPath.ToLower() &&
                 "/benchmark/benchmarkcompanycomplete.php" == urlResponse.ToLower()) {
-                Dictionary<string, string> dic = new Dictionary<string, string>();
-                var rQuery = wr.ResponseUri.Query;
-                if (!string.IsNullOrEmpty(rQuery)) {
-                    var paras = rQuery.Substring(1).Split('&');
-                    foreach (string para in paras) {
-                        try {
-                            var kv = para.Split('=');
-                            dic.Add(kv[0], kv[1]);
-                        }
-                        catch (Exception) {
-                        }
-                    }
-                }
-                if (dic.ContainsKey("compId") && !string.IsNullOrEmpty(dic["compId"])) {
+                var dic = HttpUtility.ParseQueryString(wr.ResponseUri.Query);
+                if (!string.IsNullOrEmpty(dic["compId"])) {
                     List<SqlParameter> parameters = new List<SqlParameter>();
                     var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = dic["compId"] };
                     parameters.Add(comId);
@@ -481,20 +469,8 @@ namespace ECommerce.Web {
         }
 
         public void FileProcess(Page page, HttpWebResponse wr, string query) {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            if (!string.IsNullOrEmpty(query)) {
-                var paras = query.Split('&');
-                foreach (string para in paras) {
-                    try {
-                        var kv = para.Split('=');
-                        dic.Add(kv[0], kv[1]);
-                    }
-                    catch (Exception) {
-                    }
-                }
-            }
-            if (!dic.ContainsKey("companyID") || string.IsNullOrEmpty(dic["companyID"]) || !dic.ContainsKey("path") ||
-                string.IsNullOrEmpty(dic["path"])) return;
+            var dic = HttpUtility.ParseQueryString(query);
+            if (string.IsNullOrEmpty(dic["companyID"]) || string.IsNullOrEmpty(dic["path"])) return;
             var fileName = dic["path"].Substring(dic["path"].LastIndexOf('/') + 1);
             var filePath = HttpContext.Current.Server.MapPath("/UploadFiles/") + fileName;
             byte[] buffer = new byte[1024];
@@ -562,8 +538,7 @@ namespace ECommerce.Web {
             }
         }
 
-        private static string NaString(string form)
-        {
+        private static string NaString(string form) {
             return "0" == form ? "N/A" : form;
         }
 

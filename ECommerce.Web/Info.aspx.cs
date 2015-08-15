@@ -6,13 +6,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Web;
-using System.Web.UI;
+using ECommerce.Web.UI;
 using HtmlAgilityPack;
 
 namespace ECommerce.Web {
-    public partial class Info : Page {
+    public partial class Info : WebPage {
         private static readonly string DefaultUserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)";
         protected void Page_Load(object sender, EventArgs e) {
+            VerifyPage("", true);
             try {
                 if (!string.IsNullOrEmpty(Request.QueryString["or_path"])) {
                     GetHttpResponse();
