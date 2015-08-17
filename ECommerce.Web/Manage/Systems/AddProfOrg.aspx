@@ -66,15 +66,17 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputPassword"><span style="color: red;">*</span>机构资质：</label>
+                    <label class="control-label" for="inputPassword"><%--<span style="color: red;">*</span>--%>机构资质：</label>
                     <div class="controls">
-                        <asp:FileUpload ID="fuphoto" runat="server" />
+                        <asp:FileUpload ID="fuPImg" runat="server" Width="200px" hegith="30px;" />
+                        <asp:Image ID="Image1" runat="server" Width="100px" Height="100px" Visible="False" />
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputPassword"><span style="color: red;">*</span>营业执照：</label>
+                    <label class="control-label" for="inputPassword"><%--<span style="color: red;">*</span>--%>营业执照：</label>
                     <div class="controls">
-                        <asp:FileUpload ID="fuyyzz" runat="server" />
+                        <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" hegith="30px;" />
+                        <asp:Image ID="Image2" runat="server" Width="100px" Height="100px" Visible="False" />
                     </div>
                 </div>
             </div>

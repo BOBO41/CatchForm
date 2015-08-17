@@ -1693,8 +1693,10 @@
     <Content Include="Manage\CM\AddArticle.aspx" />
     <Content Include="Manage\Companies\Detail.aspx" />
     <Content Include="Manage\Companies\Default.aspx" />
+    <Content Include="Manage\Systems\AddReply.aspx" />
     <Content Include="Manage\MeasurementData\Default.aspx" />
     <Content Include="Manage\MeasurementData\Detail.aspx" />
+    <Content Include="Manage\Services\Advisory.aspx" />
     <Content Include="Manage\Services\ProfInfo.aspx" />
     <Content Include="Manage\Services\ProfType.aspx" />
     <Content Include="Manage\Services\ProfOrg.aspx" />
@@ -2444,6 +2446,13 @@
     <Compile Include="Manage\Companies\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manage\Systems\AddReply.aspx.cs">
+      <DependentUpon>AddReply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Systems\AddReply.aspx.designer.cs">
+      <DependentUpon>AddReply.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manage\MeasurementData\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2457,6 +2466,13 @@
     </Compile>
     <Compile Include="Manage\MeasurementData\Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Services\Advisory.aspx.cs">
+      <DependentUpon>Advisory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Services\Advisory.aspx.designer.cs">
+      <DependentUpon>Advisory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Services\ProfInfo.aspx.cs">
       <DependentUpon>ProfInfo.aspx</DependentUpon>

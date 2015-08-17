@@ -28,22 +28,22 @@
       <publishTime>07/30/2015 20:56:53</publishTime>
     </File>
     <File Include="bin/ECommerce.Admin.dll">
-      <publishTime>08/04/2015 23:49:35</publishTime>
+      <publishTime>08/17/2015 20:24:28</publishTime>
     </File>
     <File Include="bin/ECommerce.Area.dll">
-      <publishTime>08/04/2015 22:19:55</publishTime>
+      <publishTime>08/17/2015 20:24:28</publishTime>
     </File>
     <File Include="bin/ECommerce.CM.dll">
-      <publishTime>08/04/2015 22:19:55</publishTime>
+      <publishTime>08/17/2015 20:24:28</publishTime>
     </File>
     <File Include="bin/ECommerce.DBUtilities.dll">
       <publishTime>07/30/2015 20:56:53</publishTime>
     </File>
     <File Include="bin/ECommerce.dll">
-      <publishTime>08/05/2015 00:26:51</publishTime>
+      <publishTime>08/17/2015 21:02:13</publishTime>
     </File>
     <File Include="bin/ECommerce.Lib.dll">
-      <publishTime>08/04/2015 23:49:35</publishTime>
+      <publishTime>08/17/2015 20:24:29</publishTime>
     </File>
     <File Include="bin/ECommerce.Order.dll">
       <publishTime>03/25/2014 15:06:05</publishTime>
@@ -235,7 +235,7 @@
       <publishTime>07/30/2015 20:57:35</publishTime>
     </File>
     <File Include="includes/css/base.css.css">
-      <publishTime>07/30/2015 20:57:35</publishTime>
+      <publishTime>08/14/2015 00:45:02</publishTime>
     </File>
     <File Include="includes/css/bj/adminLevelMenu.css">
       <publishTime>07/30/2015 20:57:35</publishTime>
@@ -5092,7 +5092,7 @@
       <publishTime>07/30/2015 20:56:59</publishTime>
     </File>
     <File Include="Manage/Companies/Default.aspx">
-      <publishTime>08/05/2015 00:05:15</publishTime>
+      <publishTime>08/13/2015 21:10:32</publishTime>
     </File>
     <File Include="Manage/Companies/Detail.aspx">
       <publishTime>08/01/2015 20:36:09</publishTime>
@@ -5244,6 +5244,24 @@
     <File Include="Manage/Product/ProTypeTree.aspx">
       <publishTime>01/23/2014 14:50:07</publishTime>
     </File>
+    <File Include="Manage/Services/Advisory.aspx">
+      <publishTime>08/17/2015 20:57:12</publishTime>
+    </File>
+    <File Include="Manage/Services/ApplyList.aspx">
+      <publishTime>08/14/2015 00:25:01</publishTime>
+    </File>
+    <File Include="Manage/Services/ApplyList1.aspx">
+      <publishTime>08/14/2015 00:24:41</publishTime>
+    </File>
+    <File Include="Manage/Services/ProfInfo.aspx">
+      <publishTime>08/13/2015 23:14:04</publishTime>
+    </File>
+    <File Include="Manage/Services/ProfOrg.aspx">
+      <publishTime>08/13/2015 23:29:14</publishTime>
+    </File>
+    <File Include="Manage/Services/ProfType.aspx">
+      <publishTime>08/13/2015 22:06:36</publishTime>
+    </File>
     <File Include="Manage/Store/Ajax/StoreAreaAjax.aspx">
       <publishTime>02/11/2014 17:25:12</publishTime>
     </File>
@@ -5358,8 +5376,20 @@
     <File Include="Manage/Systems/AddProductType.aspx">
       <publishTime>01/23/2014 14:50:03</publishTime>
     </File>
+    <File Include="Manage/Systems/AddProfInfo.aspx">
+      <publishTime>08/17/2015 20:28:02</publishTime>
+    </File>
+    <File Include="Manage/Systems/AddProfOrg.aspx">
+      <publishTime>08/17/2015 20:28:02</publishTime>
+    </File>
+    <File Include="Manage/Systems/AddProfType.aspx">
+      <publishTime>08/13/2015 21:49:45</publishTime>
+    </File>
     <File Include="Manage/Systems/AddRechargeInfo.aspx">
       <publishTime>02/24/2014 18:04:27</publishTime>
+    </File>
+    <File Include="Manage/Systems/AddReply.aspx">
+      <publishTime>08/17/2015 20:57:56</publishTime>
     </File>
     <File Include="Manage/Systems/AddRootPackage.aspx">
       <publishTime>05/26/2015 22:18:43</publishTime>

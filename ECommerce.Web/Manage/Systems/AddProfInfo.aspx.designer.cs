@@ -94,13 +94,22 @@ namespace ECommerce.Web.Manage.Systems {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtedu;
         
         /// <summary>
-        /// fuphoto 控件。
+        /// fuPImg 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuphoto;
+        protected global::System.Web.UI.WebControls.FileUpload fuPImg;
+        
+        /// <summary>
+        /// Image1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// btnSub 控件。

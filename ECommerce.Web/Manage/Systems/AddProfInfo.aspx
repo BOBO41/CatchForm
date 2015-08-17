@@ -66,9 +66,10 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputPassword"><span style="color: red;">*</span>照片：</label>
+                    <label class="control-label" for="inputPassword"><%--<span style="color: red;">*</span>--%>照片：</label>
                     <div class="controls">
-                        <asp:FileUpload ID="fuphoto" runat="server" />
+                        <asp:FileUpload ID="fuPImg" runat="server" Width="200px" hegith="30px;" />
+                        <asp:Image ID="Image1" runat="server" Width="100px" Height="100px" Visible="False" />
                     </div>
                 </div>
             </div>
