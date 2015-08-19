@@ -68,6 +68,8 @@ namespace ECommerce.Web {
             if ("https://unido.benchmarkindex.com/login.php" == urlResponse) {
                 helper.LoginToUnido();
                 Response.Redirect(Request.Url.ToString());
+                //var path = "/Info.aspx?or_path=" + Request.QueryString["or_path"] + "&query=" + Request.QueryString["query"];
+                //Server.TransferRequest(path, true, method, null);
             }
             if ("/download.php" == orPath) {
                 helper.FileProcess(Page, wr, query);
