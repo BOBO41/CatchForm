@@ -149,7 +149,6 @@
     <script src="js/scroll.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-
             $("div.list_lh").myScroll({
                 speed: 40, //数值越大，速度越慢
                 rowHeight: 200 //li的高度
