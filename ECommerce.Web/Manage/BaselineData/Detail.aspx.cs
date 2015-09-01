@@ -81,8 +81,9 @@ namespace ECommerce.Web.Manage.BaselineData {
             List<SqlParameter> parameters = new List<SqlParameter>();
             var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = Request.QueryString["id"] };
             parameters.Add(comId);
-            Admin.Model.Financel model = _financelDal.GetModel(where,parameters);
+            Admin.Model.Financel model = _financelDal.GetModel(where, parameters);
             if (null != model) {
+                Literal1.Text = model.ComID;
                 Literal2.Text = model.Fyear;
                 Literal3.Text = model.HF1;
                 Literal4.Text = model.HF2;
@@ -136,7 +137,7 @@ namespace ECommerce.Web.Manage.BaselineData {
             List<SqlParameter> parameters = new List<SqlParameter>();
             var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = Request.QueryString["id"] };
             parameters.Add(comId);
-            Admin.Model.ProcessManu model = _processManuDal.GetModel(where,parameters);;
+            Admin.Model.ProcessManu model = _processManuDal.GetModel(where, parameters); ;
             if (null != model) {
                 Literal33.Text = model.ICT1;
                 Literal34.Text = model.PC2;
@@ -162,7 +163,7 @@ namespace ECommerce.Web.Manage.BaselineData {
             List<SqlParameter> parameters = new List<SqlParameter>();
             var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = Request.QueryString["id"] };
             parameters.Add(comId);
-            Admin.Model.DevelopmentService model = _developmentServiceDal.GetModel(where,parameters);;
+            Admin.Model.DevelopmentService model = _developmentServiceDal.GetModel(where, parameters); ;
             if (null != model) {
                 Literal47.Text = model.HF15;
                 Literal48.Text = model.PS3;
@@ -182,7 +183,7 @@ namespace ECommerce.Web.Manage.BaselineData {
             List<SqlParameter> parameters = new List<SqlParameter>();
             var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = Request.QueryString["id"] };
             parameters.Add(comId);
-            Admin.Model.AnswerWrapper model = _answerWrapperDal.GetModel(where,parameters);;
+            Admin.Model.AnswerWrapper model = _answerWrapperDal.GetModel(where, parameters); ;
             if (null != model) {
                 Literal55.Text = model.Question_answer_1;
                 Literal56.Text = model.Question_answer_2;
@@ -200,7 +201,7 @@ namespace ECommerce.Web.Manage.BaselineData {
             List<SqlParameter> parameters = new List<SqlParameter>();
             var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = Request.QueryString["id"] };
             parameters.Add(comId);
-            Admin.Model.DevelopAnswer model = _developAnswerDal.GetModel(where,parameters);;
+            Admin.Model.DevelopAnswer model = _developAnswerDal.GetModel(where, parameters); ;
             if (null != model) {
                 Literal61.Text = model.Question_answer_7;
                 Literal62.Text = model.Question_answer_8;
@@ -230,7 +231,7 @@ namespace ECommerce.Web.Manage.BaselineData {
             List<SqlParameter> parameters = new List<SqlParameter>();
             var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = Request.QueryString["id"] };
             parameters.Add(comId);
-            Admin.Model.WorkAnswer model = _workAnswerDal.GetModel(where,parameters);;
+            Admin.Model.WorkAnswer model = _workAnswerDal.GetModel(where, parameters); ;
             if (null != model) {
                 Literal79.Text = model.Question_answer_25;
                 Literal80.Text = model.Question_answer_26;
@@ -265,7 +266,7 @@ namespace ECommerce.Web.Manage.BaselineData {
             List<SqlParameter> parameters = new List<SqlParameter>();
             var comId = new SqlParameter("@ComID", DbType.AnsiString) { Value = Request.QueryString["id"] };
             parameters.Add(comId);
-            Admin.Model.ProdAnswer model = _prodAnswerDal.GetModel(where,parameters);;
+            Admin.Model.ProdAnswer model = _prodAnswerDal.GetModel(where, parameters); ;
             if (null != model) {
                 Literal102.Text = model.Question_answer_48;
                 Literal103.Text = model.Question_answer_49;

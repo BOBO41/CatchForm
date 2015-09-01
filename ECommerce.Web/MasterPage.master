@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>企业测评诊断及提升服务平台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="description" content="" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main-FE.css" rel="stylesheet" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="CPHeader" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a class="navbar-brand" href="Index.aspx"></a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="Index.aspx">首页</a></li>
+                        <li><a href="Evaluation.aspx">测评服务</a></li>
+                        <li><a href="Promote.aspx">提升服务</a></li>
+                        <li><a href="#">企业库</a></li>
+                        <li><a href="Mechanism.aspx">服务机构</a></li>
+                        <li><a href="About.aspx">关于我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="CPBody" runat="server">
+        </asp:ContentPlaceHolder>
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul class="footernav">
+                            <li><a href="Index.aspx">首页</a></li>
+                            <li><a href="Evaluation.aspx">测评服务</a></li>
+                            <li><a href="Promote.aspx">提升服务</a></li>
+                            <li><a href="#">企业库</a></li>
+                            <li><a href="Mechanism.aspx">服务机构</a></li>
+                            <li><a href="About.aspx">关于我们</a></li>
+                        </ul>
+                        版权所有：西安生产力促进中心  © 2003-2007 电话：82401793<br>
+                        网站备案号：陕ICP备05008337号 技术支持：西安微媒<br>
+                        友情链接：<a href="#">国际工业分包平台</a>
+                    </div>
+                    <div class="follow-us"><a class="social-icon" onclick="join_club()" href="javascript:void(0)">在线咨询</a></div>
+                </div>
+            </div>
+            <div class="joinclub" id="joinclub" style="display: none;">
+                <div class="row1"><a title="关闭窗口" class="close_btn" onclick="closeCustomer()" href="javascript:void(0)">×</a></div>
+                <div class="formlist">
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input name="subject" class="form-control" required="" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>联系方式</label>
+                        <input name="subject" class="form-control" required="" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>内容</label>
+                        <textarea name="message" class="form-control" id="message" required="" rows="5"></textarea>
+                    </div>
+                    <div class="form-box"><a href="#">提交</a></div>
+                </div>
+            </div>
+            <div class="bg123" id="bg123" style="display: none;"></div>
+            <script type="text/javascript">
+                function closeCustomer() {
+                    document.getElementById("joinclub").style.display = 'none';
+                    document.getElementById("bg123").style.display = 'none';
+                }
+                function join_club() {
+                    document.getElementById('joinclub').style.display = 'block';
+                    document.getElementById('bg123').style.display = 'block';
+                }
+</script>
+        </div>
+    </form>
+</body>
+</html>

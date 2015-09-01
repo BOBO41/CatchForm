@@ -112,14 +112,35 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\main-FE.css" />
     <Content Include="css\scaffolding.css" />
+    <Content Include="Evaluation.aspx" />
+    <Content Include="EvaluationList.aspx" />
+    <Content Include="Expert.aspx" />
     <Content Include="icons\back.gif" />
     <Content Include="icons\blank.gif" />
     <Content Include="icons\folder.gif" />
     <Content Include="icons\image2.gif" />
     <Content Include="icons\text.gif" />
     <Content Include="icons\unknown.gif" />
+    <Content Include="images\banner-word.png" />
+    <Content Include="images\banner.jpg" />
     <Content Include="images\bg.png" />
+    <Content Include="images\color_border.jpg" />
+    <Content Include="images\icno-zx.png" />
+    <Content Include="images\image\expert.jpg" />
+    <Content Include="images\image\ico-cp.jpg" />
+    <Content Include="images\image\ico-cp.png" />
+    <Content Include="images\image\ico-qyk.png" />
+    <Content Include="images\image\ico-ts.png" />
+    <Content Include="images\image\man1.jpg" />
+    <Content Include="images\image\man2.jpg" />
+    <Content Include="images\image\woman1.jpg" />
+    <Content Include="images\line.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\pingjia.png" />
     <Content Include="includes\CalendarPopup.js" />
     <Content Include="includes\css\base.css.css" />
     <Content Include="includes\css\bj\adminLevelMenu.css" />
@@ -1676,7 +1697,9 @@
     <Content Include="includes\scripting3084.js" />
     <Content Include="includes\sitestyle.css" />
     <Content Include="includes\sitestylenew.css" />
+    <Content Include="Index.aspx" />
     <Content Include="Info.aspx" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\bootstrap\css\bootstrap.min.css" />
     <Content Include="js\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="js\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -1684,9 +1707,11 @@
     <Content Include="js\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="js\bootstrap\js\bootstrap.min.js" />
     <Content Include="js\html5shiv.min.js" />
+    <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\page.js" />
     <Content Include="js\respond.min.js" />
+    <Content Include="js\scroll.js" />
     <Content Include="Manage\Companies\Report.aspx" />
     <Content Include="Manage\BaselineData\Default.aspx" />
     <Content Include="Manage\BaselineData\Detail.aspx" />
@@ -1777,6 +1802,8 @@
     <Content Include="Manage\Systems\Top.aspx" />
     <Content Include="Manage\Systems\UserRole.aspx" />
     <Content Include="Manage\Systems\Welcome.aspx" />
+    <Content Include="Mechanism.aspx" />
+    <Content Include="Promote.aspx" />
     <Content Include="Scripts\artDialog4.1.6\artDialog.js" />
     <Content Include="Scripts\artDialog4.1.6\artDialog.source.js" />
     <Content Include="Scripts\artDialog4.1.6\index.html" />
@@ -2027,6 +2054,7 @@
     <Content Include="themes\Font-Awesome-3.2.1\font\fontawesome-webfont.woff" />
     <Content Include="themes\Font-Awesome-3.2.1\font\FontAwesome.otf" />
     <Content Include="packages.config" />
+    <Content Include="MasterPage.master" />
     <None Include="Properties\PublishProfiles\ECommerce20140113.pubxml" />
     <None Include="Properties\PublishProfiles\Ecommerce20140328.pubxml" />
     <None Include="Properties\PublishProfiles\Ecommerce20140331.pubxml" />
