@@ -61,11 +61,11 @@
                 <div class="formlist">
                     <div class="form-group">
                         <label>姓名</label>
-                        <input name="subject" class="form-control" required="" type="text">
+                        <input name="subject" class="form-control" required="" type="text"/>
                     </div>
                     <div class="form-group">
                         <label>联系方式</label>
-                        <input name="subject" class="form-control" required="" type="text">
+                        <input name="subject" class="form-control" required="" type="text"/>
                     </div>
                     <div class="form-group">
                         <label>内容</label>
