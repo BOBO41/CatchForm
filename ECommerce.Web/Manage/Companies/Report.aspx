@@ -12,8 +12,12 @@
 <body class="pd">
     <form id="form5" runat="server" style="padding: 0px">
         <div class="pannel">
+	<div class="pannel-header"><strong>报告下载</strong></div>
             <div class="pannel-body">
-                <table style="width: 100%" border="0" cellspacing="0" cellpadding="0" class="table-form">
+ <div class="btn-toolbar">
+                <input type="button" class="btn btn-mini"  name="Previous" id="Previous" value="返回" onclick="javascript: history.back();">
+            </div>
+                <table style="width: 100%" border="0" cellspacing="0" cellpadding="0" class="table table-bordered">
                     <tr>
                         <th>文件名</th>
                         <th>创建时间</th>
@@ -30,9 +34,7 @@
                     </asp:Repeater>
                 </table>
             </div>
-            <div class="text-center">
-                <input type="button" class="btn" style="margin-bottom: 10px;" name="Previous" id="Previous" value="返回" onclick="javascript: history.back();">
-            </div>
+           
         </div>
     </form>
 </body>

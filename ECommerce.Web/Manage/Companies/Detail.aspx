@@ -11,9 +11,16 @@
 </head>
 <body class="pd">
     <form id="form5" runat="server" style="padding: 0px">
+
+		
         <div class="pannel">
+
+<div class="pannel-header"><strong>基本信息</strong></div>
             <div class="pannel-body">
-                <table style="width: 100%" border="0" cellspacing="0" cellpadding="0" class="table-form">
+<div class="btn-toolbar">
+                <input type="button" class="btn btn-mini"   name="Previous" id="Previous" value="返回" onclick="javascript: history.back();">
+            </div>
+                <table style="width: 100%" border="0" cellspacing="0" cellpadding="0" class="table table- bordered">
                     <tr>
                         <td class="tf-label">企业名称：
                         </td>
@@ -206,9 +213,7 @@
 
                 </table>
             </div>
-            <div class="text-center">
-                <input type="button" class="btn" style="margin-bottom: 10px;" name="Previous" id="Previous" value="返回" onclick="javascript: history.back();">
-            </div>
+            
         </div>
     </form>
 </body>

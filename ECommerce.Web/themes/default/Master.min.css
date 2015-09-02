@@ -26,7 +26,7 @@ body{
 	font-size: 24px;
 	line-height: 50px;
 	float: left;
-	padding-left: 50px;
+	padding-left: 15px;
 	background-image: url(images/40.png);
 	background-repeat: no-repeat;
 	background-position: 10px center;
@@ -575,3 +575,5 @@ body,
 .table td span.label{
     vertical-align:middle;
 }
+
+.table td{ font-size:12px; padding:3px 8px;}
