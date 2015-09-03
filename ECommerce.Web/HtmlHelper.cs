@@ -31,7 +31,7 @@ namespace ECommerce.Web {
             string urlResponse = wr.ResponseUri.AbsolutePath;
             var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
 
-            #region
+            #region 创建公司
 
             if ("/benchmark/createbenchmarkcompany.php" == orPath.ToLower() &&
                 "/benchmark/benchmarkcompanycomplete.php" == urlResponse.ToLower()) {
@@ -454,6 +454,7 @@ namespace ECommerce.Web {
                 model.SicCode = form["t_sicCode"];
                 model.SelectedSicCodes = form["t_SelectedSicCodes"];
                 model.PROBE_SIC = form["t_PROBE_SIC"];
+                HttpContext.Current.Session["ComID"] = form["comp_id"];
                 if (null != exists) {
                     model.ID = exists.ID;
                     model.UpdateDate = DateTime.Now;
@@ -468,11 +469,24 @@ namespace ECommerce.Web {
             #endregion
         }
 
-        public void FileProcess(Page page, HttpWebResponse wr, string query) {
+        public void FileProcess(Page page, HttpWebResponse wr, string query, string orPath) {
+            var comId = "";
+            var dpath = "";
             var dic = HttpUtility.ParseQueryString(query);
-            if (string.IsNullOrEmpty(dic["companyID"]) || string.IsNullOrEmpty(dic["path"])) return;
-            var fileName = dic["path"].Substring(dic["path"].LastIndexOf('/') + 1);
-            var filePath = HttpContext.Current.Server.MapPath("/UploadFiles/") + fileName;
+            if ("/download.php" == orPath) {
+                comId = dic["companyID"];
+                dpath = dic["path"];
+            }
+            else {
+                comId = HttpContext.Current.Session["ComID"].ToString();
+                dpath = dic["serial"]+".pdf";
+            }
+
+            if (string.IsNullOrEmpty(comId) || string.IsNullOrEmpty(dpath)) return;
+            var fileName = dpath.Substring(dpath.LastIndexOf('/') + 1);
+            string datatime = System.DateTime.Now.ToString("yyyyMMddHHmmssffff");
+            var newFileName = datatime + fileName;
+            var filePath = HttpContext.Current.Server.MapPath("/UploadFiles/") + newFileName;
             byte[] buffer = new byte[1024];
             Stream outStream = File.Create(filePath);
             Stream inStream = wr.GetResponseStream();
@@ -488,22 +502,23 @@ namespace ECommerce.Web {
             inStream.Close();
 
             List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@ComID", DbType.AnsiString) { Value = dic["companyID"] });
+            parameters.Add(new SqlParameter("@ComID", DbType.AnsiString) { Value = comId });
             parameters.Add(new SqlParameter("@FileName", DbType.AnsiString) { Value = fileName });
             Admin.Model.FileList exists = _fileListDal.GetModel(" ComID=@ComID and FileName=@FileName ", parameters);
             var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
             var model = new Admin.Model.FileList();
             model.UId = user.UId;
-            model.ComID = dic["companyID"];
+            model.ComID = comId;
             model.FileName = fileName;
+            model.FPath = newFileName;
             if (null != exists) {
                 model.ID = exists.ID;
                 model.UpdateDate = DateTime.Now;
                 _fileListDal.Update(model);
             }
             else {
-                model.CreateDate = DateTime.Now;
-                _fileListDal.Add(model);
+            model.CreateDate = DateTime.Now;
+            _fileListDal.Add(model);
             }
 
             page.Response.Clear();

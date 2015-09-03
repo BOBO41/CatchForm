@@ -71,8 +71,8 @@ namespace ECommerce.Web {
                 //var path = "/Info.aspx?or_path=" + Request.QueryString["or_path"] + "&query=" + Request.QueryString["query"];
                 //Server.TransferRequest(path, true, method, null);
             }
-            if ("/download.php" == orPath) {
-                helper.FileProcess(Page, wr, query);
+            if ("/download.php" == orPath.ToLower() || "/downloadpdf.php" == orPath.ToLower()) {
+                helper.FileProcess(Page, wr, query, orPath.ToLower());
             }
             if ("POST" == method) {
 
@@ -103,7 +103,9 @@ namespace ECommerce.Web {
                 response = response.Replace("includes/css/base.css.php", "includes/css/base.css.css");
                 response = response.Replace("https://unido.benchmarkindex.com/", "http://" + Request.Url.Host + ":" + Request.Url.Port + "/");
                 response = response.Replace("https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", "/Scripts/jquery-1.7.1.min.js");
-
+                response = response.Replace("/benchmark/unido_quartile_image.php", "https://unido.benchmarkindex.com/benchmark/unido_quartile_image.php");
+                response = response.Replace("/benchmark/unido_radar_graph.php", "https://unido.benchmarkindex.com/benchmark/unido_radar_graph.php");
+                response = response.Replace("/benchmark/unido_scatter_graph.php", "https://unido.benchmarkindex.com/benchmark/unido_scatter_graph.php");
                 Response.Write(response);
                 Response.End();
             }

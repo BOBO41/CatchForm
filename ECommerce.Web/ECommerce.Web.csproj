@@ -113,6 +113,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AjaxMessage.aspx" />
+    <Content Include="Apply.aspx" />
+    <Content Include="CMessage.aspx" />
+    <Content Include="ComApply.aspx" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\main-FE.css" />
     <Content Include="css\scaffolding.css" />
@@ -1803,6 +1807,7 @@
     <Content Include="Manage\Systems\UserRole.aspx" />
     <Content Include="Manage\Systems\Welcome.aspx" />
     <Content Include="Mechanism.aspx" />
+    <Content Include="Message.aspx" />
     <Content Include="Promote.aspx" />
     <Content Include="Scripts\artDialog4.1.6\artDialog.js" />
     <Content Include="Scripts\artDialog4.1.6\artDialog.source.js" />
@@ -1913,6 +1918,7 @@
     <Content Include="Scripts\artDialog4.1.6\skins\twitter.css" />
     <Content Include="Scripts\jquery-ui-1.8.7.custom.css" />
     <Content Include="Scripts\jquery-ui-1.8.7.custom.min.js" />
+    <Content Include="Show.aspx" />
     <Content Include="themes\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" />
     <Content Include="themes\bootstrap-datetimepicker\css\bootstrap-datetimepicker.min.css" />
     <Content Include="themes\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
@@ -2054,7 +2060,7 @@
     <Content Include="themes\Font-Awesome-3.2.1\font\fontawesome-webfont.woff" />
     <Content Include="themes\Font-Awesome-3.2.1\font\FontAwesome.otf" />
     <Content Include="packages.config" />
-    <Content Include="MasterPage.master" />
+    <Content Include="MasterPage.Master" />
     <None Include="Properties\PublishProfiles\ECommerce20140113.pubxml" />
     <None Include="Properties\PublishProfiles\Ecommerce20140328.pubxml" />
     <None Include="Properties\PublishProfiles\Ecommerce20140331.pubxml" />
@@ -2424,7 +2430,70 @@
     <Content Include="ValidateCode.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxMessage.aspx.cs">
+      <DependentUpon>AjaxMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxMessage.aspx.designer.cs">
+      <DependentUpon>AjaxMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Apply.aspx.cs">
+      <DependentUpon>Apply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Apply.aspx.designer.cs">
+      <DependentUpon>Apply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CMessage.aspx.cs">
+      <DependentUpon>CMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMessage.aspx.designer.cs">
+      <DependentUpon>CMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComApply.aspx.cs">
+      <DependentUpon>ComApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComApply.aspx.designer.cs">
+      <DependentUpon>ComApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Evaluation.aspx.cs">
+      <DependentUpon>Evaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Evaluation.aspx.designer.cs">
+      <DependentUpon>Evaluation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluationList.aspx.cs">
+      <DependentUpon>EvaluationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EvaluationList.aspx.designer.cs">
+      <DependentUpon>EvaluationList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Expert.aspx.cs">
+      <DependentUpon>Expert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Expert.aspx.designer.cs">
+      <DependentUpon>Expert.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HtmlHelper.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Info.aspx.cs">
       <DependentUpon>Info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3034,7 +3103,42 @@
     <Compile Include="Manage\Systems\Welcome.aspx.designer.cs">
       <DependentUpon>Welcome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Mechanism.aspx.cs">
+      <DependentUpon>Mechanism.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mechanism.aspx.designer.cs">
+      <DependentUpon>Mechanism.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Message.aspx.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Message.aspx.designer.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Promote.aspx.cs">
+      <DependentUpon>Promote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Promote.aspx.designer.cs">
+      <DependentUpon>Promote.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\WebPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

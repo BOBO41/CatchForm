@@ -74,8 +74,6 @@
                             </th>
                             <th nowrap="nowrap" style="text-align: center">发布时间
                             </th>
-                            <th nowrap="nowrap" style="text-align: center">所属区域
-                            </th>
                             <th nowrap="nowrap" style="text-align: center">状态
                             </th>
                             <th nowrap="nowrap" style="text-align: center">审核人
@@ -104,9 +102,6 @@
                                     </td>
                                     <td style="text-align: center">
                                         <%#Eval("AddTime")%>
-                                    </td>
-                                    <td style="text-align: center">
-                                        <%#GetArea(Eval("AId").ToString())%>
                                     </td>
                                     <td style="text-align: center">
                                         <%#Eval("Status").ToString()=="0"?"<span class=\"label label-important\">未审核</span>":"<span class=\"label label-success\">已审核</span>" %>

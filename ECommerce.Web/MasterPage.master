@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="ECommerce.Web.MasterPage" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -16,7 +16,6 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -25,12 +24,12 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="Index.aspx">首页</a></li>
-                        <li><a href="Evaluation.aspx">测评服务</a></li>
-                        <li><a href="Promote.aspx">提升服务</a></li>
+                        <li <%= index %>><a href="Index.aspx">首页</a></li>
+                        <li <%= ser %>><a href="Evaluation.aspx">测评服务</a></li>
+                        <li <%= imp %>><a href="Promote.aspx">提升服务</a></li>
                         <li><a href="#">企业库</a></li>
-                        <li><a href="Mechanism.aspx">服务机构</a></li>
-                        <li><a href="About.aspx">关于我们</a></li>
+                        <li <%= org %>><a href="Mechanism.aspx">服务机构</a></li>
+                        <li <%= abo %>><a href="About.aspx">关于我们</a></li>
                     </ul>
                 </div>
             </div>
@@ -61,17 +60,17 @@
                 <div class="formlist">
                     <div class="form-group">
                         <label>姓名</label>
-                        <input name="subject" class="form-control" required="" type="text"/>
+                        <input name="subject" class="form-control" required="" type="text" id="txtname1">
                     </div>
                     <div class="form-group">
                         <label>联系方式</label>
-                        <input name="subject" class="form-control" required="" type="text"/>
+                        <input name="subject" class="form-control" required="" type="text" id="txtaddr1">
                     </div>
                     <div class="form-group">
                         <label>内容</label>
-                        <textarea name="message" class="form-control" id="message" required="" rows="5"></textarea>
+                        <textarea name="message" class="form-control" id="txtmessage1" required="" rows="5"></textarea>
                     </div>
-                    <div class="form-box"><a href="#">提交</a></div>
+                    <div class="form-box"><a href="javascript:;" onclick="lmessage1();">提交</a></div>
                 </div>
             </div>
             <div class="bg123" id="bg123" style="display: none;"></div>
@@ -84,8 +83,37 @@
                     document.getElementById('joinclub').style.display = 'block';
                     document.getElementById('bg123').style.display = 'block';
                 }
+                function lmessage1() {
+                    var name = $("#txtname1").val();
+                    var addr = $("#txtaddr1").val();
+                    var cont = $("#txtmessage1").val();
+                    if (name == '') {
+                        alert("请填写姓名");
+                        return;
+                    }
+                    if (addr == '') {
+                        alert("请填写联系方式");
+                        return;
+                    }
+                    if (cont == '') {
+                        alert("请填写内容");
+                        return;
+                    }
+                    $.ajax({
+                        type: 'POST', url: '/AjaxMessage.aspx?name=' + encodeURI(encodeURI(name)) + '&cont=' + encodeURI(encodeURI(cont)) + '&addr=' + encodeURI(encodeURI(addr)), success: function (data) {
+                            if (data == "保存成功") {
+                                closeCustomer();
+                                $("#txtname").val('');
+                                $("#txtmessage").val('');
+                                $("#txtaddr").val('');
+                                alert("留言成功!");
+                            } else {
+                                alert(data);
+                            }
+                        }
+                    });
+                }
 </script>
         </div>
-    </form>
 </body>
 </html>

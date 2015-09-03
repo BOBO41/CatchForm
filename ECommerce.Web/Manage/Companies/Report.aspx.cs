@@ -15,7 +15,7 @@ namespace ECommerce.Web.Manage.Companies {
                 if (!string.IsNullOrEmpty(Request.QueryString["fid"])) {
                     var model = _dataDal.GetModel(Convert.ToInt32(Request.QueryString["fid"]));
                     if (null != model) {
-                        var filePath = HttpContext.Current.Server.MapPath("/UploadFiles/") + model.FileName;
+                        var filePath = HttpContext.Current.Server.MapPath("/UploadFiles/") + model.FPath;
                         Response.Clear();
                         Response.Charset = "utf-8";
                         Response.Buffer = true;

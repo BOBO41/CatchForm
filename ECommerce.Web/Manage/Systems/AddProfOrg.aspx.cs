@@ -118,6 +118,7 @@ namespace ECommerce.Web.Manage.Systems {
                     dt.Name = name;
                     dt.UpdateDate = DateTime.Now;
                     dt.UId = CurrentUser.UId;
+                    dt.Descr = descri;
                     if (fuPImg.HasFile) {
                         if (!string.IsNullOrEmpty(dt.OrgAptitude)) {
                             DirFile.DeleteFile(dt.OrgAptitude);

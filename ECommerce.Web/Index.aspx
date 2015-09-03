@@ -1,6 +1,7 @@
-﻿<%@ Page Title="企业测评诊断及提升服务平台" Language="C#" MasterPageFile="MasterPage.master" %>
+﻿<%@ Page Title="企业测评诊断及提升服务平台" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ECommerce.Web.Index" %>
 
-<asp:Content runat="server" ID="CpHeader" ContentPlaceHolderID="CPHeader"></asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="CPHeader" runat="server">
+</asp:Content>
 <asp:Content runat="server" ID="CpBody" ContentPlaceHolderID="CPBody">
     <!-- banner start -->
     <div class="banner">
@@ -44,18 +45,14 @@
         <div class="row">
             <div class="col-sm-6 mechanism">
                 <h3>提升服务机构</h3>
-                <div class="media">
-                    <h4>服务机构名称</h4>
-                    <p>西安生产力促进中心项目咨询部，是定位于围绕高科技项目</p>
-                </div>
-                <div class="media">
-                    <h4>服务机构名称</h4>
-                    <p>西安生产力促进中心项目咨询部，是定位于围绕高科技项目</p>
-                </div>
-                <div class="media">
-                    <h4>服务机构名称</h4>
-                    <p>西安生产力促进中心项目咨询部，是定位于围绕高科技项目</p>
-                </div>
+                <asp:Repeater ID="rptOrg" runat="server">
+                    <ItemTemplate>
+                        <div class="media">
+                            <h4><%#Eval("Name").ToString().Length>20? Eval("Name").ToString().Substring(0,20)+"...":Eval("Name").ToString()%></h4>
+                            <p><%#Eval("Descr").ToString().Length>29? Eval("Descr").ToString().Substring(0,29)+"...":Eval("Descr").ToString()%></p>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
                 <div class="more"><a href="Mechanism.aspx">更多机构&gt;</a></div>
             </div>
             <!--/.col-sm-6-->
@@ -64,38 +61,19 @@
                 <div class="accordion">
                     <h3>提升服务专家</h3>
                     <div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="images/image/expert.jpg">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">某某专家</h4>
-                                定位于围绕高科技项目的科技计划申报的专业咨询服务机构
-         
-                            </div>
-                        </div>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="images/image/man1.jpg">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">某某专家</h4>
-                                定位于围绕高科技项目的科技计划申报的专业咨询服务机构
-         
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="images/image/woman1.jpg">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">某某专家</h4>
-                                定位于围绕高科技项目的科技计划申报的专业咨询服务机构
-         
-                            </div>
-                        </div>
-
+                        <asp:Repeater ID="rptexp" runat="server">
+                            <ItemTemplate>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img src="<%#Eval("Photo")%>">
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><%#Eval("Name")%></h4>
+                                        <%#Eval("Descri").ToString().Length>35? Eval("Descri").ToString().Substring(0,35)+"...":Eval("Descri").ToString()%>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                     <div class="more"><a href="Expert.aspx">更多专家&gt;</a></div>
 
@@ -112,17 +90,10 @@
                 <div class="reviews">
                     <div class="last-title">
                         <h3>客户评价</h3>
-                        <a href="#">更多评价&gt;</a>
+                        <a href="CMessage.aspx">更多评价&gt;</a>
                     </div>
                     <div class="media list_lh">
-                        <ul style="margin-top: -30px;">
-                            <li>西安生产力促进中心项目咨询部，是定位于围绕高科技项目的科技计划申报的专业咨询服务机构。</li>
-                            <li>西安生产力促进中心项目咨询部，是定位于围绕高科技项目的科技计划</li>
-                            <li>西安生产力促进中心项目咨询部，是定位于围绕高科技项目的科技计划申报的专业咨询服务机构。以“科技项目申报”为主营业务，背靠政府</li>
-                            <li>西安生产力促进中心项目咨询部，是定位于围绕高科技项目的科技计划申报的专业咨询服务机构。</li>
-                            <li>西安生产力促进中心项目咨询部，是定位于围绕高科技项目的科技计划</li>
-                            <li>西安生产力促进中心项目咨询部，是定位于围绕高科技项目的科技计划申报的专业咨询服务机构。以“科技项目申报”为主营业务，背靠政府</li>
-                        </ul>
+                        <asp:Literal ID="litCum" runat="server"></asp:Literal>
                     </div>
                 </div>
             </div>
@@ -135,10 +106,11 @@
                         <a href="EvaluationList.aspx">更多企业&gt;</a>
                     </div>
                     <ul id="list">
-                        <li>已评测企业名称</li>
-                        <li>已评测企业名称</li>
-                        <li>已评测企业名称</li>
-                        <li>已评测企业名称</li>
+                        <asp:Repeater ID="rptCom" runat="server">
+                            <ItemTemplate>
+                                <li><%#Eval("ComName").ToString().Length>20? Eval("ComName").ToString().Substring(0,20)+"...":Eval("ComName").ToString()%></li>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </ul>
                 </div>
             </div>

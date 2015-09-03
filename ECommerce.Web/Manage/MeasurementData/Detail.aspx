@@ -15,7 +15,7 @@
 	<div class="pannel-header"><strong>对比数据</strong></div>
             <div class="pannel-body">
  <div class="btn-toolbar">
-                <input type="button" class="btn" style="margin-bottom: 10px;" name="Previous" id="Previous" value="返回" onclick="javascript: history.back();">
+                <input type="button" class="btn btn-mini" style="margin-bottom: 10px;" name="Previous" id="Previous" value="返回" onclick="javascript: history.back();">
             </div>
      
                 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0" class="table">
