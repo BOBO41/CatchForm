@@ -71,16 +71,17 @@ namespace ECommerce.Admin.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into FileList(");
-			strSql.Append("ComID,UId,FileName,CreateDate,UpdateDate)");
+			strSql.Append("ComID,UId,FileName,FPath,CreateDate,UpdateDate)");
 
 			strSql.Append(" values (");
-			strSql.Append("@ComID,@UId,@FileName,@CreateDate,@UpdateDate)");
+			strSql.Append("@ComID,@UId,@FileName,@FPath,@CreateDate,@UpdateDate)");
 			strSql.Append(";select @@IDENTITY");
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
 			db.AddInParameter(dbCommand, "ComID", DbType.String, model.ComID);
 			db.AddInParameter(dbCommand, "UId", DbType.Int32, model.UId);
 			db.AddInParameter(dbCommand, "FileName", DbType.String, model.FileName);
+			db.AddInParameter(dbCommand, "FPath", DbType.String, model.FPath);
 			db.AddInParameter(dbCommand, "CreateDate", DbType.DateTime, model.CreateDate);
 			db.AddInParameter(dbCommand, "UpdateDate", DbType.DateTime, model.UpdateDate);
 			int result;
@@ -101,6 +102,7 @@ namespace ECommerce.Admin.DAL
 			strSql.Append("ComID=@ComID,");
 			strSql.Append("UId=@UId,");
 			strSql.Append("FileName=@FileName,");
+			strSql.Append("FPath=@FPath,");
 			strSql.Append("CreateDate=@CreateDate,");
 			strSql.Append("UpdateDate=@UpdateDate");
 			strSql.Append(" where ID=@ID ");
@@ -110,6 +112,7 @@ namespace ECommerce.Admin.DAL
 			db.AddInParameter(dbCommand, "ComID", DbType.String, model.ComID);
 			db.AddInParameter(dbCommand, "UId", DbType.Int32, model.UId);
 			db.AddInParameter(dbCommand, "FileName", DbType.String, model.FileName);
+			db.AddInParameter(dbCommand, "FPath", DbType.String, model.FPath);
 			db.AddInParameter(dbCommand, "CreateDate", DbType.DateTime, model.CreateDate);
 			db.AddInParameter(dbCommand, "UpdateDate", DbType.DateTime, model.UpdateDate);
 			int rows=db.ExecuteNonQuery(dbCommand);
@@ -176,7 +179,7 @@ namespace ECommerce.Admin.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,ComID,UId,FileName,CreateDate,UpdateDate from FileList ");
+			strSql.Append("select ID,ComID,UId,FileName,FPath,CreateDate,UpdateDate from FileList ");
 			strSql.Append(" where ID=@ID ");
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
@@ -217,6 +220,10 @@ namespace ECommerce.Admin.DAL
 				{
 					model.FileName=row["FileName"].ToString();
 				}
+				if(row["FPath"]!=null)
+				{
+					model.FPath=row["FPath"].ToString();
+				}
 				if(row["CreateDate"]!=null && row["CreateDate"].ToString()!="")
 				{
 					model.CreateDate=Convert.ToDateTime(row["CreateDate"].ToString());
@@ -237,7 +244,7 @@ namespace ECommerce.Admin.DAL
 		public DataSet GetList(string strWhere, List<SqlParameter> parameters)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,ComID,UId,FileName,CreateDate,UpdateDate ");
+			strSql.Append("select ID,ComID,UId,FileName,FPath,CreateDate,UpdateDate ");
 			strSql.Append(" FROM FileList ");
 			Database db = DatabaseFactory.CreateDatabase();
 			if(strWhere.Trim()!="")
@@ -269,7 +276,7 @@ namespace ECommerce.Admin.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,ComID,UId,FileName,CreateDate,UpdateDate ");
+			strSql.Append(" ID,ComID,UId,FileName,FPath,CreateDate,UpdateDate ");
 			strSql.Append(" FROM FileList ");
 			Database db = DatabaseFactory.CreateDatabase();
 			if(strWhere.Trim()!="")
@@ -375,7 +382,7 @@ namespace ECommerce.Admin.DAL
 		public List<ECommerce.Admin.Model.FileList> GetListArray(string strWhere, List<SqlParameter> parameters)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,ComID,UId,FileName,CreateDate,UpdateDate ");
+			strSql.Append("select ID,ComID,UId,FileName,FPath,CreateDate,UpdateDate ");
 			strSql.Append(" FROM FileList ");
 			if(strWhere.Trim()!="")
 			{
@@ -421,6 +428,7 @@ namespace ECommerce.Admin.DAL
 				model.UId=Convert.ToInt32(ojb);
 			}
 			model.FileName=dataReader["FileName"].ToString();
+			model.FPath=dataReader["FPath"].ToString();
 			ojb = dataReader["CreateDate"];
 			if(ojb != null && ojb != DBNull.Value)
 			{

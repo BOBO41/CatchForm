@@ -15,6 +15,7 @@ namespace ECommerce.Admin.Model
 		private string _comid;
 		private int? _uid;
 		private string _filename;
+		private string _fpath;
 		private DateTime? _createdate= DateTime.Now;
 		private DateTime? _updatedate;
 		/// <summary>
@@ -48,6 +49,14 @@ namespace ECommerce.Admin.Model
 		{
 			set{ _filename=value;}
 			get{return _filename;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string FPath
+		{
+			set{ _fpath=value;}
+			get{return _fpath;}
 		}
 		/// <summary>
 		/// 
