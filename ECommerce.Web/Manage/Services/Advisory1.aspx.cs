@@ -3,14 +3,14 @@ using System.Web.UI.WebControls;
 using ECommerce.Admin.DAL;
 
 namespace ECommerce.Web.Manage.Services {
-    public partial class Advisory : UI.WebPage {
+    public partial class Advisory1 : UI.WebPage {
         private readonly ECommerce.Admin.DAL.AdvisoryList _dataDal = new ECommerce.Admin.DAL.AdvisoryList();
         protected void Page_Load(object sender, EventArgs e) {
             VerifyPage("", true);
             if (!IsPostBack) {
-                if (!string.IsNullOrEmpty(Request.QueryString["Status"])) {
-                    ddlStatus.SelectedValue = Request.QueryString["Status"];
-                }
+                //if (!string.IsNullOrEmpty(Request.QueryString["Status"])) {
+                //    ddlStatus.SelectedValue = Request.QueryString["Status"];
+                //}
                 if (!string.IsNullOrEmpty(Request.QueryString["ProName"])) {
                     txtRealName.Value = Request.QueryString["ProName"];
                 }
@@ -28,13 +28,13 @@ namespace ECommerce.Web.Manage.Services {
             int pageNum = 1;
             int pageSize = 10;
             //分页查询语句
-            string sql = "select row_number() over(order by CreateDate desc) as rownum,* FROM AdvisoryList where 1=1 and AdvisoryList.MType=0";
+            string sql = "select row_number() over(order by CreateDate desc) as rownum,* FROM AdvisoryList where 1=1 and AdvisoryList.MType=1 ";
             var name = string.Empty;
             var status = string.Empty;
-            if (!string.IsNullOrEmpty(ddlStatus.SelectedValue) && ddlStatus.SelectedValue != "-1") {
-                status = ddlStatus.SelectedValue;
-                sql += " and Status =" + status;
-            }
+            //if (!string.IsNullOrEmpty(ddlStatus.SelectedValue) && ddlStatus.SelectedValue != "-1") {
+            //    status = ddlStatus.SelectedValue;
+            //    sql += " and Status =" + status;
+            //}
             if (!string.IsNullOrEmpty(txtRealName.Value)) {
                 name = txtRealName.Value;
                 sql += " and Contact like '%" + name.Trim() + "%'";

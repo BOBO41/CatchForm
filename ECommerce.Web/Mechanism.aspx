@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Mechanism.aspx.cs" Inherits="ECommerce.Web.Mechanism" %>
 
+<%@ Register Src="UserControl/Pager1.ascx" TagName="Pager1" TagPrefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="CPHeader" runat="server">
 </asp:Content>
 <asp:Content runat="server" ID="CpBody" ContentPlaceHolderID="CPBody">
@@ -24,11 +26,12 @@
             <div class="right-box">
                 <h2>专业机构</h2>
                 <div class="mechanism-list">
-                    <asp:Repeater ID="rptCom" runat="server">
+                    <asp:Repeater ID="rptList" runat="server">
                         <ItemTemplate>
                             <div class="media">
                                 <div class="media-left">
-                                    <img src="<%#Eval("Logo")!=DBNull.Value? Eval("Logo").ToString():"images/jigou-logo1.png"%>" /></div>
+                                    <img src="<%#Eval("Logo")!=DBNull.Value? Eval("Logo").ToString():"images/jigou-logo1.png"%>" />
+                                </div>
                                 <div class="media-body">
                                     <h4><a href="Mechanism-show.aspx?id=<%#Eval("OID")%>"><%#Eval("Name").ToString().Length>20? Eval("Name").ToString().Substring(0,20)+"...":Eval("Name").ToString()%></a></h4>
                                     <p><%#Eval("Descr").ToString().Length>100? Eval("Descr").ToString().Substring(0,100)+"...":Eval("Descr").ToString()%></p>
@@ -37,6 +40,7 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
+                <uc1:Pager1 ID="Pager11" runat="server" />
             </div>
             <!--/right-box-->
         </div>

@@ -18,6 +18,7 @@ namespace ECommerce.Admin.Model
 		private string _email;
 		private string _reply;
 		private int? _uid;
+		private int? _mtype;
 		private int? _status;
 		private DateTime? _createdate= DateTime.Now;
 		private DateTime? _updatedate;
@@ -76,6 +77,14 @@ namespace ECommerce.Admin.Model
 		{
 			set{ _uid=value;}
 			get{return _uid;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public int? MType
+		{
+			set{ _mtype=value;}
+			get{return _mtype;}
 		}
 		/// <summary>
 		/// 

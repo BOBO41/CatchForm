@@ -12,13 +12,15 @@ namespace ECommerce.Web {
             var name = HttpUtility.UrlDecode(Request.QueryString["name"]);
             var cont = HttpUtility.UrlDecode(Request.QueryString["cont"]);
             var addr = HttpUtility.UrlDecode(Request.QueryString["addr"]);
+            var mtype = Request.QueryString["mtype"];
             try {
                 var model = new Admin.Model.AdvisoryList {
                     Advisory = cont,
                     Contact = name,
                     CreateDate = DateTime.Now,
                     Status = 0,
-                    Tel = addr
+                    Tel = addr,
+                    MType = Convert.ToInt32(mtype)
                 };
                 Response.Write(_comInfoDal.Add(model) > 0 ? "保存成功" : "留言失败");
                 Response.End();

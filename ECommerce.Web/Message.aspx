@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Message.aspx.cs" Inherits="ECommerce.Web.Message" %>
 
+<%@ Register Src="UserControl/Pager1.ascx" TagName="Pager1" TagPrefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="CPHeader" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CPBody" runat="server">
@@ -43,16 +45,19 @@
                             </div>
                         </div>
                         <ul class="mess-list">
-                            <asp:Repeater ID="rptCom" runat="server">
+                            <asp:Repeater ID="rptList" runat="server">
                                 <ItemTemplate>
                                     <li>
                                         <h4><%#Eval("Contact")%>  <%#Eval("Tel")%></h4>
                                         <p><%#Eval("Advisory")%></p>
-                                        <%#Eval("Reply").ToString()==""?"":("<p style=\"color: #666;\">回复："+Eval("Reply"))%></p>
+                                        <ul class="reply">
+                                            <li><%#Eval("Reply").ToString()==""?"":(Eval("EmplName")+" 回复："+Eval("Reply"))%>
+                                        </ul>
                                     </li>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </ul>
+                        <uc1:Pager1 ID="Pager11" runat="server" />
                         <script type="text/javascript">
                             function show_hiddendiv() {
                                 document.getElementById("hidden_div").style.display = 'block';
@@ -82,7 +87,7 @@
                                     return;
                                 }
                                 $.ajax({
-                                    type: 'POST', url: '/AjaxMessage.aspx?name=' + encodeURI(encodeURI(name)) + '&cont=' + encodeURI(encodeURI(cont)) + '&addr=' + encodeURI(encodeURI(addr)), success: function (data) {
+                                    type: 'POST', url: '/AjaxMessage.aspx?mtype=0&name=' + encodeURI(encodeURI(name)) + '&cont=' + encodeURI(encodeURI(cont)) + '&addr=' + encodeURI(encodeURI(addr)), success: function (data) {
                                         if (data == "保存成功") {
                                             hidden_showdiv();
                                             $("#txtname").val('');

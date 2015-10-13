@@ -20,6 +20,10 @@ namespace ECommerce.Web {
                     if (null != tName) {
                         Literal1.Text = tName.Name;
                     }
+                    if (!string.IsNullOrEmpty(cum.Photo))
+                    {
+                        Image1.ImageUrl = cum.Photo;
+                    }
                     Literal2.Text = cum.ComAddr;
                     Literal3.Text = cum.Job;
                     Literal4.Text = cum.MajorSearch;

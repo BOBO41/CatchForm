@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace ECommerce.Web {
+namespace ECommerce.Web.Manage.Services {
     
     
-    public partial class CMessage {
+    public partial class Advisory1 {
         
         /// <summary>
         /// form1 控件。
@@ -22,30 +22,48 @@ namespace ECommerce.Web {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Literal1 控件。
+        /// txtRealName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtRealName;
         
         /// <summary>
-        /// rptList 控件。
+        /// btnSearch 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptList;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// Pager11 控件。
+        /// btnDelAll 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ECommerce.Web.UserControl.Pager1 Pager11;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelAll;
+        
+        /// <summary>
+        /// rptListWork 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptListWork;
+        
+        /// <summary>
+        /// Pager1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ECommerce.Web.UserControl.Pager Pager1;
     }
 }

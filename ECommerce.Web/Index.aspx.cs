@@ -20,7 +20,7 @@ namespace ECommerce.Web {
             rptOrg.DataBind();
             rptexp.DataSource = _profInfoDal.GetList(3, " Status=1 order by CreateDate desc ", new List<SqlParameter>()).Tables[0];
             rptexp.DataBind();
-            rptCom.DataSource = _comInfoDal.GetList(3, " 1=1 order by CreateDate desc ", new List<SqlParameter>()).Tables[0];
+            rptCom.DataSource = _comInfoDal.GetList(10, " 1=1 order by CreateDate desc ", new List<SqlParameter>()).Tables[0];
             rptCom.DataBind();
             var cum = _cmArticleDal.GetModel(" Title='客户评价' ", new List<SqlParameter>());
             var cmtype = _cmArticleType.GetModel(" ColName='客户评价' ", new List<SqlParameter>());

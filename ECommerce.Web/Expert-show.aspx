@@ -26,34 +26,35 @@
                     <a href="Expert.aspx">【返回】</a>
                     <div class="page-info-header">
                         <h2>
-                            <asp:literal id="Literal10" runat="server"></asp:literal>
+                            <asp:Literal ID="Literal10" runat="server"></asp:Literal>
                         </h2>
-                        <p>分类：<a href="Expert.aspx" rel="tag">专家顾问库</a>&nbsp;&nbsp;&nbsp;发布时间：<asp:literal id="Literal9" runat="server"></asp:literal></p>
+                        <p>分类：<a href="Expert.aspx" rel="tag">专家顾问库</a>&nbsp;&nbsp;&nbsp;发布时间：<asp:Literal ID="Literal9" runat="server"></asp:Literal></p>
 
                     </div>
                     <div class="page-info-body">
                         <p style="text-align: center">
-                            <img src="<%#Eval("Photo")!=DBNull.Value? Eval("Photo").ToString():"images/image/expert.jpg"%>"></p>
+                            <asp:Image ID="Image1" runat="server" />
+                        </p>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tbody>
                                 <tr>
-                                    <td>所属分类：<asp:literal id="Literal1" runat="server"></asp:literal></td>
-                                    <td>工作单位：<asp:literal id="Literal2" runat="server"></asp:literal></td>
+                                    <td>所属分类：<asp:Literal ID="Literal1" runat="server"></asp:Literal></td>
+                                    <td>工作单位：<asp:Literal ID="Literal2" runat="server"></asp:Literal></td>
                                 </tr>
                                 <tr>
                                     <td>职称/职务：
-                                        <asp:literal id="Literal3" runat="server"></asp:literal>
+                                        <asp:Literal ID="Literal3" runat="server"></asp:Literal>
                                     </td>
-                                    <td>研究方向：<asp:literal id="Literal4" runat="server"></asp:literal></td>
+                                    <td>研究方向：<asp:Literal ID="Literal4" runat="server"></asp:Literal></td>
                                 </tr>
                                 <tr>
-                                    <td>学历：<asp:literal id="Literal5" runat="server"></asp:literal></td>
+                                    <td>学历：<asp:Literal ID="Literal5" runat="server"></asp:Literal></td>
                                     <td></td>
                                 </tr>
                             </tbody>
                         </table>
                         <p>
-                            <asp:literal id="Literal8" runat="server"></asp:literal>
+                            <asp:Literal ID="Literal8" runat="server"></asp:Literal>
                         </p>
 
                     </div>

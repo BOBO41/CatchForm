@@ -122,7 +122,7 @@
                     <ul id="list">
                         <asp:Repeater ID="rptCom" runat="server">
                             <ItemTemplate>
-                                <li><%#Eval("ComName").ToString().Length>20? Eval("ComName").ToString().Substring(0,20)+"...":Eval("ComName").ToString()%></li>
+                                <li><a href="Show.aspx?id=<%#Eval("ID")%>"><%#Eval("ComName").ToString().Length>20? Eval("ComName").ToString().Substring(0,20)+"...":Eval("ComName").ToString()%></a></li>
                             </ItemTemplate>
                         </asp:Repeater>
                     </ul>

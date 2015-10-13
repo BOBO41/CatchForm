@@ -71,10 +71,10 @@ namespace ECommerce.Admin.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into AdvisoryList(");
-			strSql.Append("Advisory,Tel,Contact,Email,Reply,UId,Status,CreateDate,UpdateDate)");
+			strSql.Append("Advisory,Tel,Contact,Email,Reply,UId,MType,Status,CreateDate,UpdateDate)");
 
 			strSql.Append(" values (");
-			strSql.Append("@Advisory,@Tel,@Contact,@Email,@Reply,@UId,@Status,@CreateDate,@UpdateDate)");
+			strSql.Append("@Advisory,@Tel,@Contact,@Email,@Reply,@UId,@MType,@Status,@CreateDate,@UpdateDate)");
 			strSql.Append(";select @@IDENTITY");
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
@@ -84,6 +84,7 @@ namespace ECommerce.Admin.DAL
 			db.AddInParameter(dbCommand, "Email", DbType.String, model.Email);
 			db.AddInParameter(dbCommand, "Reply", DbType.String, model.Reply);
 			db.AddInParameter(dbCommand, "UId", DbType.Int32, model.UId);
+			db.AddInParameter(dbCommand, "MType", DbType.Byte, model.MType);
 			db.AddInParameter(dbCommand, "Status", DbType.Byte, model.Status);
 			db.AddInParameter(dbCommand, "CreateDate", DbType.DateTime, model.CreateDate);
 			db.AddInParameter(dbCommand, "UpdateDate", DbType.DateTime, model.UpdateDate);
@@ -108,6 +109,7 @@ namespace ECommerce.Admin.DAL
 			strSql.Append("Email=@Email,");
 			strSql.Append("Reply=@Reply,");
 			strSql.Append("UId=@UId,");
+			strSql.Append("MType=@MType,");
 			strSql.Append("Status=@Status,");
 			strSql.Append("CreateDate=@CreateDate,");
 			strSql.Append("UpdateDate=@UpdateDate");
@@ -121,6 +123,7 @@ namespace ECommerce.Admin.DAL
 			db.AddInParameter(dbCommand, "Email", DbType.String, model.Email);
 			db.AddInParameter(dbCommand, "Reply", DbType.String, model.Reply);
 			db.AddInParameter(dbCommand, "UId", DbType.Int32, model.UId);
+			db.AddInParameter(dbCommand, "MType", DbType.Byte, model.MType);
 			db.AddInParameter(dbCommand, "Status", DbType.Byte, model.Status);
 			db.AddInParameter(dbCommand, "CreateDate", DbType.DateTime, model.CreateDate);
 			db.AddInParameter(dbCommand, "UpdateDate", DbType.DateTime, model.UpdateDate);
@@ -188,7 +191,7 @@ namespace ECommerce.Admin.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,Advisory,Tel,Contact,Email,Reply,UId,Status,CreateDate,UpdateDate from AdvisoryList ");
+			strSql.Append("select ID,Advisory,Tel,Contact,Email,Reply,UId,MType,Status,CreateDate,UpdateDate from AdvisoryList ");
 			strSql.Append(" where ID=@ID ");
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
@@ -241,6 +244,10 @@ namespace ECommerce.Admin.DAL
 				{
 					model.UId=Convert.ToInt32(row["UId"].ToString());
 				}
+				if(row["MType"]!=null && row["MType"].ToString()!="")
+				{
+					model.MType=Convert.ToInt32(row["MType"].ToString());
+				}
 				if(row["Status"]!=null && row["Status"].ToString()!="")
 				{
 					model.Status=Convert.ToInt32(row["Status"].ToString());
@@ -265,7 +272,7 @@ namespace ECommerce.Admin.DAL
 		public DataSet GetList(string strWhere, List<SqlParameter> parameters)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,Advisory,Tel,Contact,Email,Reply,UId,Status,CreateDate,UpdateDate ");
+			strSql.Append("select ID,Advisory,Tel,Contact,Email,Reply,UId,MType,Status,CreateDate,UpdateDate ");
 			strSql.Append(" FROM AdvisoryList ");
 			Database db = DatabaseFactory.CreateDatabase();
 			if(strWhere.Trim()!="")
@@ -297,7 +304,7 @@ namespace ECommerce.Admin.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ID,Advisory,Tel,Contact,Email,Reply,UId,Status,CreateDate,UpdateDate ");
+			strSql.Append(" ID,Advisory,Tel,Contact,Email,Reply,UId,MType,Status,CreateDate,UpdateDate ");
 			strSql.Append(" FROM AdvisoryList ");
 			Database db = DatabaseFactory.CreateDatabase();
 			if(strWhere.Trim()!="")
@@ -403,7 +410,7 @@ namespace ECommerce.Admin.DAL
 		public List<ECommerce.Admin.Model.AdvisoryList> GetListArray(string strWhere, List<SqlParameter> parameters)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,Advisory,Tel,Contact,Email,Reply,UId,Status,CreateDate,UpdateDate ");
+			strSql.Append("select ID,Advisory,Tel,Contact,Email,Reply,UId,MType,Status,CreateDate,UpdateDate ");
 			strSql.Append(" FROM AdvisoryList ");
 			if(strWhere.Trim()!="")
 			{
@@ -451,6 +458,11 @@ namespace ECommerce.Admin.DAL
 			if(ojb != null && ojb != DBNull.Value)
 			{
 				model.UId=Convert.ToInt32(ojb);
+			}
+			ojb = dataReader["MType"];
+			if(ojb != null && ojb != DBNull.Value)
+			{
+				model.MType=Convert.ToInt32(ojb);
 			}
 			ojb = dataReader["Status"];
 			if(ojb != null && ojb != DBNull.Value)

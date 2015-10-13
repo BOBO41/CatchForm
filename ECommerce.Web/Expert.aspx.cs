@@ -12,9 +12,18 @@ namespace ECommerce.Web {
 
         protected void Page_Load(object sender, EventArgs e) {
             ((MasterPage)Page.Master).imp = "class=\"active\"";
-            rptexp.DataSource =
-                _profInfoDal.GetList(" Status=1 order by CreateDate desc ", new List<SqlParameter>()).Tables[0];
-            rptexp.DataBind();
+            var pageNum = 1;
+            try {
+                if (!string.IsNullOrEmpty(Request.QueryString["Page"]))
+                {
+                    pageNum = Convert.ToInt32(Request.QueryString["Page"]);
+                }
+            }
+            catch (Exception ex) {
+                pageNum = 1;
+            }
+            var sql = "select row_number() over(order by PIID DESC) as rownum, * from ProfInfo where Status=1";
+            Pager11.GetDataBind("Repeater", "rptList", sql, pageNum, 5, " ", "rownum", "Expert.aspx?");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Expert.aspx.cs" Inherits="ECommerce.Web.Expert" %>
 
+<%@ Register Src="UserControl/Pager1.ascx" TagName="Pager1" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="CPHeader" runat="server">
 </asp:Content>
 <asp:Content runat="server" ID="CpBody" ContentPlaceHolderID="CPBody">
@@ -24,7 +25,7 @@
             <div class="right-box">
                 <h2>专家顾问库</h2>
                 <div class="mechanism-list exprtlist">
-                    <asp:Repeater ID="rptexp" runat="server">
+                    <asp:Repeater ID="rptList" runat="server">
                         <ItemTemplate>
                             <div class="media">
                                 <div class="media-left">
@@ -38,6 +39,7 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
+                <uc1:Pager1 ID="Pager11" runat="server" />
             </div>
             <!--/right-box-->
         </div>

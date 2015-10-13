@@ -1733,6 +1733,7 @@
     <Content Include="Manage\CM\AddArticle.aspx" />
     <Content Include="Manage\Companies\Detail.aspx" />
     <Content Include="Manage\Companies\Default.aspx" />
+    <Content Include="Manage\Services\Advisory1.aspx" />
     <Content Include="Manage\Systems\AddReply.aspx" />
     <Content Include="Manage\MeasurementData\Default.aspx" />
     <Content Include="Manage\MeasurementData\Detail.aspx" />
@@ -2126,6 +2127,7 @@
     <Content Include="themes\js\My97DatePicker\skin\whyGreen\bg.jpg" />
     <Content Include="themes\js\My97DatePicker\skin\whyGreen\datepicker.css" />
     <Content Include="themes\js\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="UserControl\Pager1.ascx" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2561,6 +2563,13 @@
     </Compile>
     <Compile Include="Manage\Companies\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Services\Advisory1.aspx.cs">
+      <DependentUpon>Advisory1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Services\Advisory1.aspx.designer.cs">
+      <DependentUpon>Advisory1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\Systems\AddReply.aspx.cs">
       <DependentUpon>AddReply.aspx</DependentUpon>
@@ -3167,6 +3176,13 @@
     </Compile>
     <Compile Include="UI\WebPage.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Pager1.ascx.cs">
+      <DependentUpon>Pager1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Pager1.ascx.designer.cs">
+      <DependentUpon>Pager1.ascx</DependentUpon>
     </Compile>
     <Compile Include="UrlReWriter.cs" />
     <Compile Include="UserControl\OrgTree.ascx.cs">
