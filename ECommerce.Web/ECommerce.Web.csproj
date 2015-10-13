@@ -42,8 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ASPNETAJAXWeb.ValidateCode, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\ECommerce.Lib\DLL\ASPNETAJAXWeb.ValidateCode.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ECommerce.Lib\DLL\ASPNETAJAXWeb.ValidateCode.dll</HintPath>
     </Reference>
     <Reference Include="DotNet.Framework.Common">
       <HintPath>..\ECommerce.Lib\DLL\DotNet.Framework.Common.dll</HintPath>
@@ -115,6 +115,7 @@
     <Content Include="About.aspx" />
     <Content Include="AjaxMessage.aspx" />
     <Content Include="Apply.aspx" />
+    <Content Include="bin\ASPNETAJAXWeb.ValidateCode.dll" />
     <Content Include="CMessage.aspx" />
     <Content Include="ComApply.aspx" />
     <Content Include="css\bootstrap.min.css" />
@@ -122,6 +123,7 @@
     <Content Include="css\scaffolding.css" />
     <Content Include="Evaluation.aspx" />
     <Content Include="EvaluationList.aspx" />
+    <Content Include="Expert-show.aspx" />
     <Content Include="Expert.aspx" />
     <Content Include="icons\back.gif" />
     <Content Include="icons\blank.gif" />
@@ -129,6 +131,8 @@
     <Content Include="icons\image2.gif" />
     <Content Include="icons\text.gif" />
     <Content Include="icons\unknown.gif" />
+    <Content Include="images\1444474795_mail_search.png" />
+    <Content Include="images\banner-library.jpg" />
     <Content Include="images\banner-word.png" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\bg.png" />
@@ -137,14 +141,21 @@
     <Content Include="images\image\expert.jpg" />
     <Content Include="images\image\ico-cp.jpg" />
     <Content Include="images\image\ico-cp.png" />
+    <Content Include="images\image\ico-cp1.png" />
     <Content Include="images\image\ico-qyk.png" />
+    <Content Include="images\image\ico-qyk1.png" />
     <Content Include="images\image\ico-ts.png" />
+    <Content Include="images\image\ico-ts1.png" />
     <Content Include="images\image\man1.jpg" />
     <Content Include="images\image\man2.jpg" />
     <Content Include="images\image\woman1.jpg" />
+    <Content Include="images\jigou-logo1.png" />
+    <Content Include="images\jigou-logo2.png" />
     <Content Include="images\line.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\pingjia.png" />
+    <Content Include="images\qiyeku-img1.jpg" />
+    <Content Include="images\w3cfuns_code.html" />
     <Content Include="includes\CalendarPopup.js" />
     <Content Include="includes\css\base.css.css" />
     <Content Include="includes\css\bj\adminLevelMenu.css" />
@@ -1806,6 +1817,7 @@
     <Content Include="Manage\Systems\Top.aspx" />
     <Content Include="Manage\Systems\UserRole.aspx" />
     <Content Include="Manage\Systems\Welcome.aspx" />
+    <Content Include="Mechanism-show.aspx" />
     <Content Include="Mechanism.aspx" />
     <Content Include="Message.aspx" />
     <Content Include="Promote.aspx" />
@@ -2479,6 +2491,13 @@
     <Compile Include="EvaluationList.aspx.designer.cs">
       <DependentUpon>EvaluationList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Expert-show.aspx.cs">
+      <DependentUpon>Expert-show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Expert-show.aspx.designer.cs">
+      <DependentUpon>Expert-show.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Expert.aspx.cs">
       <DependentUpon>Expert.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3109,6 +3128,13 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Mechanism-show.aspx.cs">
+      <DependentUpon>Mechanism-show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mechanism-show.aspx.designer.cs">
+      <DependentUpon>Mechanism-show.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mechanism.aspx.cs">
       <DependentUpon>Mechanism.aspx</DependentUpon>

@@ -11,7 +11,7 @@ namespace ECommerce.Web {
         private readonly CM.DAL.CMArticle _cmArticleDal = new CM.DAL.CMArticle();
         protected void Page_Load(object sender, EventArgs e) {
             ((MasterPage)Page.Master).ser = "class=\"active\"";
-            var art = _cmArticleDal.GetModel(" Title='测评介绍' ", new List<SqlParameter>());
+            var art = _cmArticleDal.GetModel(" Status=1 and Title='测评介绍' ", new List<SqlParameter>());
             if (null != art) {
                 litDescri.Text = art.Content;
             }

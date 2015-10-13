@@ -79,6 +79,13 @@
                         <asp:Image ID="Image2" runat="server" Width="100px" Height="100px" Visible="False" />
                     </div>
                 </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword"><%--<span style="color: red;">*</span>--%>企业Logo：</label>
+                    <div class="controls">
+                        <asp:FileUpload ID="FileUpload2" runat="server" Width="200px" hegith="30px;" />
+                        <asp:Image ID="Image3" runat="server" Width="100px" Height="100px" Visible="False" />
+                    </div>
+                </div>
             </div>
         </div>
         <div class="modal-footer">

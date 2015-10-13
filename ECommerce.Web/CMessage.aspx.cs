@@ -12,9 +12,7 @@ namespace ECommerce.Web {
         protected void Page_Load(object sender, EventArgs e) {
             ((MasterPage)Page.Master).index = "class=\"active\"";
             var art = _cmArticleDal.GetModel(" Title='客户评价' ", new List<SqlParameter>());
-            if (null != art) {
-                litDescri.Text = art.Content;
-            }
+
         }
     }
 }

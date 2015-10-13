@@ -40,6 +40,10 @@ namespace ECommerce.Web.Manage.Systems {
                         Image2.Visible = true;
                         Image2.ImageUrl = model.YYZZ;
                     }
+                    if (!string.IsNullOrEmpty(model.Logo)) {
+                        Image3.Visible = true;
+                        Image3.ImageUrl = model.YYZZ;
+                    }
                 }
             }
             catch (Exception) {
@@ -147,6 +151,20 @@ namespace ECommerce.Web.Manage.Systems {
                         }
                         dt.YYZZ = imgUrl;
                     }
+                    if (FileUpload2.HasFile) {
+                        if (!string.IsNullOrEmpty(dt.Logo)) {
+                            DirFile.DeleteFile(dt.Logo);
+                        }
+                        int size;
+                        string msg;
+                        string imgUrl;
+                        UpImg(ref FileUpload2, out imgUrl, out msg, imgPath, out size);
+                        if (string.IsNullOrEmpty(imgUrl)) {
+                            Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('" + msg + "');</script>");
+                            return;
+                        }
+                        dt.Logo = imgUrl;
+                    }
                     var res = _dataDal.Update(dt);
                     if (res) {
                         Page.ClientScript.RegisterStartupScript(GetType(), "",
@@ -200,6 +218,17 @@ namespace ECommerce.Web.Manage.Systems {
                         return;
                     }
                     model.YYZZ = imgUrl;
+                }
+                if (FileUpload2.HasFile) {
+                    int size;
+                    string msg;
+                    string imgUrl;
+                    UpImg(ref FileUpload2, out imgUrl, out msg, imgPath, out size);
+                    if (string.IsNullOrEmpty(imgUrl)) {
+                        Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('" + msg + "');</script>");
+                        return;
+                    }
+                    model.Logo = imgUrl;
                 }
                 var resAdd = _dataDal.Add(model);
                 if (resAdd > 0) {

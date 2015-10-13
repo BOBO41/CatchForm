@@ -15,8 +15,8 @@
             <div class="left-menu media-left">
                 <ul class="nav">
                     <li><a class="active" href="Promote.aspx">提升服务介绍</a></li>
-                    <li><a href="Mechanism.aspx">提升服务机构</a></li>
-                    <li><a href="Expert.aspx">提升服务专家</a></li>
+                    <li><a href="Mechanism.aspx">专业机构</a></li>
+                    <li><a href="Expert.aspx">专家顾问库</a></li>
                     <li><a href="Message.aspx">提升服务留言咨询</a></li>
                     <li><a href="Apply.aspx">提升服务申请</a></li>
                 </ul>

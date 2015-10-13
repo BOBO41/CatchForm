@@ -1,51 +1,34 @@
-// JavaScript Document
-(function($){
-	$.fn.myScroll = function(options){
-	//默认配置
-	var defaults = {
-		speed:40,  //滚动速度,值越大速度越慢
-		rowHeight:24 //每行的高度
-	};
-	
-	var opts = $.extend({}, defaults, options),intId = [];
-	
-	function marquee(obj, step){
-	
-		obj.find("ul").animate({
-			marginTop: '-=1'
-		},0,function(){
-				var s = Math.abs(parseInt($(this).css("margin-top")));
-				if(s >= step){
-					$(this).find("li").slice(0, 1).appendTo($(this));
-					$(this).css("margin-top", 0);
-				}
-			});
-		}
-		
-		this.each(function(i){
-			var sh = opts["rowHeight"],speed = opts["speed"],_this = $(this);
-			intId[i] = setInterval(function(){
-				if(_this.find("ul").height()<=_this.height()){
-					clearInterval(intId[i]);
-				}else{
-					marquee(_this, sh);
-				}
-			}, speed);
-
-			_this.hover(function(){
-				clearInterval(intId[i]);
-			},function(){
-				intId[i] = setInterval(function(){
-					if(_this.find("ul").height()<=_this.height()){
-						clearInterval(intId[i]);
-					}else{
-						marquee(_this, sh);
-					}
-				}, speed);
-			});
-		
-		});
-
-	}
-
-})(jQuery);
+$(function(){
+//单行应用@Mr.Think
+var _wrap=$('ul.line');//定义滚动区域
+var _interval=2000;//定义滚动间隙时间
+var _moving;//需要清除的动画
+_wrap.hover(function(){
+clearInterval(_moving);//当鼠标在滚动区域中时，停止滚动
+},function(){
+_moving=setInterval(function(){
+var _field=_wrap.find('li:first');//此变量不可放置于函数起始处，li:first取值是变化的
+var _h=_field.height();//取得每次滚动高度
+_field.animate({marginTop:-_h+'px'},600,function(){//通过取负margin值，隐藏第一行
+_field.css('marginTop',0).appendTo(_wrap);//隐藏后，将该行的margin值置零，并插入到最后，实现无缝滚动
+})
+},_interval)//滚动间隔时间取决于_interval
+}).trigger('mouseleave');//函数载入时，模拟执行mouseleave，即自动滚动
+});
+$(function(){
+//多行应用@Mr.Think
+var _wrap=$('ul.list_lh');//定义滚动区域
+var _interval=3000;//定义滚动间隙时间
+var _moving;//需要清除的动画
+_wrap.hover(function(){
+clearInterval(_moving);//当鼠标在滚动区域中时,停止滚动
+},function(){
+_moving=setInterval(function(){
+var _field=_wrap.find('li:first');//此变量不可放置于函数起始处，li:first取值是变化的
+var _h=_field.height();//取得每次滚动高度
+_field.animate({marginTop:-_h+'px'},600,function(){//通过取负margin值，隐藏第一行
+_field.css('marginTop',0).appendTo(_wrap);//隐藏后，将该行的margin值置零，并插入到最后，实现无缝滚动
+})
+},_interval)//滚动间隔时间取决于_interval
+}).trigger('mouseleave');//函数载入时，模拟执行mouseleave，即自动滚动
+});

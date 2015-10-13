@@ -71,10 +71,10 @@ namespace ECommerce.Admin.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into ProfOrg(");
-			strSql.Append("Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,UId,Status,CreateDate,UpdateDate)");
+			strSql.Append("Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,Logo,UId,Status,CreateDate,UpdateDate)");
 
 			strSql.Append(" values (");
-			strSql.Append("@Name,@OrgAptitude,@YYZZ,@Addr,@FR,@Tel,@Contact,@Email,@Descr,@MajorSell,@UId,@Status,@CreateDate,@UpdateDate)");
+			strSql.Append("@Name,@OrgAptitude,@YYZZ,@Addr,@FR,@Tel,@Contact,@Email,@Descr,@MajorSell,@Logo,@UId,@Status,@CreateDate,@UpdateDate)");
 			strSql.Append(";select @@IDENTITY");
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
@@ -88,6 +88,7 @@ namespace ECommerce.Admin.DAL
 			db.AddInParameter(dbCommand, "Email", DbType.String, model.Email);
 			db.AddInParameter(dbCommand, "Descr", DbType.String, model.Descr);
 			db.AddInParameter(dbCommand, "MajorSell", DbType.String, model.MajorSell);
+			db.AddInParameter(dbCommand, "Logo", DbType.String, model.Logo);
 			db.AddInParameter(dbCommand, "UId", DbType.Int32, model.UId);
 			db.AddInParameter(dbCommand, "Status", DbType.Byte, model.Status);
 			db.AddInParameter(dbCommand, "CreateDate", DbType.DateTime, model.CreateDate);
@@ -117,6 +118,7 @@ namespace ECommerce.Admin.DAL
 			strSql.Append("Email=@Email,");
 			strSql.Append("Descr=@Descr,");
 			strSql.Append("MajorSell=@MajorSell,");
+			strSql.Append("Logo=@Logo,");
 			strSql.Append("UId=@UId,");
 			strSql.Append("Status=@Status,");
 			strSql.Append("CreateDate=@CreateDate,");
@@ -135,6 +137,7 @@ namespace ECommerce.Admin.DAL
 			db.AddInParameter(dbCommand, "Email", DbType.String, model.Email);
 			db.AddInParameter(dbCommand, "Descr", DbType.String, model.Descr);
 			db.AddInParameter(dbCommand, "MajorSell", DbType.String, model.MajorSell);
+			db.AddInParameter(dbCommand, "Logo", DbType.String, model.Logo);
 			db.AddInParameter(dbCommand, "UId", DbType.Int32, model.UId);
 			db.AddInParameter(dbCommand, "Status", DbType.Byte, model.Status);
 			db.AddInParameter(dbCommand, "CreateDate", DbType.DateTime, model.CreateDate);
@@ -203,7 +206,7 @@ namespace ECommerce.Admin.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select OID,Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,UId,Status,CreateDate,UpdateDate from ProfOrg ");
+			strSql.Append("select OID,Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,Logo,UId,Status,CreateDate,UpdateDate from ProfOrg ");
 			strSql.Append(" where OID=@OID ");
 			Database db = DatabaseFactory.CreateDatabase();
 			DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
@@ -272,6 +275,10 @@ namespace ECommerce.Admin.DAL
 				{
 					model.MajorSell=row["MajorSell"].ToString();
 				}
+				if(row["Logo"]!=null)
+				{
+					model.Logo=row["Logo"].ToString();
+				}
 				if(row["UId"]!=null && row["UId"].ToString()!="")
 				{
 					model.UId=Convert.ToInt32(row["UId"].ToString());
@@ -300,7 +307,7 @@ namespace ECommerce.Admin.DAL
 		public DataSet GetList(string strWhere, List<SqlParameter> parameters)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select OID,Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,UId,Status,CreateDate,UpdateDate ");
+			strSql.Append("select OID,Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,Logo,UId,Status,CreateDate,UpdateDate ");
 			strSql.Append(" FROM ProfOrg ");
 			Database db = DatabaseFactory.CreateDatabase();
 			if(strWhere.Trim()!="")
@@ -332,7 +339,7 @@ namespace ECommerce.Admin.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" OID,Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,UId,Status,CreateDate,UpdateDate ");
+			strSql.Append(" OID,Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,Logo,UId,Status,CreateDate,UpdateDate ");
 			strSql.Append(" FROM ProfOrg ");
 			Database db = DatabaseFactory.CreateDatabase();
 			if(strWhere.Trim()!="")
@@ -438,7 +445,7 @@ namespace ECommerce.Admin.DAL
 		public List<ECommerce.Admin.Model.ProfOrg> GetListArray(string strWhere, List<SqlParameter> parameters)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select OID,Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,UId,Status,CreateDate,UpdateDate ");
+			strSql.Append("select OID,Name,OrgAptitude,YYZZ,Addr,FR,Tel,Contact,Email,Descr,MajorSell,Logo,UId,Status,CreateDate,UpdateDate ");
 			strSql.Append(" FROM ProfOrg ");
 			if(strWhere.Trim()!="")
 			{
@@ -487,6 +494,7 @@ namespace ECommerce.Admin.DAL
 			model.Email=dataReader["Email"].ToString();
 			model.Descr=dataReader["Descr"].ToString();
 			model.MajorSell=dataReader["MajorSell"].ToString();
+			model.Logo=dataReader["Logo"].ToString();
 			ojb = dataReader["UId"];
 			if(ojb != null && ojb != DBNull.Value)
 			{

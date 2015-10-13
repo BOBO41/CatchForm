@@ -22,6 +22,7 @@ namespace ECommerce.Admin.Model
 		private string _email;
 		private string _descr;
 		private string _majorsell;
+		private string _logo;
 		private int? _uid;
 		private int? _status;
 		private DateTime? _createdate= DateTime.Now;
@@ -113,6 +114,14 @@ namespace ECommerce.Admin.Model
 		{
 			set{ _majorsell=value;}
 			get{return _majorsell;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string Logo
+		{
+			set{ _logo=value;}
+			get{return _logo;}
 		}
 		/// <summary>
 		/// 

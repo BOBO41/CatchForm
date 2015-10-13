@@ -418,6 +418,30 @@ namespace ECommerce.CM.DAL
             Database db = DatabaseFactory.CreateDatabase();
             return db.ExecuteDataSet(CommandType.Text, strSql.ToString());
         }
+
+        public Model.CMArticleType GetModel(string strWhere, List<SqlParameter> parameters) {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select * from CMArticleType ");
+            Database db = DatabaseFactory.CreateDatabase();
+            if (strWhere.Trim() != "") {
+                strSql.Append(" where " + strWhere);
+            }
+            DbCommand dbCommand = db.GetSqlStringCommand(strSql.ToString());
+            if (parameters.Count > 0) {
+                foreach (SqlParameter sqlParameter in parameters) {
+                    dbCommand.Parameters.Add(sqlParameter);
+                }
+            }
+            Model.CMArticleType model = null;
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand)) {
+                if (dataReader.Read()) {
+                    model = ReaderBind(dataReader);
+                }
+            }
+            return model;
+        }
+
         #endregion
     }
 }
