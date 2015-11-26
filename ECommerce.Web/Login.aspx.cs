@@ -100,6 +100,10 @@ namespace ECommerce.Web {
 
         public void LoginToUnido() {
             try {
+                var user = HttpContext.Current.Session["CurrentUser"] as OrgUsers;
+                if (string.IsNullOrEmpty(user.UuserId) || string.IsNullOrEmpty(user.Upwd)) {
+                    return;
+                }
                 HttpWebRequest request = null;
                 var cookieContainer = new CookieContainer();
                 if (null != Session["CookieContainer"]) {
@@ -114,7 +118,7 @@ namespace ECommerce.Web {
                 request.Method = "POST";
                 request.UserAgent = DefaultUserAgent;
                 //string form = "userId=" + ConfigurationManager.AppSettings["user"] + "&password=" + ConfigurationManager.AppSettings["pwd"] + "&login=Enter&theaction=1";
-                var user = HttpContext.Current.Session["CurrentUser"] as OrgUsers;
+
                 string form = "userId=" + user.UuserId + "&password=" + user.Upwd + "&login=Enter&theaction=1";
                 byte[] data = Encoding.UTF8.GetBytes(form);
                 request.ContentLength = data.Length;

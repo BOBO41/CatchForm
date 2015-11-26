@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 using ECommerce.Admin.DAL;
 
 namespace ECommerce.Web.Manage.Systems {
     public partial class AddOrgDepUser : UI.WebPage {
         private readonly OrgEmployees _dataDal = new OrgEmployees();
         private readonly OrgUsers _dataDal1 = new OrgUsers();
-        private readonly OrgOrganize _orgOrganizeDal = new OrgOrganize();
+        private readonly SYS_RoleInfo _orgOrganizeDal = new SYS_RoleInfo();
+        public int roleId = 0;
         protected void Page_Load(object sender, EventArgs e) {
             VerifyPage("", false);
             if (!IsPostBack) {
-                //BindOrgName();
+                BindOrgName();
                 if (!string.IsNullOrEmpty(Request.QueryString["empId"])) {
                     BindData(Request.QueryString["empId"]);
-                }
-                else {
-                    rboSinglestaadmin.Checked = true;
                 }
             }
         }
@@ -46,35 +45,21 @@ namespace ECommerce.Web.Manage.Systems {
                     txtUuser.Value = dt.Rows[0]["UuserId"].ToString();
                     txtUpwd.Value = dt.Rows[0]["Upwd"].ToString();
 
-                    if (dt.Rows[0]["Type"].ToString() == "15") {
-                        rboSinglestaadmin.Checked = true;
-                        //dorg.Style.Add("display", "block");
-                        //ddlOrgName.SelectedValue = model.OrgId.ToString();
-                    }
-                    else if (dt.Rows[0]["Type"].ToString() == "14") {
-                        //rboDouble.Checked = true;
-                        //dorg.Style.Add("display", "block");
-                        //ddlOrgName.SelectedValue = model.OrgId.ToString();
-                    }
-                    else if (dt.Rows[0]["Type"].ToString() == "1") {
-                        rboSingle.Checked = true;
-                        //dorg.Style.Add("display", "none");
-                    }
+                    ddlOrgName.SelectedValue = dt.Rows[0]["Type"].ToString();
                 }
             }
             catch (Exception) {
             }
         }
-        //private void BindOrgName()
-        //{
-        //    List<SqlParameter> parameters = new List<SqlParameter>();         //创建sql参数存储对象
-        //    string sqlWhere = " Status =1 and OrgType=1 ";
-        //    DataSet dtor = _orgOrganizeDal.GetList(sqlWhere, parameters);
-        //    ddlOrgName.DataSource = dtor;
-        //    ddlOrgName.DataTextField = "OrgName";
-        //    ddlOrgName.DataValueField = "OrgId";
-        //    ddlOrgName.DataBind();
-        //}
+        private void BindOrgName() {
+            string sqlWhere = " Role_Status =1 ";
+            DataTable dtor = _orgOrganizeDal.GetList(sqlWhere).Tables[0];
+            ddlOrgName.DataSource = dtor;
+            ddlOrgName.DataTextField = "Role_Name";
+            ddlOrgName.DataValueField = "Role_Id";
+            ddlOrgName.DataBind();
+            ddlOrgName.Items.Insert(0, new ListItem("请选择", ""));
+        }
 
         protected void btnSub_Click(object sender, EventArgs e) {
             var name = txtName.Value.Trim();
@@ -87,6 +72,7 @@ namespace ECommerce.Web.Manage.Systems {
             var pw = txtpw.Value.Trim();
             var uUser = txtUuser.Value.Trim();
             var uPwd = txtUpwd.Value.Trim();
+            var rtype = ddlOrgName.SelectedValue;
             if (string.IsNullOrEmpty(name)) {
                 //Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('请填写姓名！');window.parent.$modal.destroy();</script>");
                 Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('请填写姓名！');</script>");
@@ -133,6 +119,10 @@ namespace ECommerce.Web.Manage.Systems {
             //    Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('请填写地址！');</script>");
             //    return;
             //}
+            if (string.IsNullOrEmpty(rtype)) {
+                Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('请选择人员类型！');</script>");
+                return;
+            }
             if (string.IsNullOrEmpty(cell)) {
                 Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('请填写手机号码！');</script>");
                 return;
@@ -142,19 +132,15 @@ namespace ECommerce.Web.Manage.Systems {
                 return;
 
             }
-            if (string.IsNullOrEmpty(uUser)) {
-                Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('请填写测评用户名！');</script>");
-                return;
-            }
-            if (string.IsNullOrEmpty(uPwd)) {
-                Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('请填写测评密码！');</script>");
-                return;
-            }
+            //if (string.IsNullOrEmpty(uUser)) {
+            //    Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('请填写测评用户名！');</script>");
+            //    return;
+            //}
+            //if (string.IsNullOrEmpty(uPwd)) {
+            //    Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>alert('请填写测评密码！');</script>");
+            //    return;
+            //}
             var orgid = "0";
-            var type = Convert.ToInt32(Request.Form["rboSelectType"]);
-            if (1 != type) {
-                //orgid = ddlOrgName.SelectedValue;
-            }
             if (!string.IsNullOrEmpty(Request.QueryString["empId"])) {
                 try {
                     var model = _dataDal.GetModel(Convert.ToInt32(Request.QueryString["empId"]));
@@ -167,7 +153,7 @@ namespace ECommerce.Web.Manage.Systems {
                     model.HomeAddress = "";
                     model.Phone = cell;
                     model.Sex = sex;
-                    var res = _dataDal.UpdateEmpUser(orgid, Request.QueryString["empId"], name, sex, DateTime.Now.ToString(), "", cell, userName, pwd, type, "",uUser,uPwd);
+                    var res = _dataDal.UpdateEmpUser(orgid, Request.QueryString["empId"], name, sex, DateTime.Now.ToString(), "", cell, userName, pwd, rtype, "", uUser, uPwd);
                     if (res == "1") {
                         Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>window.top.$op.location=window.top.$op.location;window.top.$modal.destroy();</script>");
                         //Page.ClientScript.RegisterStartupScript(GetType(), "", "<script>window.top.$op.location=window.top.$op.location;window.top.$modal.destroy();</script>");
@@ -194,7 +180,7 @@ namespace ECommerce.Web.Manage.Systems {
                     Status = 1
                 };
 
-                var resAdd = _dataDal.AddEmpUserType(orgid, name, sex, DateTime.Now.ToString(), "", cell, userName, pwd, type, uUser, uPwd);
+                var resAdd = _dataDal.AddEmpUserType(orgid, name, sex, DateTime.Now.ToString(), "", cell, userName, pwd, rtype, uUser, uPwd);
                 if (resAdd > 0) {
                     Page.ClientScript.RegisterStartupScript(GetType(), "",
                         "<script>window.top.$op.location=window.top.$op.location;window.top.$modal.destroy();</script>");

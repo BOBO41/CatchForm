@@ -94,7 +94,7 @@ namespace ECommerce.Web.Manage.Systems
             int pageNum = 1;
             int pageSize = 10;
             //分页查询语句
-            string sql = "select row_number() over(order by  OrgEmployees.Addtime desc,OrgEmployees.EmplId DESC) as rownum,OrgEmployees.*,OrgUsers.UId,OrgUsers.LastLoginTime,OrgUsers.Type ,OrgOrganize.OrgName,OrgUsers.UserName FROM OrgEmployees join OrgUsers on OrgUsers.EmplId=OrgEmployees.EmplId left join OrgOrganize on OrgOrganize.OrgId=OrgEmployees.OrgId and  OrgOrganize.Status=1  where OrgEmployees.Status=1 and OrgUsers.Status=1";
+            string sql = "select row_number() over(order by  OrgEmployees.Addtime desc,OrgEmployees.EmplId DESC) as rownum,OrgEmployees.*,OrgUsers.UId,OrgUsers.LastLoginTime,OrgUsers.Type ,OrgOrganize.OrgName,OrgUsers.UserName,SYS_RoleInfo.Role_Name FROM OrgEmployees join OrgUsers on OrgUsers.EmplId=OrgEmployees.EmplId left join OrgOrganize on OrgOrganize.OrgId=OrgEmployees.OrgId and  OrgOrganize.Status=1 left join SYS_RoleInfo on SYS_RoleInfo.Role_Id=OrgUsers.type  where OrgEmployees.Status=1 and OrgUsers.Status=1";
             var name = string.Empty;
             if (!string.IsNullOrEmpty(txtRealName.Value))
             {

@@ -72,7 +72,7 @@
                                 <td style="text-align: center"><%#Eval("UserName")%></td>
                                 <td style="text-align: center"><%#Eval("Sex").ToString()=="1" ? "男":"女"%></td>
                                 <td style="text-align: center"><%#Eval("Phone")%></td>
-                                <td style="text-align: center"><%#GetRoleName(Eval("Type"))%></td>
+                                <td style="text-align: center"><%#Eval("Role_Name")%></td>
                                 <td style="text-align: center"><%#Convert.ToDateTime(Eval("Addtime")).ToString("yyyy-MM-dd")%></td>
                                 <td style="text-align: center"><%#Eval("LastLoginTime")==DBNull.Value?"":Convert.ToDateTime(Eval("LastLoginTime")).ToString("yyyy-MM-dd")%></td>
                                 <td class="act">

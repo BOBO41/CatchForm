@@ -479,7 +479,7 @@ namespace ECommerce.Web {
             }
             else {
                 comId = HttpContext.Current.Session["ComID"].ToString();
-                dpath = dic["serial"]+".pdf";
+                dpath = dic["serial"] + ".pdf";
             }
 
             if (string.IsNullOrEmpty(comId) || string.IsNullOrEmpty(dpath)) return;
@@ -517,8 +517,8 @@ namespace ECommerce.Web {
                 _fileListDal.Update(model);
             }
             else {
-            model.CreateDate = DateTime.Now;
-            _fileListDal.Add(model);
+                model.CreateDate = DateTime.Now;
+                _fileListDal.Add(model);
             }
 
             page.Response.Clear();
@@ -622,6 +622,10 @@ namespace ECommerce.Web {
 
         public void LoginToUnido() {
             try {
+                var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
+                if (string.IsNullOrEmpty(user.UuserId) || string.IsNullOrEmpty(user.Upwd)) {
+                    throw new Exception("未设置测评用户名及密码，无法使用测评功能，请先设置测评用户名及密码或联系管理员！");
+                }
                 HttpWebRequest request = null;
                 var cookieContainer = new CookieContainer();
                 if (null != HttpContext.Current.Session["CookieContainer"]) {
@@ -636,7 +640,7 @@ namespace ECommerce.Web {
                 request.Method = "POST";
                 request.UserAgent = DefaultUserAgent;
                 //string form = "userId=" + ConfigurationManager.AppSettings["user"] + "&password=" + ConfigurationManager.AppSettings["pwd"] + "&login=Enter&theaction=1";
-                var user = HttpContext.Current.Session["CurrentUser"] as Admin.Model.OrgUsers;
+
                 string form = "userId=" + user.UuserId + "&password=" + user.Upwd + "&login=Enter&theaction=1";
                 byte[] data = Encoding.UTF8.GetBytes(form);
                 request.ContentLength = data.Length;
@@ -647,7 +651,8 @@ namespace ECommerce.Web {
                 HttpWebResponse wr = request.GetResponse() as HttpWebResponse;
                 HttpContext.Current.Session["CookieContainer"] = cookieContainer;
             }
-            catch (Exception) {
+            catch (Exception ex) {
+                throw ex;
             }
         }
 

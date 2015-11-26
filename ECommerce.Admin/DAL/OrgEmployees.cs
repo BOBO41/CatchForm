@@ -564,7 +564,7 @@ namespace ECommerce.Admin.DAL {
         /// <param name="userPwd">密码</param>
         /// <param name="type">添加哪种类型人员(1.我公司人员；2.物流公司人员；4.农技推广站人员)</param>
         /// <returns></returns>
-        public int AddEmpUserType(string orgId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, int type, string uUser, string uPwd) {
+        public int AddEmpUserType(string orgId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, string type, string uUser, string uPwd) {
             int result = 0;
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into OrgEmployees(");
@@ -827,7 +827,7 @@ namespace ECommerce.Admin.DAL {
         /// <param name="userPwd">密码</param>
         /// <param name="type">添加哪种类型人员(1.我公司人员；2.物流公司人员；4.农技推广站人员;5.工作站人员)</param>
         /// <returns></returns>
-        public string UpdateEmpUser(string orgId, string emplId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, int type, string selfCard, string uUser, string uPwd) {
+        public string UpdateEmpUser(string orgId, string emplId, string emplName, string sex, string birthday, string homeAddress, string phone, string userName, string userPwd, string type, string selfCard, string uUser, string uPwd) {
             string result = "更新失败";
             Database db = DatabaseFactory.CreateDatabase();
             StringBuilder strSql3 = new StringBuilder();

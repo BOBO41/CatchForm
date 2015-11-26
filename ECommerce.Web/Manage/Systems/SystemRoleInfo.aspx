@@ -47,19 +47,19 @@
                     角色名称：<input type="text" runat="server" id="txtRoleName" placeholder="角色名称" class="input-small" />
                     <asp:Button ID="btnSearchRole" runat="server" CssClass="btn btn-success" OnClick="btnSearchRole_Click" Text="搜索" />
                 </div>
-                <%--<div class="btn-toolbar">
+                <div class="btn-toolbar">
                     <a href="javascript:void(0);" class="btn btn-mini" onclick="addData();">新增</a>
                     <asp:LinkButton ID="btndelRole" class="btn btn-mini" OnCommand="btndelRole_Click" OnClientClick="return confirm('你确定要删除吗？')" runat="server">删除</asp:LinkButton>
-                </div>--%>
+                </div>
                 <table class="table table-bordered" border="0" id="tabRole">
                     <tr>
                         <th class="id" nowrap="nowrap">
                             <input type="checkbox" name="cboSelectAll" id="cboSelectAll"></th>
                         <th nowrap="nowrap">角色名称</th>
                         <th nowrap="nowrap">角色说明</th>
-                        <%--<th nowrap="nowrap">角色状态</th>--%>
+                        <th nowrap="nowrap">角色状态</th>
                         <th nowrap="nowrap" class="act">设置功能</th>
-                        <%--<th nowrap="nowrap">操作</th>--%>
+                        <th nowrap="nowrap" class="act">操作</th>
                     </tr>
                     <asp:Repeater ID="RepeaterMyRole" runat="server">
                         <ItemTemplate>
@@ -68,14 +68,14 @@
                                     <asp:CheckBox ID="cbSalesRole" Name="cbSalesRole" ToolTip='<%#Eval("Role_Id") %>' Text="" runat="server" /></td>
                                 <td style="text-align: center"><%#Eval("Role_Name")%></td>
                                 <td style="text-align: center"><%#Eval("Role_Memo")%> </td>
-                                <%--<td style="text-align: center"><span class="label label-success"><%#Eval("Role_Status")%></span></td>--%>
+                                <td style="text-align: center"><span class="label label-success"><%#Eval("Role_Status")%></span></td>
                                 <td style="text-align: center">
                                     <a href="javascript:void(0);" class="btn btn-mini" onclick="openModal('SystemSetPage.aspx?role_id=<%#Eval("Role_Id")%>&dateTime=<%=DateTime.Now.Second %>','设置功能')">设置功能</a>
                                 </td>
-                                <%--<td style="text-align: center">
+                                <td style="text-align: center">
                                     <a href="javascript:void(0);" class="btn btn-mini" onclick="editData('<%#Eval("Role_Id")%>')">编辑</a>
                                     <asp:LinkButton ID="btnDeleteRole" CssClass="btn btn-mini" CommandName='<%#Eval("Role_Id")%>' OnCommand="btnDeleteRole_Click" OnClientClick="return confirm('你确定要删除吗？')" runat="server">删除</asp:LinkButton>
-                                </td>--%>
+                                </td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>
