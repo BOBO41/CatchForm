@@ -35,7 +35,8 @@ namespace ECommerce.Web.Manage.Companies {
             int pageNum = 1;
             int pageSize = 10;
             //分页查询语句
-            string sql = "select row_number() over(order by ComInfo.CreateDate desc,ComInfo.ID DESC) as rownum,ComInfo.*,OrgEmployees.EmplName FROM ComInfo join OrgUsers on OrgUsers.UId=ComInfo.UId join OrgEmployees on OrgEmployees.EmplId=OrgUsers.EmplId where 1=1 and ComInfo.UId= " + user.UId;
+            string sql =
+                "select row_number() over(order by ComInfo.CreateDate desc,ComInfo.ID DESC) as rownum,ComInfo.*,OrgEmployees.EmplName FROM ComInfo left join OrgUsers on OrgUsers.UId=ComInfo.UId left join OrgEmployees on OrgEmployees.EmplId=OrgUsers.EmplId where 1=1 ";// and ComInfo.UId= " + user.UId;
             var name = string.Empty;
             if (!string.IsNullOrEmpty(txtRealName.Value)) {
                 name = txtRealName.Value;
